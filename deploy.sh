@@ -28,7 +28,9 @@ deploy_configs() {
 
     for file in $files
     do
-        sudo cp -a $file $(echo $file | sed 's|"./|"/|g' | sed "s|/home/user|/home/$(whoami)|g")
+	actual_path=$(echo $file | sed 's|"./|"/|g' | sed "s|/home/user|/home/$(whoami)|g")
+	sudo rm $actual_path
+        sudo ln -sf $file $actual_path
     done
 }
 
