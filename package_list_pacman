@@ -922,3 +922,6 @@ zita-resampler
 zlib
 zsh
 zstd
+zsh-completions
+zsh-autosuggestions
+zsh-syntax-highlighting

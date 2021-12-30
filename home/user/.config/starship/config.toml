@@ -1,0 +1,20 @@
+# Inserts a blank line between shell prompts
+add_newline = false
+format="[$battery$jobs$git_branch$git_status$python$status$username$directory$cmd_duration$character](green)"
+right_format="$time"
+# Replace the "❯" symbol in the prompt with "➜"
+[character]                            # The name of the module we are configuring is "character"
+success_symbol = "[➜](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[➜](bold red)"
+
+# Disable the package module, hiding it from the prompt completely
+[jobs]
+symbol = " "
+
+[python]
+symbol = " "
+version_format = "v$major.$minor"
+
+[time]
+disabled=false
+format="[$time]($style)"
