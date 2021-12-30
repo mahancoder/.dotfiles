@@ -1,27 +1,44 @@
 #!/bin/sh
 
-sudo pacman -Syu &&
-sudo pacman -S --needed - < ./package_list_pacman &&
+insatll_pacman_packages() {
+    sudo pacman -Syu &&
+    sudo pacman -S --needed - < ./package_list_pacman &&
+}
 
-git clone https://aur.archlinux.org/yay.git &&
-cd yay &&
-makepkg -si &&
-cd .. &&
-sudo rm -r yay &&
+inatall_yay() {
+    git clone https://aur.archlinux.org/yay.git &&
+    cd yay &&
+    makepkg -si &&
+    cd .. &&
+    sudo rm -r yay &&
+}
 
-yay -S --needed - < ./package_list_aur &&
+install_yay_packages() {
+    yay -S --needed - < ./package_list_aur &&
+}
 
-files=($(find . -type f -printf "\"%p\"\n" | tr '\n' ' '))
-delete=(deploy.sh deploy.py package_list_pacman package_list_aur path.json)
+deploy_configs() {
+    files=($(find . -type f -printf "\"%p\"\n" | tr '\n' ' '))
+    delete=(deploy.sh package_list_pacman package_list_aur)
 
-for del in ${delete[@]}
-do
-    files=("${array[@]/$del}")
-done
+    for del in ${delete[@]}
+    do
+        files=("${array[@]/$del}")
+    done
 
-for file in $files
-do
-    sudo cp -a $file $(echo $file | sed 's|"./|"/|g' | sed "s|/home/user|/home/$(whoami)|g")
-done
+    for file in $files
+    do
+        sudo cp -a $file $(echo $file | sed 's|"./|"/|g' | sed "s|/home/user|/home/$(whoami)|g")
+    done
+}
 
-./post-install.sh
+post_insatll() {
+
+}
+
+install_pacman_packages &&
+install_yay &&
+install_yay_packages &&
+deploy_configs &&
+post_install &&
+echo "Deployment Successful"
