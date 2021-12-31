@@ -25,6 +25,7 @@ flake8
 flameshot
 flex
 ghc
+git
 github-cli
 gnome-backgrounds
 go
@@ -90,6 +91,7 @@ tree
 ttf-font-awesome
 uthash
 vifm
+vim
 wget
 xdg-user-dirs
 xf86-video-vesa
