@@ -11,8 +11,10 @@ nautilus-open-any-terminal
 nerd-fonts-dejavu-complete
 nerd-fonts-droid-sans-mono
 nerd-fonts-source-code-pro
+oh-my-zsh-git
 openvpn-update-systemd-resolved
 orchis-theme-git
+pacman-hook-list-installed-packages
 pfetch
 picom-jonaburg-git
 pygtk
@@ -21,6 +23,7 @@ rxfetch
 tela-circle-icon-theme-git
 ttf-all-the-icons
 ttf-font-icons
+ttf-material-design-icons
 tty-clock-git
 unimatrix-git
 uswsusp-git

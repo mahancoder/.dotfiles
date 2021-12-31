@@ -1,5 +1,10 @@
 #!/bin/bash
 
+pre_install() {
+    sudo ln -sf $(readline "./package_list_pacman") /etc/package-list-native.txt
+    sudo ln -sf $(readline "./package_list_aur") /etc/package-list-foreign.txt
+}
+
 install_pacman_packages() {
     sudo pacman -Syu &&
     sudo pacman -S --needed - < ./package_list_pacman 
