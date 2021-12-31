@@ -46,12 +46,12 @@ install_patched_dmenu() {
 }
 
 install_adobe_connect() {
-    curl "https://github.com/mahancoder/Adobe-Connect-Linux/releases/download/v1.0/v1.0.tar.gz" -o connect.tar.gz &&
+    wget "https://github.com/mahancoder/Adobe-Connect-Linux/releases/download/v1.1/v1.1.tar.gz" -O connect.tar.gz &&
     tar -xzf connect.tar.gz &&
-    cd connect &&
+    cd Release &&
     ./install.sh &&
     cd .. &&
-    sudo rm -r connect
+    sudo rm -r Release/
     sudo rm connect.tar.gz
 }
 
@@ -77,6 +77,16 @@ post_install() {
 
     echo "Installing Adobe Connect..."
     install_adobe_connect
+
+    echo "Creating Google Chrome symlink..."
+    sudo ln -sf /usr/bin/google-chrome-stable /usr/bin/google-chrome
+
+    echo "Making Chrome and Brave run hardware accelrated..."
+    sudo sed -i "s|Exec=brave %U|Exec=brave --enable-gpu-rasterization --num-raster-threads=$(nproc) --enable-features=VaapiVideoDecoder %U|g" /usr/share/applications/brave-browser.desktop
+    sudo sed -i "s|Exec=/usr/bin/google-chrome-stable %U|Exec=/usr/bin/google-chrome-stable --enable-gpu-rasterization --num-raster-threads=$(nproc) --enable-features=VaapiVideoDecoder %U|g" /usr/share/applications/google-chrome.desktop
+    echo "Symlinking gnome-terminal to alacritty..."
+    sudo bash -c 'echo -e '"'"'#!/bin/bash\nalacritty $(echo $@ | sed "s/--/-e/g")'"'"' > /usr/bin/gnome-terminal'
+
 }
 
 echo "Installing pacman packages..." &&
