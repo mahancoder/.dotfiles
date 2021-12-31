@@ -1,20 +1,20 @@
-#!/bin/sh
+#!/bin/bash
 
-insatll_pacman_packages() {
+install_pacman_packages() {
     sudo pacman -Syu &&
-    sudo pacman -S --needed - < ./package_list_pacman &&
+    sudo pacman -S --needed - < ./package_list_pacman 
 }
 
-inatall_yay() {
+install_yay() {
     git clone https://aur.archlinux.org/yay.git &&
     cd yay &&
     makepkg -si &&
     cd .. &&
-    sudo rm -r yay &&
+    sudo rm -r yay
 }
 
 install_yay_packages() {
-    yay -S --needed - < ./package_list_aur &&
+    yay -S --needed - < ./package_list_aur
 }
 
 deploy_configs() {
@@ -62,7 +62,7 @@ install_dmenu_power() {
     sudo rm -r dmenu-power-options
 }
 
-post_insatll() {
+post_install() {
     echo "Enabling SystemD services..."
     sudo systemctl enable systemd-resolved
     sudo systemctl enable NetworkManager
