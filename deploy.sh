@@ -94,6 +94,9 @@ post_install() {
 
 }
 
+echo "Running pre-install jobs..." &&
+pre_install &&
+
 echo "Installing pacman packages..." &&
 install_pacman_packages &&
 
