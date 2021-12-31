@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/mahan/.oh-my-zsh"
+export ZSH="/usr/share/oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -70,7 +70,8 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-completions zsh-autosuggestions)
+export ZSH_CUSTOM=/usr/share/zsh
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#666666,bg=default"
 # ZSH_AUTOSUGGEST_STRATEGY="completion"
@@ -123,7 +124,6 @@ setopt noautolist
 setopt bashautolist
 bindkey -v
 #End of lines configured by zsh-newuser-install
-xrandr --output Virtual-1 --auto
 export STARSHIP_CONFIG=~/.config/starship/config.toml
 eval "$(starship init zsh)"
 rxfetch 

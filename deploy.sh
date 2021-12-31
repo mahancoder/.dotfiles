@@ -18,30 +18,31 @@ install_yay_packages() {
 }
 
 deploy_configs() {
-    files=($(find . -type f -printf "\"%p\"\n" | tr '\n' ' '))
-    delete=(deploy.sh package_list_pacman package_list_aur)
+    files=($(find -type f -not -path "./.git/*" -printf "\"%p\"\n" | tr '\n' ' '))
+    delete=('"./deploy.sh"' '"./package_list_pacman"' '"./package_list_aur"')
 
     for del in ${delete[@]}
     do
-        files=("${array[@]/$del}")
+        files=("${files[@]/$del}")
     done
 
-    for file in $files
+    for file in ${files[@]}
     do
 	actual_path=$(echo $file | sed 's|"./|"/|g' | sed "s|/home/user|/home/$(whoami)|g")
-	sudo rm $actual_path
-        sudo ln -sf $file $actual_path
+	sudo mkdir -p $(echo $actual_path | sed 's|\/[^\/]*$|"|g' | sed 's/"//g')
+	sudo rm $(echo $actual_path | sed 's/"//g')
+	sudo ln -sf $(readlink -f $(echo $file | sed 's/"//g')) $(echo $actual_path | sed 's/"//g')
     done
 }
 
 install_patched_dmenu() {
-    git clone git@github.com:mahancoder/dmenu-xyw-lineheight.git &&
+    git clone https://github.com/mahancoder/dmenu-xyw-lineheight.git &&
     cd dmenu-xyw-lineheight &&
     make clean &&
     make -j &&
     sudo make install &&
     cd .. &&
-    sudo rm -r dmenu-xyw-linehieght
+    sudo rm -r dmenu-xyw-lineheight
 }
 
 install_adobe_connect() {
@@ -55,7 +56,7 @@ install_adobe_connect() {
 }
 
 install_dmenu_power() {
-    git clone git@github.com:mahancoder/dmenu-power-options.git
+    git clone https://github.com/mahancoder/dmenu-power-options.git
     cd dmenu-power-options &&
     ./install.sh &&
     cd .. &&
