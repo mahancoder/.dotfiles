@@ -1,8 +1,8 @@
 #!/bin/bash
 
 pre_install() {
-    sudo ln -sf $(readlink "./package_list_pacman") /etc/package-list-native.txt
-    sudo ln -sf $(readlink "./package_list_aur") /etc/package-list-foreign.txt
+    sudo ln -sf $(readlink -f "./package_list_pacman") /etc/package-list-native.txt
+    sudo ln -sf $(readlink -f "./package_list_aur") /etc/package-list-foreign.txt
 }
 
 install_pacman_packages() {
