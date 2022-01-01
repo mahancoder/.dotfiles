@@ -105,7 +105,6 @@ rofi
 sassc
 shotwell
 sl
-spice-vdagent
 starship
 sudo
 tree
@@ -115,7 +114,6 @@ vifm
 vim
 wget
 xdg-user-dirs
-xf86-video-qxl
 xf86-video-vesa
 xorg-bdftopcf
 xorg-docs
