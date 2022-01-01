@@ -100,6 +100,9 @@ post_install() {
     
     echo "Giving permissions back to user..."
     sudo chown -R ~/ $USER
+    
+    echo "Installing fontawesome for qtile..."
+    pip install fontawesome
 }
 
 echo "Running pre-install jobs..." &&
