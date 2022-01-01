@@ -10,6 +10,7 @@ chardet
 colorama
 contextlib2
 cryptography
+dbus-python
 distlib
 distro
 entrypoints
@@ -32,6 +33,7 @@ meson
 more-itertools
 msgpack
 nautilus-open-any-terminal
+notify-send.py
 ordered-set
 packaging
 pep517

@@ -197,6 +197,7 @@ keys = [
         lazy.spawn("sh -c \"kill -s USR1 $(pidof deadd-notification-center)\""),
         desc='Open Notification Center'
         ),
+    Key([mod, "mod1"], "a", lazy.spawn("notify-send.py a --hint boolean:deadd-notification-center:true string:type:clearInCenter"), desc="Clear notifications"),
     Key([], "Print",
         lazy.spawn("flameshot full -c"),
         desc='Screenshot'
