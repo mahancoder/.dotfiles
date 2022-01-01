@@ -91,7 +91,15 @@ post_install() {
     sudo sed -i "s|Exec=/usr/bin/google-chrome-stable %U|Exec=/usr/bin/google-chrome-stable --enable-gpu-rasterization --num-raster-threads=$(nproc) --enable-features=VaapiVideoDecoder %U|g" /usr/share/applications/google-chrome.desktop
     echo "Symlinking gnome-terminal to alacritty..."
     sudo bash -c 'echo -e '"'"'#!/bin/bash\nalacritty $(echo $@ | sed "s/--/-e/g")'"'"' > /usr/bin/gnome-terminal'
-
+    
+    echo "Copying Material.ttf for rxfetch..."
+    cp /usr/share/fonts/ttf-material-design-icons/Material.ttf ~/.local/share/fonts/
+    
+    echo "Changing default shell to zsh..."
+    sudo usermod -s /bin/zsh $USER
+    
+    echo "Giving permissions back to user..."
+    sudo chown -R ~/ $USER
 }
 
 echo "Running pre-install jobs..." &&
