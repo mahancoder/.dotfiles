@@ -1,4 +1,3 @@
-adobe-source-code-pro-fonts
 alacritty
 alsa-firmware
 alsa-utils
@@ -10,11 +9,9 @@ autoconf
 automake
 autopep8
 base
-bash
 bat
 beep
 bind
-binutils
 bison
 btop
 cmake
@@ -65,10 +62,9 @@ lightdm-gtk-greeter
 linux-firmware
 linux-zen
 linux-zen-headers
-lm_sensors
+lsd
 lshw
 make
-mesa
 mesa-demos
 mesa-utils
 meson
@@ -82,7 +78,6 @@ networkmanager-openvpn
 nitrogen
 notification-daemon
 obs-studio
-openssl
 openvpn
 pacman-contrib
 patch
@@ -110,6 +105,7 @@ rofi
 sassc
 shotwell
 sl
+spice-vdagent
 starship
 sudo
 tree
@@ -119,6 +115,7 @@ vifm
 vim
 wget
 xdg-user-dirs
+xf86-video-qxl
 xf86-video-vesa
 xorg-bdftopcf
 xorg-docs
