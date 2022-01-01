@@ -24,7 +24,7 @@ install_yay_packages() {
 
 deploy_configs() {
     files=($(find -type f -not -path "./.git/*" -printf "\"%p\"\n" | tr '\n' ' '))
-    delete=('"./deploy.sh"' '"./package_list_pacman"' '"./package_list_aur"')
+    delete=('"./deploy.sh"' '"./package_list_pacman"' '"./package_list_aur" "./.gitignore"')
 
     for del in ${delete[@]}
     do
