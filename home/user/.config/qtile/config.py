@@ -217,7 +217,12 @@ keys = [
         ),
     Key([mod], "o",
         lazy.spawn(
-            "rofi -show drun -show-icons -theme-str 'element-icon { size: 3ch ; }' -terminal " + terminal),
+            "ulauncher-toggle"),
+        desc='Open Rofi'
+        ),
+    Key([mod], "s",
+        lazy.spawn(
+            "zzzfoo -o xdg-open -r '-l 10'"),
         desc='Open Rofi'
         ),
     

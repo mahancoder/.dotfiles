@@ -144,4 +144,4 @@ configuration {
       sorting-method:    "name";
   }
 }
-@theme "Monokai"
+@theme "Arc-Dark"

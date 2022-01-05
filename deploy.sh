@@ -99,15 +99,20 @@ post_install() {
     
     echo "Changing default shell to zsh..."
     sudo usermod -s /bin/zsh $USER
-    
-    echo "Giving permissions back to user..."
-    sudo chown -R ~/ $USER
-    
-    echo "Installing pip packages..."
-    pip install -r pip_packages
 
     echo "Loading dconf settings..."
     cat dconf-settings.ini | dconf load /
+
+    echo "Installing zzzfoo..."
+    git clone https://github.com/andersju/zzzfoo.git
+    cd zzzfoo
+    sudo cp zzzfoo /usr/bin/
+    sudo chmod +x /usr/bin/zzzfoo
+    cd ..
+    sudo rm -r zzzfoo
+
+    echo "Giving permissions back to user..."
+    sudo chown -R ~/ $USER
 }
 
 echo "Running pre-install jobs..." &&

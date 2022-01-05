@@ -5,6 +5,8 @@ amd-ucode
 arch-install-scripts
 archlinux-wallpaper
 asciidoc
+aspell
+aspell-en
 autoconf
 automake
 autopep8
@@ -101,6 +103,7 @@ python2-numpy
 qemu-guest-agent
 qtile
 qutebrowser
+recoll
 rofi
 sassc
 shotwell
