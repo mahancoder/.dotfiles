@@ -16,6 +16,9 @@ beep
 bind
 binutils
 bison
+blender
+bluez
+bluez-utils
 btop
 cmake
 cmatrix
@@ -41,6 +44,7 @@ ghc
 git
 github-cli
 gnome-backgrounds
+gnome-keyring
 go
 grep
 groff
@@ -66,12 +70,15 @@ haskell-unicode-transforms
 helvum
 htop
 hwinfo
+intel-media-driver
 intel-ucode
 iwd
 lib32-mesa
 libconfig
 libev
 libtool
+libva-intel-driver
+libva-utils
 libvdpau-va-gl
 libx86
 lightdm
@@ -99,6 +106,7 @@ nitrogen
 notification-daemon
 noto-fonts-emoji
 nvidia-dkms
+nvidia-prime
 nvidia-utils
 obs-studio
 ocl-icd
@@ -113,6 +121,7 @@ pipewire-alsa
 pipewire-jack
 pipewire-pulse
 pkgconf
+playerctl
 polkit-gnome
 pulseaudio-alsa
 python-geopandas
@@ -146,6 +155,7 @@ texinfo
 tree
 ttf-font-awesome
 uthash
+vdpauinfo
 vifm
 vim
 vulkan-intel
@@ -192,6 +202,7 @@ xorg-xwd
 xorg-xwud
 xsecurelock
 xss-lock
+xterm
 zsh-autosuggestions
 zsh-completions
 zsh-syntax-highlighting
