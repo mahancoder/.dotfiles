@@ -1,8 +1,8 @@
 #!/bin/bash
 
 pre_install() {
-    sudo ln -sf $(readlink -f "./package_list_pacman") /etc/package-list-native.txt
-    sudo ln -sf $(readlink -f "./package_list_aur") /etc/package-list-foreign.txt
+    sudo ln -sf $(readlink -f "./packages_list_pacman") /etc/package-list-native.txt
+    sudo ln -sf $(readlink -f "./packages_list_aur") /etc/package-list-foreign.txt
 }
 
 install_pacman_packages() {
@@ -95,6 +95,7 @@ post_install() {
     sudo chmod +x /usr/bin/gnome-terminal
     
     echo "Copying Material.ttf for rxfetch..."
+    mkdir -p ~/.local/share/fonts/
     cp /usr/share/fonts/ttf-material-design-icons/Material.ttf ~/.local/share/fonts/
     
     echo "Changing default shell to zsh..."
@@ -112,7 +113,7 @@ post_install() {
     sudo rm -r zzzfoo
 
     echo "Giving permissions back to user..."
-    sudo chown -R ~/ $USER
+    sudo chown -R $USER ~/
 }
 
 echo "Running pre-install jobs..." &&

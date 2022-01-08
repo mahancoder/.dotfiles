@@ -308,21 +308,21 @@ widgets = (
         widget.WindowName(format="{name}", max_chars=30, foreground="#d4d4d4"),
         # widget.Spacer(length=bar.STRETCH),
         widget.TextBox(text="", padding=0, background="#003b6b",
-                       foreground=colors[0][0], fontsize=18.3),
+                       foreground=colors[1][0], fontsize=18.3),
     ]
-    + ([widget.TextBox(text=" ", fontsize=18.3, background=colors[0][0], foreground=colors[0]
-       [1]), widget.Wlan(format="{essid}", background=colors[0][0], foreground=colors[0][1])])
+    + ([widget.TextBox(text=" ", fontsize=18.3, background=colors[1][0], foreground=colors[1]
+       [1]), widget.Wlan(format="{essid}", background=colors[1][0], foreground=colors[1][1])])
     +
     [
         widget.TextBox(text="", fontsize=18.3, padding=0,
-                       background=colors[0][0], foreground=colors[1][0]),
-        widget.ThermalSensor(tag_sensor="", threshold=80,
-                             background=colors[1][0], foreground=colors[1][1]),
+                       background=colors[0][1], foreground=colors[1][1]),
+        widget.ThermalSensor(tag_sensor="Package id 0", threshold=80,
+                             background=colors[0][0], foreground=colors[0][1]),
         widget.TextBox(text="", fontsize=18.3, padding=0,
-                       background=colors[1][0], foreground=colors[0][0])
+                       background=colors[0][0], foreground=colors[0][1])
     ]
-    + ([widget.NvidiaSensors(), widget.TextBox(text="", fontsize=18.3, padding=0,
-       background=colors[0][0], foreground=colors[1][0]), ] if gpu_is_nvidia else [])
+    + ([widget.NvidiaSensors(background=colors[0][1], foreground=colors[1][1]), widget.TextBox(text="", fontsize=18.3, padding=0,
+       background=colors[0][1], foreground=colors[0][0]), ] if gpu_is_nvidia else [])
     + [
         widget.Net(format="{down} ↓↑ {up}",
                    background=colors[0][0], foreground=colors[0][1]),
