@@ -74,7 +74,10 @@ hwinfo
 intel-media-driver
 intel-ucode
 iwd
+jre-openjdk
 lib32-mesa
+lib32-nvidia-utils
+lib32-vulkan-intel
 libconfig
 libev
 libtool
@@ -111,6 +114,7 @@ noto-fonts-emoji
 noto-fonts-extra
 nvidia-dkms
 nvidia-prime
+nvidia-settings
 nvidia-utils
 obs-studio
 ocl-icd
@@ -153,6 +157,7 @@ sl
 sof-firmware
 sof-tools
 starship
+steam
 sudo
 texinfo
 tigervnc
