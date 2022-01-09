@@ -12,6 +12,7 @@ nautilus-open-any-terminal
 nerd-fonts-dejavu-complete
 nerd-fonts-droid-sans-mono
 nerd-fonts-source-code-pro
+noto-color-emoji-fontconfig
 oh-my-zsh-git
 openvpn-update-systemd-resolved
 orchis-theme-git
@@ -23,11 +24,13 @@ python2-gobject2
 rxfetch
 tela-circle-icon-theme-git
 ttf-all-the-icons
+ttf-ancient-fonts
 ttf-font-icons
 ttf-material-design-icons
 tty-clock-git
 ulauncher
 ulauncher-theme-arc-dark-git
 unimatrix-git
+uswsusp-git
 visual-studio-code-bin
 yay

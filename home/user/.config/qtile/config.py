@@ -215,11 +215,6 @@ keys = [
             "sh -c \"gtk-launch `xdg-mime query default inode/directory`\""),
         desc='Open File Manager'
         ),
-    Key([mod], "o",
-        lazy.spawn(
-            "ulauncher-toggle"),
-        desc='Open Rofi'
-        ),
     Key([mod], "s",
         lazy.spawn(
             "zzzfoo -o xdg-open -r '-l 10'"),
@@ -381,6 +376,7 @@ screens = [
             background="#003b60"
         ),
     ),
+    Screen()
 ]
 
 # Drag floating layouts.

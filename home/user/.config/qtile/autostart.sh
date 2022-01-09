@@ -8,5 +8,4 @@ nitrogen --restore &
 picom -b &
 dex -a &
 flameshot &
-ulauncher &
 gtk-launch $(xdg-mime query default x-scheme-handler/http) &
