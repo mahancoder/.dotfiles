@@ -1,7 +1,9 @@
+anydesk-bin
 brave-bin
 cava
 coreshot
 deadd-notification-center-bin
+expressvpn
 google-chrome
 j4-dmenu-desktop
 libcprime
@@ -15,6 +17,7 @@ nerd-fonts-droid-sans-mono
 nerd-fonts-source-code-pro
 noto-color-emoji-fontconfig
 oh-my-zsh-git
+ookla-speedtest-bin
 openvpn-update-systemd-resolved
 orchis-theme-git
 pacman-hook-list-installed-packages
@@ -23,12 +26,16 @@ picom-jonaburg-git
 pygtk
 python2-gobject2
 rxfetch
+skypeforlinux-stable-bin
+spotify
 tela-circle-icon-theme-git
 ttf-all-the-icons
 ttf-ancient-fonts
 ttf-font-icons
 ttf-material-design-icons
 tty-clock-git
+uget-integrator
+uget-integrator-chromium
 ulauncher
 ulauncher-theme-arc-dark-git
 unimatrix-git

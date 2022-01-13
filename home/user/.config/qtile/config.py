@@ -197,7 +197,8 @@ keys = [
         lazy.spawn("sh -c \"kill -s USR1 $(pidof deadd-notification-center)\""),
         desc='Open Notification Center'
         ),
-    Key([mod, "mod1"], "a", lazy.spawn("notify-send.py a --hint boolean:deadd-notification-center:true string:type:clearInCenter"), desc="Clear notifications"),
+    Key([mod, "mod1"], "a", lazy.spawn(
+        "notify-send.py a --hint boolean:deadd-notification-center:true string:type:clearInCenter"), desc="Clear notifications"),
     Key([], "Print",
         lazy.spawn("flameshot full -c"),
         desc='Screenshot'
@@ -220,7 +221,23 @@ keys = [
             "zzzfoo -o xdg-open -r '-l 10'"),
         desc='Open Rofi'
         ),
+    Key([], "XF86MonBrightnessUp",
+        lazy.spawn(
+            "xbacklight -inc 10"),
+        desc='Increase screen brightness'
+        ),
+    Key([], "XF86MonBrightnessDown",
+        lazy.spawn(
+            "xbacklight -dec 10"),
+        desc='Decrease screen brightness'
+        ),
+    Key([mod, "shift"], "s",
+        lazy.spawn(
+            "flameshot gui"),
+        desc='Open Rofi'
+        ),
     
+
 
 ]
 
@@ -303,30 +320,37 @@ widgets = (
         widget.WindowName(format="{name}", max_chars=30, foreground="#d4d4d4"),
         # widget.Spacer(length=bar.STRETCH),
         widget.TextBox(text="", padding=0, background="#003b6b",
-                       foreground=colors[1][0], fontsize=18.3),
+                       foreground=colors[0][0], fontsize=18.3),
     ]
-    + ([widget.TextBox(text=" ", fontsize=18.3, background=colors[1][0], foreground=colors[1]
-       [1]), widget.Wlan(format="{essid}", background=colors[1][0], foreground=colors[1][1])])
+    + ([widget.TextBox(text=" ", fontsize=18.3, background=colors[0][0], foreground=colors[0]
+       [1]), widget.Wlan(format="{essid}", background=colors[0][0], foreground=colors[0][1])])
     +
     [
         widget.TextBox(text="", fontsize=18.3, padding=0,
-                       background=colors[0][1], foreground=colors[1][1]),
+                       background=colors[0][0], foreground=colors[0][1]),
+        widget.TextBox(text="", fontsize=18.3,
+                       background=colors[1][0], foreground=colors[1][1]),
         widget.ThermalSensor(tag_sensor="Package id 0", threshold=80,
-                             background=colors[0][0], foreground=colors[0][1]),
+                             background=colors[1][0], foreground=colors[1][1]),
         widget.TextBox(text="", fontsize=18.3, padding=0,
-                       background=colors[0][0], foreground=colors[0][1])
-    ]
-    + ([widget.NvidiaSensors(background=colors[0][1], foreground=colors[1][1]), widget.TextBox(text="", fontsize=18.3, padding=0,
-       background=colors[0][1], foreground=colors[0][0]), ] if gpu_is_nvidia else [])
+                       background=colors[1][0], foreground=colors[1][1])
+    ]  
+    + ([widget.TextBox(text="辶", fontsize=20,
+                       background=colors[0][0], foreground=colors[0][1], padding=5), widget.NvidiaSensors(background=colors[0][0], foreground=colors[0][1]), widget.TextBox(text="", fontsize=18.3, padding=0,
+       background=colors[0][0], foreground=colors[0][1]), ] if gpu_is_nvidia else [])
     + [
         widget.Net(format="{down} ↓↑ {up}",
-                   background=colors[0][0], foreground=colors[0][1]),
-        widget.TextBox(text="", fontsize=18.3, padding=0,
-                       background=colors[0][0], foreground=colors[1][0]),
-        widget.CheckUpdates(
-            display_format='{updates} Updates', max_chars=20, no_update_string="No Updates", background=colors[1][0], distro="Arch_checkupdates", foreground=colors[1][1], colour_have_updates=colors[1][1], colour_no_updates=colors[1][1]),
+                   background=colors[1][0], foreground=colors[1][1]),
         widget.TextBox(text="", fontsize=18.3, padding=0,
                        background=colors[1][0], foreground=colors[0][0]),
+        widget.CheckUpdates(
+            display_format='{updates} Updates', max_chars=20, no_update_string="No Updates", background=colors[0][0], distro="Arch_checkupdates", foreground=colors[0][1], colour_have_updates=colors[0][1], colour_no_updates=colors[0][1]),
+        widget.TextBox(text="", fontsize=18.3, padding=0,
+                       background=colors[0][0], foreground=colors[0][1]),
+        widget.Battery(format='{char} {percent:2.0%}',
+                       background=colors[1][0], foreground=colors[1][1], charge_char="", discharge_char="", empty_char=""),
+        widget.TextBox(text="", fontsize=18.3, padding=0,
+                       background=colors[1][0], foreground=colors[1][1]),
         widget.TextBox(
             text=fa.icons["memory"],
             fontsize=15,
