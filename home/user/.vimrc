@@ -11,6 +11,8 @@ set <M-j>=j
 set <M-k>=k
 set <M-h>=h
 set <M-l>=l
+set <M-H>=H
+set <M-L>=L
 
 " --------------------------------------------------
 
@@ -19,6 +21,8 @@ inoremap <M-h> <Left>
 inoremap <M-j> <Down>
 inoremap <M-k> <Up>
 inoremap <M-l> <Right>
+inoremap <M-H> <C-c>0i
+inoremap <M-L> <C-c>$i
 
 " --------------------------------------------------
 
@@ -57,7 +61,6 @@ nnoremap L $
 inoremap jk <esc>
 
 " Force myself to discard bad habits
-inoremap <esc> <nop>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
 inoremap <Up> <nop>

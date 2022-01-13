@@ -94,6 +94,11 @@ def startup_handler():
     subprocess.call([os.path.expanduser("~/.config/qtile/autostart.sh")])
 
 
+def kbd(qtile):
+    qtile.widgets_map["keyboardlayout"].next_keyboard()
+    qtile.cmd_spawn("setxkbmap -option caps:super")
+
+
 @hook.subscribe.client_new
 def client_new(client: Window):
     process_name = psutil.Process(client.get_pid()).name().lower()
@@ -169,7 +174,7 @@ keys = [
     Key(
         [mod],
         "space",
-        lazy.widget["keyboardlayout"].next_keyboard(),
+        lazy.function(kbd),
         desc="Next keyboard layout.",
     ),
     Key([mod], "Escape", lazy.spawn(
@@ -236,7 +241,7 @@ keys = [
             "flameshot gui"),
         desc='Open Rofi'
         ),
-    
+
 
 
 ]
@@ -334,7 +339,7 @@ widgets = (
                              background=colors[1][0], foreground=colors[1][1]),
         widget.TextBox(text="", fontsize=18.3, padding=0,
                        background=colors[1][0], foreground=colors[1][1])
-    ]  
+    ]
     + ([widget.TextBox(text="辶", fontsize=20,
                        background=colors[0][0], foreground=colors[0][1], padding=5), widget.NvidiaSensors(background=colors[0][0], foreground=colors[0][1]), widget.TextBox(text="", fontsize=18.3, padding=0,
        background=colors[0][0], foreground=colors[0][1]), ] if gpu_is_nvidia else [])
