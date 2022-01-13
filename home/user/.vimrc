@@ -3,9 +3,9 @@ let mapleader = ","
 set number
 set numberwidth=4
 set ttimeoutlen=0
-
+syntax enable
 " --------------------------------------------------
-
+" hi mahan.lameie87@gmail.com is
 "Modifer mappings for Alt Escape sequence
 set <M-j>=j
 set <M-k>=k
@@ -50,8 +50,8 @@ noremap <leader>" bi"<esc>ea"<esc>
 vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
 
 " Map H and L to line start and end
-nnoremap <S-h> 0
-nnoremap <S-l> $
+nnoremap H 0
+nnoremap L $
 
 " Map jk to normal mode
 inoremap jk <esc>
@@ -62,3 +62,7 @@ inoremap <Left> <nop>
 inoremap <Right> <nop>
 inoremap <Up> <nop>
 inoremap <Down> <nop>
+
+" Motion mappings
+onoremap @ :<c-u>execute "normal! Bv/@\rh"<cr>
+onoremap o@ :<c-u>execute "normal! Bv/@\rlE"<cr>
