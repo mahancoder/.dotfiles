@@ -1,5 +1,5 @@
 " set settings ---------------------------------------- {{{
-let mapleader = ","
+let mapleader = "'"
 set number
 set numberwidth=4
 set ttimeoutlen=0
@@ -21,6 +21,8 @@ set <M-h>=h
 set <M-l>=l
 set <M-H>=H
 set <M-L>=L
+set <M-w>=w
+set <M-n>=n
 " }}}
 
 " Key mappings for normal mode movement --------------- {{{
@@ -49,9 +51,15 @@ vnoremap <Esc> <C-c>
 " }}}
 
 " Quality of life mappings ---------------------------- {{{
-" Wrap word/selection in double quotes
+" Wrap/unwrap word/selection in double quotes
 nnoremap <leader>" bi"<esc>ea"<esc>
+nnoremap <leader>' bi'<esc>ea'<esc>
 vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
+vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
+nnoremap <leader>u" F"xf"x
+nnoremap <leader>u' F'xf'x
+nnoremap <leader>"( F(a"<esc>f)i"<esc>
+nnoremap <leader>'( F(a'<esc>f)i'<esc>
 
 " Map H and L to line start and end
 nnoremap H 0
@@ -66,9 +74,17 @@ inoremap <Right> <nop>
 inoremap <Up> <nop>
 inoremap <Down> <nop>
 
-" Split key mappings
+" Split/buffer/tab key mappings
 nnoremap <leader>s :vsplit<cr>
-nnoremap <C-n> :vnew<cr>
+nnoremap <C-n> :tabnew<cr>
+nnoremap <leader>n :vnew<cr>
+nnoremap <C-l> gt
+nnoremap <C-h> gT
+nnoremap <C-w> :tabclose<cr>
+nnoremap <M-h> :bp<cr>
+nnoremap <M-l> :bn<cr>
+nnoremap <M-w> :bw<cr>
+nnoremap <M-n> :enew<cr>
 
 " Motion mappings
 onoremap @ :<c-u>execute "normal! Bv/@\rh"<cr>
@@ -90,6 +106,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'Yggdroot/indentLine'
+Plug 'preservim/nerdtree'
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 " }}}
@@ -102,5 +120,11 @@ let g:airline#extensions#tabline#enabled = 1
 
 " indentLine ----------------------------------------- {{{
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+" }}}
+
+" NERDTree ------------------------------------------- {{{
+nnoremap <leader>t :NERDTreeFocus<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 " }}}
 colorscheme gruvbox

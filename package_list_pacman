@@ -1,3 +1,4 @@
+acpi
 alacritty
 alsa-firmware
 alsa-utils
@@ -175,6 +176,7 @@ steam
 sudo
 texinfo
 tigervnc
+tlp
 tree
 ttf-font-awesome
 ttf-ubuntu-font-family
