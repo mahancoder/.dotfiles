@@ -1,4 +1,6 @@
 anydesk-bin
+based-connect-git
+bluetooth-autoconnect
 brave-bin
 cava
 coreshot
@@ -40,5 +42,6 @@ ulauncher
 ulauncher-theme-arc-dark-git
 unimatrix-git
 uswsusp-git
+vim-plug
 visual-studio-code-bin
 yay

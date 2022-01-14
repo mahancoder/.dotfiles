@@ -194,6 +194,22 @@ keys = [
         [], "XF86AudioMute",
         lazy.spawn("amixer -q sset Master toggle")
     ),
+    Key(
+        [], "XF86AudioPause",
+        lazy.spawn("playerctl play-pause")
+    ),
+    Key(
+        [], "XF86AudioPlay",
+        lazy.spawn("playerctl play-pause")
+    ),
+    Key(
+        [], "XF86AudioNext",
+        lazy.spawn("playerctl next")
+    ),
+    Key(
+        [], "XF86AudioPrev",
+        lazy.spawn("playerctl previous")
+    ),
     Key([mod], "f",
         lazy.window.toggle_fullscreen(),
         desc='Toggle fullscreen'
