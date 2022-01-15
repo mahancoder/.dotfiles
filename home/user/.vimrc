@@ -3,7 +3,7 @@ let mapleader = "'"
 set number
 set numberwidth=4
 set ttimeoutlen=0
-filetype plugin on
+filetype plugin indent on
 syntax enable
 hi folded ctermbg=8
 set noshowmode
@@ -12,6 +12,9 @@ set foldlevelstart=99
 set splitbelow
 set splitright
 set background=dark
+set tabstop=4
+set shiftwidth=4
+set expandtab
 " }}}
 
 " Modifer mappings for Alt Escape sequence------------- {{{
