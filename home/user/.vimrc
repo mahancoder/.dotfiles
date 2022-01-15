@@ -51,6 +51,10 @@ vnoremap <Esc> <C-c>
 " }}}
 
 " Quality of life mappings ---------------------------- {{{
+
+" Formatter
+noremap <C-I> :Autoformat<cr>
+
 " Wrap/unwrap word/selection in double quotes
 nnoremap <leader>" bi"<esc>ea"<esc>
 nnoremap <leader>' bi'<esc>ea'<esc>
@@ -93,8 +97,8 @@ onoremap o@ :<c-u>execute "normal! Bv/@\rlE"<cr>
 
 " Folding--------- ----------------------------------- {{{
 augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
+	autocmd!
+	autocmd FileType vim setlocal foldmethod=marker
 augroup END
 " }}}
 
@@ -108,6 +112,8 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'Yggdroot/indentLine'
 Plug 'preservim/nerdtree'
 Plug 'mhinz/vim-startify'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Chiel92/vim-autoformat'
 
 call plug#end()
 " }}}
