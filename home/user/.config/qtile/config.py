@@ -115,6 +115,22 @@ def open_power():
         "dmenu_power -h 20 -p \">>\" -nb \"#003b60\" -nf \"#ffe585\" -sb \"#ffe585\" -sf \"#017d7a\"")
 
 
+touchpad_on = False
+
+
+@lazy.function
+def toggle_touchpad(qtile):
+    global touchpad_on
+    if touchpad_on:
+        subprocess.run(["xrandr", "--output", "HDMI2", "--off"])
+        touchpad_on = False
+    else:
+        subprocess.run(["xrandr", "--output", "eDP1", "--primary", "--mode", "1920x1080", "--pos", "0x0", "--rotate",
+                       "normal", "--output", "HDMI2", "--mode", "1080x2160", "--pos", "0x1080", "--rotate", "right"])
+        subprocess.run(["nitrogen", "--restore"])
+        touchpad_on = True
+
+
 keys = [
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -255,11 +271,13 @@ keys = [
     Key([mod, "shift"], "s",
         lazy.spawn(
             "flameshot gui"),
-        desc='Open Rofi'
+        desc='Open Flamshot in GUI mode'
         ),
-
-
-
+    Key([], "XF86TouchpadToggle",
+        toggle_touchpad,
+        desc='Toggle Screenpad'
+        ),
+    Key([mod], "p", lazy.spawn("arandr", desc="Open Arandr"))
 ]
 
 groups = [Group(i) for i in ["", "", "", "", "", "", ""]]

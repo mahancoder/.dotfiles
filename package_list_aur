@@ -1,3 +1,4 @@
+aic94xx-firmware
 anydesk-bin
 based-connect-git
 bluetooth-autoconnect
@@ -17,6 +18,7 @@ nautilus-open-any-terminal
 nerd-fonts-dejavu-complete
 nerd-fonts-droid-sans-mono
 nerd-fonts-source-code-pro
+netflix-bin
 noto-color-emoji-fontconfig
 oh-my-zsh-git
 ookla-speedtest-bin
@@ -41,7 +43,10 @@ uget-integrator-chromium
 ulauncher
 ulauncher-theme-arc-dark-git
 unimatrix-git
+upd72020x-fw
 uswsusp-git
 vim-plug
+vim-youcompleteme-git
 visual-studio-code-bin
+wd719x-firmware
 yay

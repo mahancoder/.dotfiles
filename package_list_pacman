@@ -1,4 +1,5 @@
 acpi
+acpica
 alacritty
 alsa-firmware
 alsa-utils
@@ -27,7 +28,9 @@ btop
 cmake
 cmatrix
 cuda
+cura
 curl
+ddcutil
 dex
 discord
 dmenu
@@ -41,7 +44,6 @@ figlet
 file
 filemanager-actions
 findutils
-flake8
 flameshot
 flex
 gawk
@@ -54,11 +56,13 @@ github-cli
 gnome-backgrounds
 gnome-keyring
 go
+go-tools
 grep
 groff
 grub
 grub-customizer
 gtk-engine-murrine
+gvim
 gzip
 haskell-echo
 haskell-extra
@@ -99,9 +103,9 @@ libvirt
 libx86
 lightdm
 lightdm-gtk-greeter
+linux
 linux-firmware
-linux-zen
-linux-zen-headers
+linux-headers
 lsd
 lshw
 m4
@@ -126,7 +130,8 @@ notification-daemon
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
-nvidia-dkms
+npm
+nvidia
 nvidia-prime
 nvidia-settings
 nvidia-utils
@@ -186,14 +191,13 @@ uthash
 v4l2loopback-dkms
 vdpauinfo
 vifm
-vim
 virt-manager
 vulkan-intel
 wget
 which
+xcursor-themes
 xdg-user-dirs
 xf86-video-intel
-xf86-video-vesa
 xorg-bdftopcf
 xorg-docs
 xorg-font-util

@@ -1,7 +1,7 @@
 #!/bin/bash
+xrandr --output HDMI2 --off
 setxkbmap -option caps:super
 bluetoothctl power on
-xbacklight -set 60
 xset s 180 120 
 xss-lock -n /usr/bin/dim-screen.sh -l -- xsecurelock &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

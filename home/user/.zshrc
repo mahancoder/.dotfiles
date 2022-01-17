@@ -127,3 +127,6 @@ bindkey -v
 export STARSHIP_CONFIG=~/.config/starship/config.toml
 eval "$(starship init zsh)"
 rxfetch 
+#lsx
+autoload -Uz lsx
+source ~/.config/lsx/lsx.sh

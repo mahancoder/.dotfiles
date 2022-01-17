@@ -1,4 +1,5 @@
 " set settings ---------------------------------------- {{{
+set nocompatible
 let mapleader = "'"
 set number
 set numberwidth=4
@@ -15,17 +16,18 @@ set background=dark
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set guifont=DroidSansMono\ Nerd\ Font\ 14
 " }}}
 
 " Modifer mappings for Alt Escape sequence------------- {{{
-set <M-j>=j
-set <M-k>=k
-set <M-h>=h
-set <M-l>=l
-set <M-H>=H
-set <M-L>=L
-set <M-w>=w
-set <M-n>=n
+"set <M-j>=j
+"set <M-k>=k
+"set <M-h>=h
+"set <M-l>=l
+"set <M-H>=H
+"set <M-L>=L
+"set <M-w>=w
+"set <M-n>=n
 " }}}
 
 " Key mappings for normal mode movement --------------- {{{
@@ -53,58 +55,19 @@ nnoremap <leader>vr :source $MYVIMRC<cr>
 vnoremap <Esc> <C-c>
 " }}}
 
-" Quality of life mappings ---------------------------- {{{
-
-" Formatter
-noremap <C-I> :Autoformat<cr>
-
-" Wrap/unwrap word/selection in double quotes
-nnoremap <leader>" bi"<esc>ea"<esc>
-nnoremap <leader>' bi'<esc>ea'<esc>
-vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
-vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
-nnoremap <leader>u" F"xf"x
-nnoremap <leader>u' F'xf'x
-nnoremap <leader>"( F(a"<esc>f)i"<esc>
-nnoremap <leader>'( F(a'<esc>f)i'<esc>
-
-" Map H and L to line start and end
-nnoremap H 0
-nnoremap L $
-
-" Map jk to normal mode
-inoremap jk <esc>
-
-" Force myself to discard bad habits
-inoremap <Left> <nop>
-inoremap <Right> <nop>
-inoremap <Up> <nop>
-inoremap <Down> <nop>
-
-" Split/buffer/tab key mappings
-nnoremap <leader>s :vsplit<cr>
-nnoremap <C-n> :tabnew<cr>
-nnoremap <leader>n :vnew<cr>
-nnoremap <C-l> gt
-nnoremap <C-h> gT
-nnoremap <C-w> :tabclose<cr>
-nnoremap <M-h> :bp<cr>
-nnoremap <M-l> :bn<cr>
-nnoremap <M-w> :bw<cr>
-nnoremap <M-n> :enew<cr>
-
-" Motion mappings
-onoremap @ :<c-u>execute "normal! Bv/@\rh"<cr>
-onoremap o@ :<c-u>execute "normal! Bv/@\rlE"<cr>
-" }}}
-
 " Folding--------- ----------------------------------- {{{
 augroup filetype_vim
-	autocmd!
-	autocmd FileType vim setlocal foldmethod=marker
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
 augroup END
 " }}}
 
+" Auto saving ---------------------------------------- {{{
+augroup autosave
+    autocmd!
+    autocmd CursorHold,CursorHoldI * silent update
+augroup END
+" }}}
 " Vim-Plug ------------------------------------------- {{{
 call plug#begin()
 
@@ -117,6 +80,13 @@ Plug 'preservim/nerdtree'
 Plug 'mhinz/vim-startify'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Chiel92/vim-autoformat'
+Plug 'vimsence/vimsence'
+Plug 'vim-syntastic/syntastic'
+Plug 'Nopik/vim-nerdtree-direnter'
+Plug 'ycm-core/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe'
+Plug 'xolox/vim-session'
+Plug 'xolox/vim-misc'
 
 call plug#end()
 " }}}
@@ -135,5 +105,90 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 nnoremap <leader>t :NERDTreeFocus<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+"let NERDTreeMapOpenInTab='<ENTER>'
+let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 " }}}
+
+" AutoPairs ------------------------------------------- {{{
+let g:AutoPairsShortcutJump = ''
+" }}}
+"
 colorscheme gruvbox
+
+" Quality of life mappings ---------------------------- {{{
+
+" Session saving
+nnoremap <leader>s :mksession!<cr>
+
+" Formatter
+noremap <C-I> :Autoformat<cr>
+
+" Wrap/unwrap word/selection in double quotes
+nnoremap <leader>" Bi"<esc>Ea"<esc>
+nnoremap <leader>' Bi'<esc>Ea'<esc>
+vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
+vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
+nnoremap <leader>u" F"xf"x
+nnoremap <leader>u' F'xf'x
+nnoremap <leader>(" F(a"<esc>f)i"<esc>
+nnoremap <leader>(' F(a'<esc>f)i'<esc>
+
+" Map H and L to line start and end
+nnoremap H 0
+nnoremap L $
+
+" Map jk to normal mode
+inoremap jk <esc>
+
+" Force myself to discard bad habits
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+
+" Split/buffer/tab key mappings
+nnoremap <leader>s :vsplit<cr>
+nnoremap <M-n> :tabnew<cr>
+nnoremap <leader>n :vnew<cr>
+nnoremap <M-l> gt
+nnoremap <M-h> gT
+nnoremap <M-w> :bw!<cr>
+nnoremap <C-h> :bp!<cr>
+nnoremap <C-l> :bn!<cr>
+nnoremap <C-n> :enew!<cr>
+
+" Motion mappings
+onoremap @ :<c-u>execute "normal! Bv/@\rh"<cr>
+onoremap o@ :<c-u>execute "normal! Bv/@\rlE"<cr>
+
+" Location list mappings
+nnoremap <leader>ec :lclose<cr>
+nnoremap <leader>eo :lopen<cr><C-w>k
+nnoremap <leader>en :lne<cr>
+nnoremap <leader>ep :lp<cr>
+
+" }}}
+
+" Syntastic ------------------------------------------- {{{
+nnoremap <leader>e :SyntasticCheck<cr>
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+highlight link SyntasticErrorLine error
+highlight link SyntasticWarningLine todo
+" }}}
+
+" gVim ----------------------------------------------- {{{
+set go=""
+" }}}
+
+" YCM ------------------------------------------------ {{{
+nmap <C-Space> <plug>(YCMHover)
+" }}}
+
+" vim-session ---------------------------------------- {{{
+let g:session_autosave = 'yes'
+let g:session_autoload = 'yes'
+let g:session_autosave_periodic = 5
+" }}}
