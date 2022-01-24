@@ -55,6 +55,13 @@ nnoremap <leader>vr :source $MYVIMRC<cr>
 vnoremap <Esc> <C-c>
 " }}}
 
+" gVim copy/cut/paste --------------------------------- {{{
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+"
+" }}}
+
 " Folding--------- ----------------------------------- {{{
 augroup filetype_vim
     autocmd!

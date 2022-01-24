@@ -2,6 +2,9 @@
 
 window:
 
+  # Background opacity
+  opacity: 0.8
+
   # Window padding 
   padding:
     x: 5
@@ -110,8 +113,7 @@ bell:
   # program: paplay
   # args: ["/usr/share/sounds/freedesktop/stereo/window-attention.oga"]
 
-# Background opacity
-background_opacity: 0.8
+
 
 cursor:
   # Cursor style

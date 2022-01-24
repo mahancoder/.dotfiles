@@ -29,12 +29,14 @@ cmake
 cmatrix
 cuda
 cura
+cura-binary-data
 curl
 ddcutil
 dex
 discord
 dmenu
 dnsmasq
+dotnet-sdk
 easyeffects
 edk2-ovmf
 efibootmgr
@@ -103,9 +105,9 @@ libvirt
 libx86
 lightdm
 lightdm-gtk-greeter
-linux
 linux-firmware
-linux-headers
+linux-lts
+linux-lts-headers
 lsd
 lshw
 m4
@@ -131,7 +133,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
 npm
-nvidia
+nvidia-lts
 nvidia-prime
 nvidia-settings
 nvidia-utils
@@ -143,15 +145,16 @@ pacman
 pacman-contrib
 patch
 pavucontrol
+pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
 pkgconf
 playerctl
 polkit-gnome
-pulseaudio-alsa
 python-geopandas
 python-iwlib
+python-libcharon
 python-mako
 python-markdown
 python-numpy
@@ -161,6 +164,7 @@ python-psutil
 python-pylint
 python-pyqt5
 python-shapely
+python-zeroconf
 python2-cairo
 python2-numpy
 qemu
@@ -168,6 +172,7 @@ qemu-guest-agent
 qtile
 qutebrowser
 recoll
+rhythmbox
 rofi
 sassc
 sed
@@ -181,7 +186,6 @@ steam
 sudo
 texinfo
 tigervnc
-tlp
 tree
 ttf-font-awesome
 ttf-ubuntu-font-family
@@ -195,6 +199,7 @@ virt-manager
 vulkan-intel
 wget
 which
+wireplumber
 xcursor-themes
 xdg-user-dirs
 xf86-video-intel
@@ -237,6 +242,7 @@ xorg-xwud
 xsecurelock
 xss-lock
 xterm
+youtube-dl
 zsh-autosuggestions
 zsh-completions
 zsh-syntax-highlighting

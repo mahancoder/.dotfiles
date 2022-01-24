@@ -13,7 +13,7 @@
 # in the Software without restriction, including without limitation the rights
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 # copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
+# furnished to do so, subject to the following cojditions:
 #
 # The above copyright notice and this permission notice shall be included in
 # all copies or substantial portions of the Software.
@@ -200,15 +200,15 @@ keys = [
     # Volume keys
     Key(
         [], "XF86AudioRaiseVolume",
-        lazy.spawn("amixer sset Master 1%+")
+        lazy.spawn("amixer -D pulse sset Master 1%+")
     ),
     Key(
         [], "XF86AudioLowerVolume",
-        lazy.spawn("amixer -q sset Master 1%-")
+        lazy.spawn("amixer -D pulse sset Master 1%-")
     ),
     Key(
         [], "XF86AudioMute",
-        lazy.spawn("amixer -q sset Master toggle")
+        lazy.spawn("amixer -D pulse sset Master toggle")
     ),
     Key(
         [], "XF86AudioPause",
@@ -217,6 +217,10 @@ keys = [
     Key(
         [], "XF86AudioPlay",
         lazy.spawn("playerctl play-pause")
+    ),
+    Key(
+        [], "XF86AudioStop",
+        lazy.spawn("playerctl stop")
     ),
     Key(
         [], "XF86AudioNext",
@@ -418,7 +422,8 @@ widgets = (
         ),
         widget.TextBox(text="", fontsize=18.3, padding=0,
                        background=colors[1][0], foreground=colors[0][0]),
-        widget.Volume(background=colors[0][0], foreground=colors[0][1]),
+        widget.Volume(background=colors[0][0],
+                      foregound=colors[0][1], device="pulse"),
         widget.TextBox(text="", fontsize=18.3, padding=0,
                        background=colors[0][0], foreground=colors[1][0]),
         widget.Clock(format=" %a %d %b  %I:%M %p", width=bar.CALCULATED,
@@ -439,7 +444,7 @@ screens = [
             background="#003b60"
         ),
     ),
-    Screen()
+    Screen(),
 ]
 
 # Drag floating layouts.
