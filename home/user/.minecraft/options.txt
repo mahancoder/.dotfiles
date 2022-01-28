@@ -1,5 +1,5 @@
 invertYMouse:false
-mouseSensitivity:0.5
+mouseSensitivity:0.40140846
 fov:1.0
 gamma:100.0
 saturation:0.0
@@ -10,7 +10,7 @@ bobView:false
 anaglyph3d:false
 maxFps:260
 fboEnable:true
-difficulty:3
+difficulty:1
 fancyGraphics:true
 ao:2
 renderClouds:true
@@ -26,7 +26,7 @@ chatOpacity:1.0
 snooperEnabled:true
 fullscreen:false
 enableVsync:false
-useVbo:false
+useVbo:true
 hideServerAddress:false
 advancedItemTooltips:false
 pauseOnLostFocus:true

@@ -343,8 +343,8 @@ groupbox_settings = dict(
     fontsize=16,
 )
 
-#              BG         FG          BG           FG
-#          Green-ish    Yellow      Yellow,       Blue
+#              BG         FG          BG         FG
+#          Green-ish    Yellow      Yellow,   Green-ish
 colors = [("#017d7a", "#ffe585"), ("#ffe585", "#017d7a")]
 
 widgets = (
@@ -370,7 +370,7 @@ widgets = (
     +
     [
         widget.TextBox(text="", fontsize=18.3, padding=0,
-                       background=colors[0][0], foreground=colors[0][1]),
+                       background=colors[0][0], foreground=colors[1][0]),
         widget.TextBox(text="", fontsize=18.3,
                        background=colors[1][0], foreground=colors[1][1]),
         widget.ThermalSensor(tag_sensor="Package id 0", threshold=80,
@@ -380,7 +380,7 @@ widgets = (
     ]
     + ([widget.TextBox(text="辶", fontsize=20,
                        background=colors[0][0], foreground=colors[0][1], padding=5), widget.NvidiaSensors(background=colors[0][0], foreground=colors[0][1]), widget.TextBox(text="", fontsize=18.3, padding=0,
-       background=colors[0][0], foreground=colors[0][1]), ] if gpu_is_nvidia else [])
+       background=colors[0][0], foreground=colors[1][0]), ] if gpu_is_nvidia else [])
     + [
         widget.Net(format="{down} ↓↑ {up}",
                    background=colors[1][0], foreground=colors[1][1]),
@@ -389,7 +389,7 @@ widgets = (
         widget.CheckUpdates(
             display_format='{updates} Updates', max_chars=20, no_update_string="No Updates", background=colors[0][0], distro="Arch_checkupdates", foreground=colors[0][1], colour_have_updates=colors[0][1], colour_no_updates=colors[0][1]),
         widget.TextBox(text="", fontsize=18.3, padding=0,
-                       background=colors[0][0], foreground=colors[0][1]),
+                       background=colors[0][0], foreground=colors[1][0]),
         widget.Battery(format='{char} {percent:2.0%}',
                        background=colors[1][0], foreground=colors[1][1], charge_char="", discharge_char="", empty_char=""),
         widget.TextBox(text="", fontsize=18.3, padding=0,
@@ -423,7 +423,7 @@ widgets = (
         widget.TextBox(text="", fontsize=18.3, padding=0,
                        background=colors[1][0], foreground=colors[0][0]),
         widget.Volume(background=colors[0][0],
-                      foregound=colors[0][1], device="pulse"),
+                      foreground=colors[0][1], device="pulse"),
         widget.TextBox(text="", fontsize=18.3, padding=0,
                        background=colors[0][0], foreground=colors[1][0]),
         widget.Clock(format=" %a %d %b  %I:%M %p", width=bar.CALCULATED,

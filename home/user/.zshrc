@@ -126,7 +126,7 @@ bindkey -v
 #End of lines configured by zsh-newuser-install
 export STARSHIP_CONFIG=~/.config/starship/config.toml
 eval "$(starship init zsh)"
-rxfetch 
+#rxfetch 
 #lsx
 autoload -Uz lsx
 source ~/.config/lsx/lsx.sh
