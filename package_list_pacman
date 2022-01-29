@@ -1,5 +1,3 @@
-acpi
-acpica
 alacritty
 alsa-firmware
 alsa-utils
@@ -28,6 +26,8 @@ btop
 cmake
 cmatrix
 cuda
+cups
+cups-pdf
 cura
 cura-binary-data
 curl
@@ -35,11 +35,13 @@ ddcutil
 dex
 discord
 dmenu
+dmidecode
 dnsmasq
 dotnet-sdk
 easyeffects
 edk2-ovmf
 efibootmgr
+exfatprogs
 fakeroot
 fbset
 figlet
@@ -48,6 +50,8 @@ filemanager-actions
 findutils
 flameshot
 flex
+foomatic-db-nonfree-ppds
+foomatic-db-ppds
 gawk
 gcc
 gettext
@@ -85,6 +89,7 @@ haskell-regex-applicative-text
 haskell-th-reify-many
 haskell-unicode-transforms
 helvum
+hplip
 htop
 hwinfo
 intel-media-driver
@@ -104,12 +109,14 @@ libva-intel-driver
 libva-utils
 libvdpau-va-gl
 libvirt
+libvirt-glib
+libvirt-python
 libx86
 lightdm
 lightdm-gtk-greeter
-linux
 linux-firmware
-linux-headers
+linux-zen
+linux-zen-headers
 lsd
 lshw
 m4
@@ -120,6 +127,7 @@ mesa-demos
 mesa-utils
 meson
 mlocate
+moreutils
 mpv
 mupdf
 nano
@@ -129,13 +137,14 @@ net-tools
 network-manager-applet
 networkmanager
 networkmanager-openvpn
+nftables
 nitrogen
 notification-daemon
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
 npm
-nvidia
+nvidia-dkms
 nvidia-prime
 nvidia-settings
 nvidia-utils
@@ -187,6 +196,7 @@ sof-tools
 starship
 steam
 sudo
+system-config-printer
 texinfo
 tigervnc
 tlp
@@ -200,6 +210,7 @@ uthash
 v4l2loopback-dkms
 vdpauinfo
 vifm
+virt-install
 virt-manager
 vulkan-intel
 wget

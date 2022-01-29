@@ -1,5 +1,5 @@
 invertYMouse:false
-mouseSensitivity:0.40140846
+mouseSensitivity:0.3802817
 fov:1.0
 gamma:100.0
 saturation:0.0
@@ -10,7 +10,7 @@ bobView:false
 anaglyph3d:false
 maxFps:260
 fboEnable:true
-difficulty:1
+difficulty:3
 fancyGraphics:true
 ao:2
 renderClouds:true
@@ -99,7 +99,7 @@ key_Waypoint Menu:50
 key_Emote Wheel:48
 soundCategory_master:1.0
 soundCategory_music:0.0
-soundCategory_record:1.0
+soundCategory_record:0.0
 soundCategory_weather:1.0
 soundCategory_block:1.0
 soundCategory_hostile:1.0
