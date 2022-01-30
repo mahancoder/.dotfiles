@@ -102,6 +102,9 @@ alias c="clear"
 alias e="exit"
 alias ls="ls --color=auto"
 alias la="ls -a"
+alias syu="yay -Syu"
+alias s="sudo pacman -S"
+alias aur="yay -S"
 
 # The following lines were added by compinstall
 

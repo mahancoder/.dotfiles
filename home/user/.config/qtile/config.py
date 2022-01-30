@@ -259,7 +259,7 @@ keys = [
         ),
     Key([mod], "s",
         lazy.spawn(
-            "zzzfoo -o xdg-open -r '-l 10'"),
+            "bash -c \"locate home media | rofi -threads 0 -width 100 -dmenu -i -p \\\"locate:\\\" | xargs -r -0 xdg-open\""),
         desc='Open Rofi'
         ),
     Key([], "XF86MonBrightnessUp",

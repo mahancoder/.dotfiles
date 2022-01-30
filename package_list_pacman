@@ -1,6 +1,7 @@
 alacritty
 alsa-firmware
 alsa-utils
+apache
 arandr
 arch-install-scripts
 archlinux-wallpaper
@@ -43,7 +44,6 @@ edk2-ovmf
 efibootmgr
 exfatprogs
 fakeroot
-fbset
 figlet
 file
 filemanager-actions
@@ -97,6 +97,7 @@ intel-ucode
 iptables-nft
 iwd
 jre-openjdk
+jupyterlab
 kdenlive
 lib32-mesa
 lib32-nvidia-utils
@@ -155,8 +156,13 @@ openvpn
 os-prober
 pacman
 pacman-contrib
+pacutils
 patch
 pavucontrol
+php
+php-apache
+php-pgsql
+phppgadmin
 pipewire
 pipewire-alsa
 pipewire-jack
@@ -164,15 +170,20 @@ pipewire-pulse
 pkgconf
 playerctl
 polkit-gnome
+postgis
+postgresql
 python-geopandas
+python-gevent
 python-iwlib
 python-libcharon
 python-mako
 python-markdown
+python-matplotlib
 python-numpy
 python-pandas
 python-pip
 python-psutil
+python-pygame
 python-pylint
 python-pyqt5
 python-shapely
@@ -199,6 +210,7 @@ sudo
 system-config-printer
 texinfo
 tigervnc
+tk
 tlp
 tree
 ttf-font-awesome
