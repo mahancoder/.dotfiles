@@ -100,8 +100,8 @@ export EDITOR='vim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias c="clear"
 alias e="exit"
-alias ls="ls --color=auto"
-alias la="ls -a"
+alias ls="lsd --color=auto"
+alias la="lsd -a"
 alias syu="yay -Syu"
 alias s="sudo pacman -S"
 alias aur="yay -S"
@@ -125,6 +125,18 @@ setopt noautomenu
 setopt nomenucomplete
 setopt noautolist
 setopt bashautolist
+# This speeds up pasting w/ autosuggest
+# # https://github.com/zsh-users/zsh-autosuggestions/issues/238
+pasteinit() {
+    OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+    zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+
+pastefinish() {
+    zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
 bindkey -v
 #End of lines configured by zsh-newuser-install
 export STARSHIP_CONFIG=~/.config/starship/config.toml

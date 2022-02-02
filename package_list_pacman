@@ -9,6 +9,7 @@ aria2
 asciidoc
 aspell
 aspell-en
+aspnet-runtime
 autoconf
 automake
 autopep8
@@ -55,7 +56,7 @@ foomatic-db-ppds
 gawk
 gcc
 gettext
-ghc
+ghc-static
 gimp
 git
 github-cli
@@ -72,22 +73,6 @@ gtk-engine-murrine
 gvfs-mtp
 gvim
 gzip
-haskell-echo
-haskell-extra
-haskell-file-embed
-haskell-fsnotify
-haskell-hi-file-parser
-haskell-mintty
-haskell-mustache
-haskell-neat-interpolation
-haskell-open-browser
-haskell-optparse-generic
-haskell-optparse-simple
-haskell-pantry
-haskell-project-template
-haskell-regex-applicative-text
-haskell-th-reify-many
-haskell-unicode-transforms
 helvum
 hplip
 htop
@@ -99,6 +84,7 @@ iwd
 jre-openjdk
 jupyterlab
 kdenlive
+lib32-gnutls
 lib32-mesa
 lib32-nvidia-utils
 lib32-vulkan-intel
@@ -124,6 +110,7 @@ m4
 make
 man-db
 man-pages
+mariadb
 mesa-demos
 mesa-utils
 meson
@@ -217,6 +204,7 @@ ttf-font-awesome
 ttf-ubuntu-font-family
 ufw
 uget
+unrar
 unzip
 uthash
 v4l2loopback-dkms
@@ -227,6 +215,10 @@ virt-manager
 vulkan-intel
 wget
 which
+wine
+wine-gecko
+wine-mono
+winetricks
 wireplumber
 xcursor-themes
 xdg-user-dirs

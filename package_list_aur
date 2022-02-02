@@ -30,6 +30,7 @@ osm2pgsql
 pacman-hook-list-installed-packages
 pfetch
 picom-jonaburg-git
+postman-bin
 pygtk
 python2-gobject2
 repetier-server
