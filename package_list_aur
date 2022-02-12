@@ -7,6 +7,7 @@ coreshot
 deadd-notification-center-bin
 etcher-bin
 expressvpn
+expressvpn-gui
 glmark2
 google-chrome
 iran-nastaliq-fonts
@@ -20,7 +21,6 @@ nautilus-open-any-terminal
 nerd-fonts-dejavu-complete
 nerd-fonts-droid-sans-mono
 nerd-fonts-source-code-pro
-netflix-bin
 noto-color-emoji-fontconfig
 oh-my-zsh-git
 ookla-speedtest-bin

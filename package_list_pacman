@@ -25,6 +25,7 @@ bluez
 bluez-utils
 breeze
 btop
+chromium
 cmake
 cmatrix
 cuda
@@ -41,8 +42,10 @@ dmidecode
 dnsmasq
 dotnet-sdk
 easyeffects
+ed
 edk2-ovmf
 efibootmgr
+espeak-ng
 exfatprogs
 fakeroot
 figlet
@@ -53,6 +56,7 @@ flameshot
 flex
 foomatic-db-nonfree-ppds
 foomatic-db-ppds
+freecad
 gawk
 gcc
 gettext
@@ -77,6 +81,7 @@ helvum
 hplip
 htop
 hwinfo
+intel-gpu-tools
 intel-media-driver
 intel-ucode
 iptables-nft
@@ -92,7 +97,6 @@ libconfig
 libev
 libreoffice-fresh
 libtool
-libva-intel-driver
 libva-utils
 libvdpau-va-gl
 libvirt
@@ -118,6 +122,7 @@ mlocate
 moreutils
 mpv
 mupdf
+mysql-workbench
 nano
 nautilus
 neofetch
@@ -139,6 +144,7 @@ nvidia-utils
 obs-studio
 ocl-icd
 opencl-nvidia
+openssh-askpass
 openvpn
 os-prober
 pacman
@@ -166,14 +172,18 @@ python-libcharon
 python-mako
 python-markdown
 python-matplotlib
+python-mysql-connector
+python-mysqlclient
 python-numpy
 python-pandas
 python-pip
 python-psutil
 python-pygame
 python-pylint
+python-pymysql
 python-pyqt5
 python-shapely
+python-sqlalchemy
 python-zeroconf
 python2-cairo
 python2-numpy
@@ -185,12 +195,14 @@ recoll
 rhythmbox
 rofi
 sassc
+screenkey
 sed
 shotcut
 shotwell
 sl
 sof-firmware
 sof-tools
+speech-dispatcher
 starship
 steam
 sudo

@@ -17,6 +17,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set guifont=DroidSansMono\ Nerd\ Font\ 14
+let g:ale_completion_enabled = 0
 " }}}
 
 " Modifer mappings for Alt Escape sequence------------- {{{
@@ -88,12 +89,11 @@ Plug 'mhinz/vim-startify'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Chiel92/vim-autoformat'
 Plug 'vimsence/vimsence'
-Plug 'vim-syntastic/syntastic'
 Plug 'Nopik/vim-nerdtree-direnter'
-Plug 'ycm-core/YouCompleteMe'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
+Plug 'dense-analysis/ale'
 
 call plug#end()
 " }}}

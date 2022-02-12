@@ -25,7 +25,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-
+import numpy
 import os
 
 from typing import List  # noqa: F401
@@ -334,7 +334,7 @@ groupbox_settings = dict(
     inactive="b5b5b5",
     active="f3e6b5",
     disable_drag=True,
-    font="Font Awesome 5 Free Solid",
+    font="Font Awesome 6 Free Solid",
     highlight_method="border",
     borderwidth=0,
     this_current_screen_border="f07178",
@@ -397,7 +397,7 @@ widgets = (
         widget.TextBox(
             text=fa.icons["memory"],
             fontsize=15,
-            font="Font Awesome 5 Free Solid",
+            font="Font Awesome 6 Free Solid",
             padding=0, background=colors[0][0], foreground=colors[0][1]
         ),
         widget.Memory(format="{MemUsed: .1f}{mm}", measure_mem="G",
