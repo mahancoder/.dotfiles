@@ -34,6 +34,7 @@ cups-pdf
 cura
 cura-binary-data
 curl
+dconf-editor
 ddcutil
 dex
 discord
@@ -65,7 +66,9 @@ gimp
 git
 github-cli
 gnome-backgrounds
+gnome-calculator
 gnome-keyring
+gnome-tweaks
 go
 go-tools
 gparted

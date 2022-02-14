@@ -1,4 +1,4 @@
-# Mahancoder's QtIle config
+"""Mahancoder's Qtile config"""
 # Original author: https://github.com/mahancoder
 # Copyright (c) 2010 Aldo Cortesi
 # Copyright (c) 2010, 2014 dequis
@@ -25,7 +25,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-import numpy
+
 import os
 
 from typing import List  # noqa: F401
@@ -44,6 +44,7 @@ terminal = guess_terminal()
 
 
 def get_path_for_desktop_file(desktop_file: str):
+    """Get the path to a desktop file."""
     sys_dirs = os.getenv("XDG_DATA_DIRS")
     if sys_dirs is not None:
         sys_dirs = sys_dirs.split(sep=":")
@@ -91,16 +92,19 @@ gpu_is_nvidia = (
 
 @hook.subscribe.startup_once
 def startup_handler():
+    """Startup handler."""
     subprocess.call([os.path.expanduser("~/.config/qtile/autostart.sh")])
 
 
-def kbd(qtile):
-    qtile.widgets_map["keyboardlayout"].next_keyboard()
-    qtile.cmd_spawn("setxkbmap -option caps:super")
+def kbd(qtile_obj):
+    """Keyboard layout."""
+    qtile_obj.widgets_map["keyboardlayout"].next_keyboard()
+    qtile_obj.cmd_spawn("setxkbmap -option caps:super")
 
 
 @hook.subscribe.client_new
 def client_new(client: Window):
+    """New window handler"""
     process_name = psutil.Process(client.get_pid()).name().lower()
     if process_name == browser_name:
         client.togroup("")
@@ -111,6 +115,7 @@ def client_new(client: Window):
 
 
 def open_power():
+    """Open Dmenu Power"""
     qtile.cmd_spawn(
         "dmenu_power -h 20 -p \">>\" -nb \"#003b60\" -nf \"#ffe585\" -sb \"#ffe585\" -sf \"#017d7a\"")
 
@@ -119,15 +124,16 @@ touchpad_on = False
 
 
 @lazy.function
-def toggle_touchpad(qtile):
+def toggle_touchpad(_qtile):
+    """Toggle touchpad"""
     global touchpad_on
     if touchpad_on:
-        subprocess.run(["xrandr", "--output", "HDMI2", "--off"])
+        subprocess.run(["xrandr", "--output", "HDMI2", "--off"], check=False)
         touchpad_on = False
     else:
         subprocess.run(["xrandr", "--output", "eDP1", "--primary", "--mode", "1920x1080", "--pos", "0x0", "--rotate",
-                       "normal", "--output", "HDMI2", "--mode", "1080x2160", "--pos", "0x1080", "--rotate", "right"])
-        subprocess.run(["nitrogen", "--restore"])
+                       "normal", "--output", "HDMI2", "--mode", "1080x2160", "--pos", "0x1080", "--rotate", "right"], check=False)
+        subprocess.run(["nitrogen", "--restore"], check=False)
         touchpad_on = True
 
 
@@ -194,7 +200,8 @@ keys = [
         desc="Next keyboard layout.",
     ),
     Key([mod], "Escape", lazy.spawn(
-        "dmenu_power -h 20 -p \">>\" -nb \"#003b60\" -nf \"#ffe585\" -sb \"#ffe585\" -sf \"#017d7a\""), desc="Open power options"),
+        "dmenu_power -h 20 -p \">>\" -nb \"#003b60\" -nf \"#ffe585\" -sb \"#ffe585\" -sf \"#017d7a\""),
+         desc="Open power options"),
     Key([mod], "c", lazy.spawn("code"), desc="Open VS Code"),
 
     # Volume keys
@@ -294,7 +301,7 @@ for group, num in zip(groups, [str(n) for n in range(1, len(groups) + 1)]):
                 [mod],
                 num,
                 lazy.group[group.name].toscreen(),
-                desc="Switch to group {}".format(group.name),
+                desc=f"Switch to group {group.name}",
             ),
             # mod + n to switch active app to group n
             Key(
@@ -343,7 +350,7 @@ groupbox_settings = dict(
     fontsize=14,
 )
 
-#              BG         FG          BG         FG
+#             BG          FG          BG         FG
 #          Green-ish    Yellow      Yellow,   Green-ish
 colors = [("#017d7a", "#ffe585"), ("#ffe585", "#017d7a")]
 
@@ -357,10 +364,10 @@ widgets = (
         widget.CurrentLayoutIcon(scale=0.8),
         widget.Spacer(length=3),
         widget.CurrentLayout(foreground="#FFFFFF"),
-        #widget.Spacer(length=6),
+        # widget.Spacer(length=6),
         #widget.Sep(linewidth=1, size_percent=90),
-        #widget.Spacer(length=6),
-        #widget.WindowName(format="{name}", max_chars=30, foreground="#d4d4d4"),
+        # widget.Spacer(length=6),
+        # widget.WindowName(format="{name}", max_chars=30, foreground="#d4d4d4"),
         widget.Spacer(length=bar.STRETCH),
         widget.TextBox(text="", padding=0, background="#003b6b",
                        foreground=colors[0][0], fontsize=17.23),
@@ -379,7 +386,9 @@ widgets = (
                        background=colors[1][0], foreground=colors[1][1])
     ]
     + ([widget.TextBox(text="辶", fontsize=20,
-                       background=colors[0][0], foreground=colors[0][1], padding=5), widget.NvidiaSensors(background=colors[0][0], foreground=colors[0][1]), widget.TextBox(text="", fontsize=17.23, padding=0,
+                       background=colors[0][0], foreground=colors[0][1], padding=5),
+                       widget.NvidiaSensors(background=colors[0][0], foreground=colors[0][1]),
+                       widget.TextBox(text="", fontsize=17.23, padding=0,
        background=colors[0][0], foreground=colors[1][0]), ] if gpu_is_nvidia else [])
     + [
         widget.Net(format="{down} ↓↑ {up}",
@@ -387,11 +396,14 @@ widgets = (
         widget.TextBox(text="", fontsize=17.23, padding=0,
                        background=colors[1][0], foreground=colors[0][0]),
         widget.CheckUpdates(
-            display_format='{updates} Updates', max_chars=20, no_update_string="No Updates", background=colors[0][0], distro="Arch_checkupdates", foreground=colors[0][1], colour_have_updates=colors[0][1], colour_no_updates=colors[0][1]),
+            display_format='{updates} Updates', max_chars=20, no_update_string="No Updates", background=colors[0][0],
+            distro="Arch_checkupdates", foreground=colors[0][1],
+            colour_have_updates=colors[0][1], colour_no_updates=colors[0][1]),
         widget.TextBox(text="", fontsize=17.23, padding=0,
                        background=colors[0][0], foreground=colors[1][0]),
         widget.Battery(format='{char} {percent:2.0%}',
-                       background=colors[1][0], foreground=colors[1][1], charge_char="", discharge_char="", empty_char=""),
+                       background=colors[1][0], foreground=colors[1][1],
+                       charge_char="", discharge_char="", empty_char=""),
         widget.TextBox(text="", fontsize=17.23, padding=0,
                        background=colors[1][0], foreground=colors[1][1]),
         widget.TextBox(
@@ -444,6 +456,7 @@ screens = [
             background="#003b60"
         ),
     ),
+    Screen(),
     Screen(),
 ]
 
