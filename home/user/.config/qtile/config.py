@@ -187,7 +187,7 @@ keys = [
         [mod],
         "r",
         lazy.spawn(
-            "dmenu_run -h 20 -p \">\" -nb \"#003b60\" -nf \"#ffe585\" -sb \"#ffe585\" -sf \"#017d7a\""),
+            "dmenu_run -h 20 -p \">\" -nb \"#003b60\" -nf \"#ffe585\" -sb \"#ffe585\" -sf \"#017d7a\" -x 6 -y 5 -z 1588"),
         desc="Open Dmenu",
     ),
     Key([mod], "t", lazy.window.toggle_floating()),
@@ -201,7 +201,7 @@ keys = [
     ),
     Key([mod], "Escape", lazy.spawn(
         "dmenu_power -h 20 -p \">>\" -nb \"#003b60\" -nf \"#ffe585\" -sb \"#ffe585\" -sf \"#017d7a\""),
-         desc="Open power options"),
+        desc="Open power options"),
     Key([mod], "c", lazy.spawn("code"), desc="Open VS Code"),
 
     # Volume keys
@@ -315,18 +315,18 @@ for group, num in zip(groups, [str(n) for n in range(1, len(groups) + 1)]):
 
 layouts = [
     layout.Columns(
-        border_focus_stack="#89ddff",
+        border_focus_stack="#8be9fd",
         border_width=2,
         grow_amount=5,
-        margin=2,
-        margin_on_single=0,
-        border_focus="#89aaff",
-        border_normal_stack="#022430",
-        border_normal="#022430",
+        margin=3,
+        margin_on_single=3,
+        border_focus="#bd93f9",
+        border_normal_stack="#44475a",
+        border_normal="#6272a4",
         insert_position=1
     ),
     layout.Max(),
-    layout.Bsp(fair=False, border_focus="#89aaff", grow_amount=5, margin=2),
+    layout.Bsp(fair=False, border_focus="#bd93f9", grow_amount=5, margin=3),
 ]
 
 widget_defaults = dict(
@@ -339,24 +339,24 @@ extension_defaults = widget_defaults.copy()
 
 groupbox_settings = dict(
     inactive="b5b5b5",
-    active="f3e6b5",
+    active="#f1fa8c",
     disable_drag=True,
     font="Font Awesome 6 Free Solid",
     highlight_method="border",
     borderwidth=0,
     this_current_screen_border="f07178",
-    block_highlight_text_color="#ff7166",
+    block_highlight_text_color="#ff5555",
     spacing=12.5,
     fontsize=14,
 )
 
 #             BG          FG          BG         FG
 #          Green-ish    Yellow      Yellow,   Green-ish
-colors = [("#017d7a", "#ffe585"), ("#ffe585", "#017d7a")]
+colors = [("#3a4360", "#f1fa8c"), ("#3a4360", "#50fa7b")]
 
 widgets = (
     [
-        widget.Spacer(length=4),
+        widget.Spacer(length=6),
         widget.GroupBox(**groupbox_settings),
         widget.Spacer(length=6),
         widget.Sep(linewidth=1, size_percent=90),
@@ -369,43 +369,63 @@ widgets = (
         # widget.Spacer(length=6),
         # widget.WindowName(format="{name}", max_chars=30, foreground="#d4d4d4"),
         widget.Spacer(length=bar.STRETCH),
-        widget.TextBox(text="", padding=0, background="#003b6b",
-                       foreground=colors[0][0], fontsize=17.23),
+        # widget.TextBox(text="", padding=0, background="#003b6b",
+        #                foreground=colors[0][0], fontsize=17.23),
     ]
     + ([widget.TextBox(text=" ", fontsize=17.23, background=colors[0][0], foreground=colors[0]
        [1]), widget.Wlan(format="{essid}", background=colors[0][0], foreground=colors[0][1])])
     +
     [
-        widget.TextBox(text="", fontsize=17.23, padding=0,
-                       background=colors[0][0], foreground=colors[1][0]),
+        # widget.TextBox(text="", fontsize=17.23, padding=0,
+        #                background=colors[0][0], foreground=colors[1][0]),
+        widget.Spacer(length=4),
+        widget.Sep(foregroud="#f8f8f2", size_percent=97),
+        widget.Spacer(length=4),
         widget.TextBox(text="", fontsize=17.23,
                        background=colors[1][0], foreground=colors[1][1]),
         widget.ThermalSensor(tag_sensor="Package id 0", threshold=80,
                              background=colors[1][0], foreground=colors[1][1]),
-        widget.TextBox(text="", fontsize=17.23, padding=0,
-                       background=colors[1][0], foreground=colors[1][1])
+        # widget.TextBox(text="", fontsize=17.23, padding=0,
+        #                background=colors[1][0], foreground=colors[1][1])
     ]
-    + ([widget.TextBox(text="辶", fontsize=20,
+    + ([widget.Spacer(length=4),
+        widget.Sep(foregroud="#f8f8f2", size_percent=97),
+        widget.Spacer(length=4),
+        widget.TextBox(text="辶", fontsize=20,
                        background=colors[0][0], foreground=colors[0][1], padding=5),
-                       widget.NvidiaSensors(background=colors[0][0], foreground=colors[0][1]),
-                       widget.TextBox(text="", fontsize=17.23, padding=0,
-       background=colors[0][0], foreground=colors[1][0]), ] if gpu_is_nvidia else [])
+        widget.NvidiaSensors(background=colors[0][0], foreground=colors[0][1]),
+        #     widget.TextBox(text="", fontsize=17.23, padding=0,
+        #    background=colors[0][0], foreground=colors[1][0]),
+        #
+        ] if gpu_is_nvidia else [])
     + [
+        widget.Spacer(length=4),
+        widget.Sep(foregroud="#f8f8f2", size_percent=97),
+        widget.Spacer(length=4),
         widget.Net(format="{down} ↓↑ {up}",
                    background=colors[1][0], foreground=colors[1][1]),
-        widget.TextBox(text="", fontsize=17.23, padding=0,
-                       background=colors[1][0], foreground=colors[0][0]),
+        # widget.TextBox(text="", fontsize=17.23, padding=0,
+        #                background=colors[1][0], foreground=colors[0][0]),
+        widget.Spacer(length=4),
+        widget.Sep(foregroud="#f8f8f2", size_percent=97),
+        widget.Spacer(length=4),
         widget.CheckUpdates(
             display_format='{updates} Updates', max_chars=20, no_update_string="No Updates", background=colors[0][0],
             distro="Arch_checkupdates", foreground=colors[0][1],
             colour_have_updates=colors[0][1], colour_no_updates=colors[0][1]),
-        widget.TextBox(text="", fontsize=17.23, padding=0,
-                       background=colors[0][0], foreground=colors[1][0]),
+        # widget.TextBox(text="", fontsize=17.23, padding=0,
+        #                background=colors[0][0], foreground=colors[1][0]),
+        widget.Spacer(length=4),
+        widget.Sep(foregroud="#f8f8f2", size_percent=97),
+        widget.Spacer(length=4),
         widget.Battery(format='{char} {percent:2.0%}',
                        background=colors[1][0], foreground=colors[1][1],
                        charge_char="", discharge_char="", empty_char=""),
-        widget.TextBox(text="", fontsize=17.23, padding=0,
-                       background=colors[1][0], foreground=colors[1][1]),
+        # widget.TextBox(text="", fontsize=17.23, padding=0,
+        #                background=colors[1][0], foreground=colors[1][1]),
+        widget.Spacer(length=4),
+        widget.Sep(foregroud="#f8f8f2", size_percent=97),
+        widget.Spacer(length=4),
         widget.TextBox(
             text=fa.icons["memory"],
             fontsize=15,
@@ -414,47 +434,66 @@ widgets = (
         ),
         widget.Memory(format="{MemUsed: .1f}{mm}", measure_mem="G",
                       padding=0, background=colors[0][0], foreground=colors[0][1]),
-        widget.Spacer(length=5, background=colors[0][0]),
-        widget.TextBox(text="", fontsize=17.23, padding=0,
-                       background=colors[0][0], foreground=colors[1][0]),
+        widget.Spacer(length=4),
+        widget.Sep(foregroud="#f8f8f2", size_percent=97),
+        widget.Spacer(length=4),
+        #widget.Spacer(length=5, background=colors[0][0]),
+        # widget.TextBox(text="", fontsize=17.23, padding=0,
+        #                background=colors[0][0], foreground=colors[1][0]),
         widget.TextBox(text="", fontsize=17.23,
                        background=colors[1][0], foreground=colors[1][1]),
         widget.CPU(format="{load_percent:02.0f}%",
                    background=colors[1][0], foreground=colors[1][1]),
-        widget.TextBox(text="", fontsize=17.23, padding=0,
-                       background=colors[1][0], foreground=colors[0][0]),
+        # widget.TextBox(text="", fontsize=17.23, padding=0,
+        #                background=colors[1][0], foreground=colors[0][0]),
+        widget.Spacer(length=4),
+        widget.Sep(foregroud="#f8f8f2", size_percent=97),
+        widget.Spacer(length=4),
         widget.Systray(background=colors[0][0], foreground=colors[0][1]),
-        widget.Spacer(length=2, background=colors[0][0]),
-        widget.TextBox(text="", fontsize=17.23, padding=0,
-                       background=colors[0][0], foreground=colors[1][0]),
+        #widget.Spacer(length=2, background=colors[0][0]),
+        # widget.TextBox(text="", fontsize=17.23, padding=0,
+        #                background=colors[0][0], foreground=colors[1][0]),
+        widget.Spacer(length=4),
+        widget.Sep(foregroud="#f8f8f2", size_percent=97),
+        widget.Spacer(length=4),
         widget.KeyboardLayout(
             configured_keyboards=["us", "ir"],
             display_map={"ir": "FA"},
             fmt="韛 {}", background=colors[1][0], foreground=colors[1][1]
         ),
-        widget.TextBox(text="", fontsize=17.23, padding=0,
-                       background=colors[1][0], foreground=colors[0][0]),
+        # widget.TextBox(text="", fontsize=17.23, padding=0,
+        #                background=colors[1][0], foreground=colors[0][0]),
+        widget.Spacer(length=4),
+        widget.Sep(foregroud="#f8f8f2", size_percent=97),
+        widget.Spacer(length=4),
         widget.Volume(background=colors[0][0],
                       foreground=colors[0][1], device="pulse"),
-        widget.TextBox(text="", fontsize=17.23, padding=0,
-                       background=colors[0][0], foreground=colors[1][0]),
+        # widget.TextBox(text="", fontsize=17.23, padding=0,
+        #                background=colors[0][0], foreground=colors[1][0]),
+        widget.Spacer(length=4),
+        widget.Sep(foregroud="#f8f8f2", size_percent=97),
+        widget.Spacer(length=4),
         widget.Clock(format=" %a %d %b  %I:%M %p", width=bar.CALCULATED,
                      background=colors[1][0], foreground=colors[1][1]),
         widget.Spacer(length=2, background=colors[1][0]),
-        widget.TextBox(text="", fontsize=17.23, padding=0,
-                       background=colors[1][0], foreground=colors[0][0]),
-        widget.TextBox(text=" ", fontsize=17.23, mouse_callbacks={
-                       "Button1": open_power}, background=colors[0][0], foreground=colors[0][1]),
+        # widget.TextBox(text="", fontsize=17.23, padding=0,
+        #                background=colors[1][0], foreground=colors[0][0]),
+        # widget.TextBox(text=" ", fontsize=17.23, mouse_callbacks={
+        #                "Button1": open_power}, background=colors[0][0], foreground=colors[0][1]),
+        widget.Spacer(length=6)
     ]
 )
 screens = [
     Screen(
         top=bar.Bar(
             widgets,
-            17,
-            margin=0,
-            background="#003b60"
+            20,
+            margin=[5, 6, 2, 6],
+            background="#3a4360"
         ),
+        bottom=bar.Gap(3),
+        left=bar.Gap(3),
+        right=bar.Gap(3),
     ),
     Screen(),
     Screen(),
