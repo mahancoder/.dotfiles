@@ -121,6 +121,7 @@ let g:AutoPairsShortcutJump = ''
 " }}}
 "
 colorscheme gruvbox
+hi Normal guibg=NONE ctermbg=NONE
 
 " Quality of life mappings ---------------------------- {{{
 

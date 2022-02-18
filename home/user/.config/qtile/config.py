@@ -114,10 +114,10 @@ def client_new(client: Window):
         client.togroup("")
 
 
-def open_power():
-    """Open Dmenu Power"""
-    qtile.cmd_spawn(
-        "dmenu_power -h 20 -p \">>\" -nb \"#003b60\" -nf \"#ffe585\" -sb \"#ffe585\" -sf \"#017d7a\"")
+# def open_power():
+    # """Open Dmenu Power"""
+    # qtile.cmd_spawn(
+        # "dmenu_power -h 20 -p \">>\" -nb \"#003b60\" -nf \"#ffe585\" -sb \"#ffe585\" -sf \"#017d7a\" -x 6 -y 5 -z 1588")
 
 
 touchpad_on = False
@@ -172,6 +172,8 @@ keys = [
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     # Extra
+    Key([mod], "period", lazy.next_screen(), desc="Move the focus to the next screen"),
+    Key([mod], "comma", lazy.prev_screen(), desc="Move the focus to the previous screen"),
     Key(
         [mod, "shift"],
         "Return",
@@ -200,7 +202,7 @@ keys = [
         desc="Next keyboard layout.",
     ),
     Key([mod], "Escape", lazy.spawn(
-        "dmenu_power -h 20 -p \">>\" -nb \"#003b60\" -nf \"#ffe585\" -sb \"#ffe585\" -sf \"#017d7a\""),
+        "dmenu_power -h 20 -p \">>\" -nb \"#003b60\" -nf \"#ffe585\" -sb \"#ffe585\" -sf \"#017d7a\" -x 6 -y 5 -z 1588"),
         desc="Open power options"),
     Key([mod], "c", lazy.spawn("code"), desc="Open VS Code"),
 
