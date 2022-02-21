@@ -31,40 +31,14 @@ import os
 from typing import List  # noqa: F401
 import subprocess
 
-from libqtile import bar, layout, widget, hook, qtile
+from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
-from libqtile.backend.base import Window
-import psutil
 import fontawesome as fa
 
 mod = "mod4"
 terminal = guess_terminal()
-
-
-def get_path_for_desktop_file(desktop_file: str):
-    """Get the path to a desktop file."""
-    sys_dirs = os.getenv("XDG_DATA_DIRS")
-    if sys_dirs is not None:
-        sys_dirs = sys_dirs.split(sep=":")
-    else:
-        sys_dirs = []
-    sys_dirs.extend(["/usr/local/share", "/usr/share"])
-    usr_dirs = os.getenv("XDG_DATA_HOME")
-    if usr_dirs is not None:
-        usr_dirs = usr_dirs.split(sep=":")
-    else:
-        usr_dirs = []
-    usr_dirs.append(os.path.expanduser("~/.local/share"))
-    all_dirs = [os.path.join(path, "applications")
-                for path in (sys_dirs + usr_dirs)]
-    for file_dir in all_dirs:
-        path = os.path.join(file_dir, desktop_file)
-        if os.path.isfile(path):
-            return path
-    raise FileNotFoundError
-
 
 browser = str(
     subprocess.run(
@@ -73,13 +47,7 @@ browser = str(
         check=False,
     ).stdout
 )[2:-3]
-browser_name = "Unknwon"
-browser_path = get_path_for_desktop_file(browser)
-with open(browser_path, encoding="utf-8") as file:
-    for line in file:
-        if line.startswith("Exec="):
-            browser_name = line.removeprefix("Exec=").split()[0]
-            break
+
 gpu_is_nvidia = (
     "nvidia"
     in str(subprocess.run(
@@ -100,19 +68,6 @@ def kbd(qtile_obj):
     """Keyboard layout."""
     qtile_obj.widgets_map["keyboardlayout"].next_keyboard()
     qtile_obj.cmd_spawn("setxkbmap -option caps:super")
-
-
-@hook.subscribe.client_new
-def client_new(client: Window):
-    """New window handler"""
-    process_name = psutil.Process(client.get_pid()).name().lower()
-    if process_name == browser_name:
-        client.togroup("")
-    elif process_name == "code":
-        client.togroup("")
-    elif process_name == "discord":
-        client.togroup("")
-
 
 # def open_power():
     # """Open Dmenu Power"""
@@ -136,7 +91,28 @@ def toggle_touchpad(_qtile):
         subprocess.run(["nitrogen", "--restore"], check=False)
         touchpad_on = True
 
+@lazy.function
+def to_next_screen(_qtile, move_focus: bool = True):
+    """Send window to next screen"""
+    window = _qtile.current_window
+    _qtile.cmd_next_screen()
+    group = _qtile.current_group
+    _qtile.cmd_prev_screen()
+    window.cmd_togroup(group.name, switch_group=False)
+    if move_focus:
+       _qtile.cmd_next_screen()
 
+@lazy.function
+def to_previous_screen(_qtile, move_focus: bool = True):
+    """Send window to previous screen"""
+    window = _qtile.current_window
+    _qtile.cmd_prev_screen()
+    group = _qtile.current_group
+    _qtile.cmd_next_screen()
+    window.cmd_togroup(group.name, switch_group=False)
+    if move_focus:
+        _qtile.cmd_prev_screen()
+    
 keys = [
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -173,7 +149,9 @@ keys = [
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     # Extra
     Key([mod], "period", lazy.next_screen(), desc="Move the focus to the next screen"),
+    Key([mod, "shift"], "period", to_next_screen, desc="Move the window to the next screen"),
     Key([mod], "comma", lazy.prev_screen(), desc="Move the focus to the previous screen"),
+    Key([mod, "shift"], "comma", to_previous_screen, desc="Move the window to the next screen"),
     Key(
         [mod, "shift"],
         "Return",
@@ -293,7 +271,16 @@ keys = [
     Key([mod], "p", lazy.spawn("arandr", desc="Open Arandr"))
 ]
 
-groups = [Group(i) for i in ["", "", "", "", "", "", ""]]
+group_names = ["", "", "", "", "", "", ""]
+groups = [
+            Group(group_names[0], spawn=f"gtk-launch {browser}"),
+            Group(group_names[1], matches=[Match(wm_class="Code")]),
+            Group(group_names[2]),
+            Group(group_names[3], matches=[Match(wm_class="discord")]),
+            Group(group_names[4]),
+            Group(group_names[5]),
+            Group(group_names[6]),
+        ]
 
 for group, num in zip(groups, [str(n) for n in range(1, len(groups) + 1)]):
     keys.extend(
@@ -366,6 +353,10 @@ widgets = (
         widget.CurrentLayoutIcon(scale=0.8),
         widget.Spacer(length=3),
         widget.CurrentLayout(foreground="#FFFFFF"),
+        widget.Spacer(length=3),
+        widget.Sep(linewidth=1, size_percent=90),
+        widget.Spacer(length=6),
+        widget.CurrentScreen(acitve_color=colors[1][1], inactive_color="ff5555"),
         # widget.Spacer(length=6),
         #widget.Sep(linewidth=1, size_percent=90),
         # widget.Spacer(length=6),

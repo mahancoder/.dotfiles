@@ -10,4 +10,4 @@ picom -b &
 dex -a &
 uget-inegrator &
 flameshot &
-gtk-launch $(xdg-mime query default x-scheme-handler/http) &
+

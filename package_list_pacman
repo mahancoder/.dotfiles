@@ -1,3 +1,5 @@
+acpica
+acpid
 alacritty
 alsa-firmware
 alsa-utils
@@ -24,6 +26,7 @@ blender
 bluez
 bluez-utils
 breeze
+brightnessctl
 btop
 chromium
 cmake
