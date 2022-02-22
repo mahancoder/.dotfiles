@@ -36,6 +36,7 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 import fontawesome as fa
+# import qtile_extras.widget.statusnotifier
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -443,6 +444,7 @@ widgets = (
         widget.Sep(foregroud="#f8f8f2", size_percent=97),
         widget.Spacer(length=4),
         widget.Systray(background=colors[0][0], foreground=colors[0][1]),
+        # qtile_extras.widget.statusnotifier.StatusNotifier(),
         #widget.Spacer(length=2, background=colors[0][0]),
         # widget.TextBox(text="", fontsize=17.23, padding=0,
         #                background=colors[0][0], foreground=colors[1][0]),

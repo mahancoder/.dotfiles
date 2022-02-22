@@ -50,6 +50,7 @@ ed
 edk2-ovmf
 efibootmgr
 espeak-ng
+evince
 exfatprogs
 fakeroot
 figlet
@@ -96,6 +97,7 @@ jre-openjdk
 jupyterlab
 kdenlive
 lib32-gnutls
+lib32-libappindicator-gtk2
 lib32-mesa
 lib32-nvidia-utils
 lib32-vulkan-intel
@@ -127,7 +129,7 @@ meson
 mlocate
 moreutils
 mpv
-mupdf
+mtools
 mysql-workbench
 nano
 nautilus
@@ -143,6 +145,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
 npm
+ntfs-3g
 nvidia-dkms
 nvidia-prime
 nvidia-settings
@@ -171,6 +174,7 @@ playerctl
 polkit-gnome
 postgis
 postgresql
+python-dbus-next
 python-geopandas
 python-gevent
 python-iwlib
