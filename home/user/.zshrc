@@ -138,10 +138,9 @@ pastefinish() {
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 bindkey -v
+bindkey '^H' backward-kill-word
+bindkey '5~' kill-word
 #End of lines configured by zsh-newuser-install
 export STARSHIP_CONFIG=~/.config/starship/config.toml
 eval "$(starship init zsh)"
 #rxfetch 
-#lsx
-autoload -Uz lsx
-source ~/.config/lsx/lsx.sh

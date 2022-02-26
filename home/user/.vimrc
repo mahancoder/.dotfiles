@@ -21,14 +21,14 @@ let g:ale_completion_enabled = 0
 " }}}
 
 " Modifer mappings for Alt Escape sequence------------- {{{
-"set <M-j>=j
-"set <M-k>=k
-"set <M-h>=h
-"set <M-l>=l
-"set <M-H>=H
-"set <M-L>=L
-"set <M-w>=w
-"set <M-n>=n
+set <M-j>=j
+set <M-k>=k
+set <M-h>=h
+set <M-l>=l
+set <M-H>=H
+set <M-L>=L
+set <M-w>=w
+set <M-n>=n
 " }}}
 
 " Key mappings for normal mode movement --------------- {{{

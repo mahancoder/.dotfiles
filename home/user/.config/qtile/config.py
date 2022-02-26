@@ -32,6 +32,7 @@ from typing import List  # noqa: F401
 import subprocess
 
 from libqtile import bar, layout, widget, hook
+import libqtile.core.manager
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
@@ -113,6 +114,22 @@ def to_previous_screen(_qtile, move_focus: bool = True):
     window.cmd_togroup(group.name, switch_group=False)
     if move_focus:
         _qtile.cmd_prev_screen()
+
+@lazy.function
+def open_dmenu_power(_qtile: libqtile.core.manager.Qtile):
+    """Open Dmenu Power"""
+    _qtile.cmd_spawn(
+        "dmenu_power -h 20 -p \">>\" -nb \"#003b60\" -nf \"#ffe585\" " +
+        "-sb \"#ffe585\" -sf \"#017d7a\" -x 6 -y 5 -z " +
+        str(int(_qtile.current_screen.width) - 12))
+
+@lazy.function
+def open_dmenu_run(_qtile: libqtile.core.manager.Qtile):
+    """Open Dmenu Run"""
+    _qtile.cmd_spawn(
+        "dmenu_run -h 20 -p \">>\" -nb \"#003b60\" -nf \"#ffe585\" " +
+        "-sb \"#ffe585\" -sf \"#017d7a\" -x 6 -y 5 -z " +
+        str(int(_qtile.current_screen.width) - 12))
     
 keys = [
     # Switch between windows
@@ -123,30 +140,30 @@ keys = [
     Key(["mod1"], "Tab", lazy.layout.next(),
         desc="Move window focus to other window"),
     # Shuffle Windows
-    Key([mod, "mod1"], "j", lazy.layout.flip_down()),
-    Key([mod, "mod1"], "k", lazy.layout.flip_up()),
-    Key([mod, "mod1"], "h", lazy.layout.flip_left()),
-    Key([mod, "mod1"], "l", lazy.layout.flip_right()),
+    Key([mod, "control"], "j", lazy.layout.flip_down()),
+    Key([mod, "control"], "k", lazy.layout.flip_up()),
+    Key([mod, "control"], "h", lazy.layout.flip_left()),
+    Key([mod, "control"], "l", lazy.layout.flip_right()),
     # Move Windows
     Key(
-        [mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
+        [mod, "mod1"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
     ),
     Key(
-        [mod, "shift"],
+        [mod, "mod1"],
         "l",
         lazy.layout.shuffle_right(),
         desc="Move window to the right",
     ),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([mod, "mod1"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
+    Key([mod, "mod1"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     # Resize Windows
-    Key([mod, "control"], "h", lazy.layout.grow_left(),
+    Key([mod, "shift"], "h", lazy.layout.grow_left(),
         desc="Grow window to the left"),
     Key(
-        [mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"
+        [mod, "shift"], "l", lazy.layout.grow_right(), desc="Grow window to the right"
     ),
-    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+    Key([mod, "shift"], "j", lazy.layout.grow_down(), desc="Grow window down"),
+    Key([mod, "shift"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     # Extra
     Key([mod], "period", lazy.next_screen(), desc="Move the focus to the next screen"),
@@ -167,8 +184,7 @@ keys = [
     Key(
         [mod],
         "r",
-        lazy.spawn(
-            "dmenu_run -h 20 -p \">\" -nb \"#003b60\" -nf \"#ffe585\" -sb \"#ffe585\" -sf \"#017d7a\" -x 6 -y 5 -z 1588"),
+        open_dmenu_run,
         desc="Open Dmenu",
     ),
     Key([mod], "t", lazy.window.toggle_floating()),
@@ -180,9 +196,7 @@ keys = [
         lazy.function(kbd),
         desc="Next keyboard layout.",
     ),
-    Key([mod], "Escape", lazy.spawn(
-        "dmenu_power -h 20 -p \">>\" -nb \"#003b60\" -nf \"#ffe585\" -sb \"#ffe585\" -sf \"#017d7a\" -x 6 -y 5 -z 1588"),
-        desc="Open power options"),
+    Key([mod], "Escape", open_dmenu_power, desc="Open power options"),
     Key([mod], "c", lazy.spawn("code"), desc="Open VS Code"),
 
     # Volume keys
@@ -200,23 +214,23 @@ keys = [
     ),
     Key(
         [], "XF86AudioPause",
-        lazy.spawn("playerctl play-pause")
+        lazy.spawn("pplayerctl play-pause")
     ),
     Key(
         [], "XF86AudioPlay",
-        lazy.spawn("playerctl play-pause")
+        lazy.spawn("pplayerctl play-pause")
     ),
     Key(
         [], "XF86AudioStop",
-        lazy.spawn("playerctl stop")
+        lazy.spawn("pplayerctl stop")
     ),
     Key(
         [], "XF86AudioNext",
-        lazy.spawn("playerctl next")
+        lazy.spawn("pplayerctl next")
     ),
     Key(
         [], "XF86AudioPrev",
-        lazy.spawn("playerctl previous")
+        lazy.spawn("pplayerctl previous")
     ),
     Key([mod], "f",
         lazy.window.toggle_fullscreen(),

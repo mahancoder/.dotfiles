@@ -1,5 +1,4 @@
 acpica
-acpid
 alacritty
 alsa-firmware
 alsa-utils
@@ -58,6 +57,7 @@ file
 filemanager-actions
 findutils
 flameshot
+flatpak
 flex
 foomatic-db-nonfree-ppds
 foomatic-db-ppds
@@ -72,7 +72,6 @@ github-cli
 gnome-backgrounds
 gnome-calculator
 gnome-keyring
-gnome-tweaks
 go
 go-tools
 gparted
@@ -100,6 +99,8 @@ lib32-gnutls
 lib32-libappindicator-gtk2
 lib32-mesa
 lib32-nvidia-utils
+lib32-pipewire
+lib32-pipewire-jack
 lib32-vulkan-intel
 libconfig
 libev
@@ -150,7 +151,7 @@ nvidia-dkms
 nvidia-prime
 nvidia-settings
 nvidia-utils
-obs-studio
+nvme-cli
 ocl-icd
 opencl-nvidia
 openssh-askpass
@@ -215,6 +216,7 @@ sof-tools
 speech-dispatcher
 starship
 steam
+strace
 sudo
 system-config-printer
 texinfo
@@ -230,6 +232,7 @@ unrar
 unzip
 uthash
 v4l2loopback-dkms
+vbetool
 vdpauinfo
 vifm
 virt-install
