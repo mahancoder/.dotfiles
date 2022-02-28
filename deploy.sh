@@ -22,6 +22,10 @@ install_yay_packages() {
     yay -S --needed - < ./package_list_aur
 }
 
+install_pip_packages() {
+    pip install -r pip_packages
+}
+
 deploy_configs() {
     files=($(find -type f -not -path "./.git/*" -printf "\"%p\"\n" | tr '\n' ' '))
     delete=('"./deploy.sh"' '"./package_list_pacman"' '"./package_list_aur"' '"./.gitignore"' '"./dconf-settings.ini"' '"./pip_packages"')
@@ -113,7 +117,7 @@ post_install() {
     sudo rm -r zzzfoo
 
     echo "Giving permissions back to user..."
-    sudo chown -R $USER ~/
+    sudo chown -R $USER:$USER ~/
 }
 
 echo "Running pre-install jobs..." &&
@@ -127,6 +131,9 @@ install_yay &&
 
 echo "Installing yay packages..." &&
 install_yay_packages &&
+
+echo "Installing pip packages..." &&
+install_pip_packages &&
 
 echo "Deploying config files..." &&
 deploy_configs &&
