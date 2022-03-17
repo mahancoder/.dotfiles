@@ -118,8 +118,7 @@ compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
-HISTSIZE=500
-SAVEHIST=500
+HISTSIZE=SAVEHIST=5000
 setopt autocd
 setopt noautomenu
 setopt nomenucomplete

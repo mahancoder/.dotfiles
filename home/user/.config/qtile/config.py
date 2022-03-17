@@ -243,7 +243,7 @@ keys = [
     Key([mod, "mod1"], "a", lazy.spawn(
         "notify-send.py a --hint boolean:deadd-notification-center:true string:type:clearInCenter"), desc="Clear notifications"),
     Key([], "Print",
-        lazy.spawn("flameshot full -c"),
+        lazy.spawn("flameshot screen -c"),
         desc='Screenshot'
         ),
     Key(["control"], "Print",
@@ -251,7 +251,7 @@ keys = [
         desc='Screenshot GUI'
         ),
     Key([mod], "q",
-        lazy.spawn("xset s activate"),
+        lazy.spawn("loginctl lock-session"),
         desc='Logout'
         ),
     Key([mod], "v",

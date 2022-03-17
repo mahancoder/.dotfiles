@@ -27,6 +27,7 @@ bluez-utils
 breeze
 brightnessctl
 btop
+carla
 chromium
 cmake
 cmatrix
@@ -59,11 +60,15 @@ findutils
 flameshot
 flatpak
 flex
+foomatic-db
+foomatic-db-nonfree
 foomatic-db-nonfree-ppds
 foomatic-db-ppds
 freecad
+fwupd
 gawk
 gcc
+gdb
 gettext
 ghc-static
 gimp
@@ -92,6 +97,7 @@ intel-media-driver
 intel-ucode
 iptables-nft
 iwd
+jconvolver
 jre-openjdk
 jupyterlab
 kdenlive
@@ -104,7 +110,8 @@ lib32-pipewire-jack
 lib32-vulkan-intel
 libconfig
 libev
-libreoffice-fresh
+libmysofa
+libreoffice-still
 libtool
 libva-utils
 libvdpau-va-gl
@@ -130,6 +137,7 @@ meson
 mlocate
 moreutils
 mpv
+mpv-mpris
 mtools
 mysql-workbench
 nano
@@ -176,6 +184,7 @@ playerctl
 polkit-gnome
 postgis
 postgresql
+pulsemixer
 python-dbus-next
 python-geopandas
 python-gevent
@@ -206,6 +215,7 @@ qutebrowser
 recoll
 rhythmbox
 rofi
+samba
 sassc
 screenkey
 sed
@@ -223,6 +233,7 @@ system-config-printer
 texinfo
 tigervnc
 tk
+tldr
 tlp
 tree
 ttf-font-awesome
@@ -286,6 +297,7 @@ xorg-xsetroot
 xorg-xvinfo
 xorg-xwayland
 xorg-xwd
+xorg-xwininfo
 xorg-xwud
 xsecurelock
 xss-lock
