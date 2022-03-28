@@ -8,6 +8,7 @@ deadd-notification-center &
 nitrogen --restore &
 picom -b &
 dex -a &
+imwheel &
 uget-inegrator &
 flameshot &
 

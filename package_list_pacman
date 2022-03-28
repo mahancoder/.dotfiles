@@ -31,6 +31,7 @@ carla
 chromium
 cmake
 cmatrix
+cpupower
 cuda
 cups
 cups-pdf
@@ -92,6 +93,7 @@ helvum
 hplip
 htop
 hwinfo
+imwheel
 intel-gpu-tools
 intel-media-driver
 intel-ucode
@@ -102,12 +104,17 @@ jre-openjdk
 jupyterlab
 kdenlive
 lib32-gnutls
+lib32-gtk3
 lib32-libappindicator-gtk2
+lib32-libappindicator-gtk3
+lib32-libidn11
+lib32-libxmu
 lib32-mesa
 lib32-nvidia-utils
 lib32-pipewire
 lib32-pipewire-jack
 lib32-vulkan-intel
+libappindicator-gtk2
 libconfig
 libev
 libmysofa
@@ -121,9 +128,11 @@ libvirt-python
 libx86
 lightdm
 lightdm-gtk-greeter
+lightdm-webkit-theme-litarvan
+lightdm-webkit2-greeter
+linux
 linux-firmware
-linux-zen
-linux-zen-headers
+linux-headers
 lsd
 lshw
 m4
@@ -138,6 +147,7 @@ mlocate
 moreutils
 mpv
 mpv-mpris
+msr-tools
 mtools
 mysql-workbench
 nano
@@ -155,7 +165,7 @@ noto-fonts-emoji
 noto-fonts-extra
 npm
 ntfs-3g
-nvidia-dkms
+nvidia
 nvidia-prime
 nvidia-settings
 nvidia-utils
@@ -215,6 +225,7 @@ qutebrowser
 recoll
 rhythmbox
 rofi
+s-tui
 samba
 sassc
 screenkey
@@ -229,6 +240,7 @@ starship
 steam
 strace
 sudo
+sysbench
 system-config-printer
 texinfo
 tigervnc

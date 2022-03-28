@@ -1,12 +1,15 @@
 anydesk-bin
 based-connect-git
+blender-benchmark
 bluetooth-autoconnect
 bottles
 brave-bin
 cava
 coreshot
+cpupower-gui
 czkawka-gui-bin
 deadd-notification-center-bin
+debtap
 dracula-gtk-theme
 etcher-bin
 expressvpn
@@ -14,11 +17,13 @@ expressvpn-gui
 foo2zjs-nightly
 fritzing
 fwts-git
+geekbench
 glmark2
 google-chrome
 intel-mas-cli-tool
 iran-nastaliq-fonts
 j4-dmenu-desktop
+joplin-desktop-bin
 libcprime
 libglade
 lunar-client
@@ -36,8 +41,8 @@ orchis-theme-git
 osm2pgsql
 pacman-hook-list-installed-packages
 pfetch
+phoronix-test-suite
 picom-jonaburg-git
-platformio
 postman-bin
 pygtk
 python-snakeviz
@@ -47,6 +52,7 @@ repetier-server
 rxfetch
 skypeforlinux-stable-bin
 spotify
+superproductivity-bin
 tela-circle-icon-theme-git
 ttf-all-the-icons
 ttf-ancient-fonts

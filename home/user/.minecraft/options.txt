@@ -1,10 +1,10 @@
-version:2865
+version:2975
 autoJump:true
 autoSuggestions:true
 chatColors:true
 chatLinks:true
 chatLinksPrompt:true
-enableVsync:true
+enableVsync:false
 entityShadows:true
 forceUnicodeFont:false
 discrete_mouse_scroll:false
@@ -23,21 +23,21 @@ mouseSensitivity:0.3802817
 fov:1.0
 screenEffectScale:1.0
 fovEffectScale:1.0
-gamma:100.0
-renderDistance:2
-simulationDistance:5
+gamma:1.0
+renderDistance:16
+simulationDistance:12
 entityDistanceScaling:1.0
 guiScale:0
 particles:0
 maxFps:260
-difficulty:1
+difficulty:2
 graphicsMode:1
 ao:2
 prioritizeChunkUpdates:0
 biomeBlendRadius:2
 renderClouds:true
-resourcePacks:["vanilla","Fabric Mods","file/Bare+Bones+1.18.zip","file/FreshAnimations_v1.5.zip"]
-incompatibleResourcePacks:["file/FreshAnimations_v1.5.zip"]
+resourcePacks:[]
+incompatibleResourcePacks:[]
 lastServer:play.jigsawmc.com
 lang:en_us
 soundDevice:
@@ -67,6 +67,7 @@ mouseWheelSensitivity:1.0
 rawMouseInput:true
 glDebugVerbosity:1
 skipMultiplayerWarning:false
+skipRealms32bitWarning:false
 hideMatchedNames:true
 joinedFirstServer:false
 hideBundleTutorial:false
@@ -81,8 +82,8 @@ key_key.back:key.keyboard.s
 key_key.right:key.keyboard.d
 key_key.jump:key.keyboard.space
 key_key.sneak:key.keyboard.left.shift
-key_key.sprint:key.keyboard.q
-key_key.drop:key.keyboard.p
+key_key.sprint:key.keyboard.left.control
+key_key.drop:key.keyboard.q
 key_key.inventory:key.keyboard.e
 key_key.chat:key.keyboard.t
 key_key.playerlist:key.keyboard.tab
@@ -96,7 +97,7 @@ key_key.fullscreen:key.keyboard.f11
 key_key.spectatorOutlines:key.keyboard.unknown
 key_key.swapOffhand:key.keyboard.f
 key_key.saveToolbarActivator:key.keyboard.unknown
-key_key.loadToolbarActivator:key.keyboard.x
+key_key.loadToolbarActivator:key.keyboard.u
 key_key.advancements:key.keyboard.l
 key_key.hotbar.1:key.keyboard.1
 key_key.hotbar.2:key.keyboard.2
@@ -108,7 +109,7 @@ key_key.hotbar.7:key.mouse.4
 key_key.hotbar.8:key.keyboard.8
 key_key.hotbar.9:key.keyboard.9
 key_of.key.zoom:key.keyboard.c
-soundCategory_master:0.0
+soundCategory_master:1.0
 soundCategory_music:0.0
 soundCategory_record:1.0
 soundCategory_weather:1.0
