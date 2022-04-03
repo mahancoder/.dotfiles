@@ -2,6 +2,7 @@ acpica
 alacritty
 alsa-firmware
 alsa-utils
+android-tools
 apache
 arandr
 arch-install-scripts
@@ -89,6 +90,7 @@ gtk-engine-murrine
 gvfs-mtp
 gvim
 gzip
+heimdall
 helvum
 hplip
 htop
