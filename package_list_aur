@@ -1,3 +1,6 @@
+anbox-git
+anbox-image-gapps
+anbox-modules-dkms
 anydesk-bin
 based-connect-git
 blender-benchmark
@@ -37,6 +40,7 @@ nerd-fonts-source-code-pro
 noto-color-emoji-fontconfig
 oh-my-zsh-git
 ookla-speedtest-bin
+openssh-askpass
 openvpn-update-systemd-resolved
 orchis-theme-git
 osm2pgsql

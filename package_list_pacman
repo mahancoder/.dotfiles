@@ -175,7 +175,6 @@ nvme-cli
 ocl-icd
 onefetch
 opencl-nvidia
-openssh-askpass
 openvpn
 os-prober
 pacman
@@ -196,6 +195,7 @@ playerctl
 polkit-gnome
 postgis
 postgresql
+psensor
 pulsemixer
 python-dbus-next
 python-geopandas
