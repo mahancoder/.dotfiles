@@ -524,8 +524,8 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
-follow_mouse_focus = True
-cursor_warp = False
+follow_mouse_focus = False
+cursor_warp = True
 floating_layout = layout.Floating(border_normal="#022430", border_focus="#89aaff",
                                   float_rules=[
                                       # Run the utility of `xprop` to see the wm class and name of an X client.
@@ -542,7 +542,7 @@ floating_layout = layout.Floating(border_normal="#022430", border_focus="#89aaff
                                   ]
                                   )
 auto_fullscreen = True
-focus_on_window_activation = "smart"
+focus_on_window_activation = "focus"
 reconfigure_screens = True
 
 # If things like steam games want to auto-minimize themselves when losing
