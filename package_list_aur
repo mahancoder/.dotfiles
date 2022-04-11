@@ -2,12 +2,13 @@ anbox-git
 anbox-image-gapps
 anbox-modules-dkms
 anydesk-bin
+asus-wmi-screenpad-dkms-git
 based-connect-git
 blender-benchmark
 bluetooth-autoconnect
-bottles
 brave-bin
 cava
+cfs-zen-tweaks
 coreshot
 cpupower-gui
 czkawka-gui-bin
@@ -23,6 +24,7 @@ fwts-git
 geekbench
 glmark2
 google-chrome
+howdy
 intel-mas-cli-tool
 iran-nastaliq-fonts
 j4-dmenu-desktop
@@ -30,6 +32,7 @@ jodin3-bin
 joplin-desktop-bin
 libcprime
 libglade
+libinput-multiplier
 lunar-client
 minecraft-launcher
 nautilus-admin-git
@@ -46,7 +49,6 @@ orchis-theme-git
 osm2pgsql
 pacman-hook-list-installed-packages
 pfetch
-phoronix-test-suite
 picom-jonaburg-git
 postman-bin
 pygtk

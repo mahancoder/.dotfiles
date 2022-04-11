@@ -95,7 +95,6 @@ helvum
 hplip
 htop
 hwinfo
-imwheel
 intel-gpu-tools
 intel-media-driver
 intel-ucode
@@ -195,6 +194,7 @@ playerctl
 polkit-gnome
 postgis
 postgresql
+powertop
 psensor
 pulsemixer
 python-dbus-next

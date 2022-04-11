@@ -8,7 +8,6 @@ deadd-notification-center &
 nitrogen --restore &
 picom -b &
 dex -a &
-imwheel &
+echo 3 > /tmp/libinput_discrete_deltay_multiplier
 uget-inegrator &
 flameshot &
-
