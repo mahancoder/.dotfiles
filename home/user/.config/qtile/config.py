@@ -524,7 +524,7 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
-follow_mouse_focus = False
+follow_mouse_focus = True
 cursor_warp = True
 floating_layout = layout.Floating(border_normal="#022430", border_focus="#89aaff",
                                   float_rules=[
