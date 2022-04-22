@@ -1,3 +1,4 @@
+acpi
 acpica
 alacritty
 alsa-firmware
@@ -32,6 +33,7 @@ carla
 chromium
 cmake
 cmatrix
+code
 cpupower
 cuda
 cups
@@ -43,6 +45,7 @@ dconf-editor
 ddcutil
 dex
 discord
+discord-canary
 dmenu
 dmidecode
 dnsmasq
@@ -54,6 +57,7 @@ efibootmgr
 espeak-ng
 evince
 exfatprogs
+expac
 fakeroot
 figlet
 file
@@ -181,6 +185,7 @@ pacman-contrib
 pacutils
 patch
 pavucontrol
+pdftk
 php
 php-apache
 php-pgsql
@@ -194,6 +199,7 @@ playerctl
 polkit-gnome
 postgis
 postgresql
+postgresql-old-upgrade
 powertop
 psensor
 pulsemixer
@@ -224,6 +230,7 @@ qemu
 qemu-guest-agent
 qtile
 qutebrowser
+realtime-privileges
 recoll
 rhythmbox
 rofi
@@ -244,6 +251,7 @@ strace
 sudo
 sysbench
 system-config-printer
+telegram-desktop
 texinfo
 tigervnc
 tk

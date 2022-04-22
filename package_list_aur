@@ -9,6 +9,8 @@ bluetooth-autoconnect
 brave-bin
 cava
 cfs-zen-tweaks
+code-features
+code-marketplace
 coreshot
 cpupower-gui
 czkawka-gui-bin
@@ -24,7 +26,6 @@ fwts-git
 geekbench
 glmark2
 google-chrome
-howdy
 intel-mas-cli-tool
 iran-nastaliq-fonts
 j4-dmenu-desktop
@@ -34,6 +35,7 @@ libcprime
 libglade
 libinput-multiplier
 lunar-client
+macchina-bin
 minecraft-launcher
 nautilus-admin-git
 nautilus-open-any-terminal
@@ -48,6 +50,7 @@ openvpn-update-systemd-resolved
 orchis-theme-git
 osm2pgsql
 pacman-hook-list-installed-packages
+persian-fonts
 pfetch
 picom-jonaburg-git
 postman-bin
@@ -60,6 +63,7 @@ rxfetch
 skypeforlinux-stable-bin
 spotify
 superproductivity-bin
+system-monitoring-center
 tela-circle-icon-theme-git
 ttf-all-the-icons
 ttf-ancient-fonts
@@ -72,7 +76,8 @@ uget-integrator-chromium
 ulauncher
 ulauncher-theme-arc-dark-git
 unimatrix-git
+upd72020x-fw
 vim-plug
 vim-youcompleteme-git
-visual-studio-code-bin
 yay
+zoom

@@ -85,12 +85,10 @@ def toggle_touchpad(_qtile):
     """Toggle touchpad"""
     global touchpad_on
     if touchpad_on:
-        subprocess.run(["xrandr", "--output", "HDMI2", "--off"], check=False)
+        subprocess.run(["screenpad_off"], check=False)
         touchpad_on = False
     else:
-        subprocess.run(["xrandr", "--output", "eDP1", "--primary", "--mode", "1920x1080", "--pos", "0x0", "--rotate",
-                       "normal", "--output", "HDMI2", "--mode", "1080x2160", "--pos", "0x1080", "--rotate", "right"], check=False)
-        subprocess.run(["nitrogen", "--restore"], check=False)
+        subprocess.run(["screenpad_on"], check=False)
         touchpad_on = True
 
 @lazy.function
@@ -525,7 +523,7 @@ mouse = [
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 follow_mouse_focus = True
-cursor_warp = True
+cursor_warp = False
 floating_layout = layout.Floating(border_normal="#022430", border_focus="#89aaff",
                                   float_rules=[
                                       # Run the utility of `xprop` to see the wm class and name of an X client.
