@@ -281,7 +281,7 @@ keys = [
         toggle_touchpad,
         desc='Toggle Screenpad'
         ),
-    Key([mod], "p", lazy.spawn("arandr", desc="Open Arandr"))
+    Key([mod], "p", lazy.spawn("arandr"), desc="Open Arandr")
 ]
 
 group_names = ["", "", "", "", "", "", ""]
