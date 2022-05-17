@@ -103,8 +103,9 @@ alias e="exit"
 alias ls="lsd --color=auto"
 alias la="lsd -a"
 alias syu="yay -Syu"
-alias s="sudo pacman -S"
+alias s="sudo pacman -S --needed"
 alias aur="yay -S"
+alias checkupdates-aur="pacman -Qm | /usr/bin/aur vercmp"
 
 # The following lines were added by compinstall
 

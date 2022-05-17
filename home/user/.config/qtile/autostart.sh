@@ -6,7 +6,7 @@ xss-lock -n /usr/bin/dim-screen.sh -l -- env XSECURELOCK_BLANK_TIMEOUT=1 XSECURE
 deadd-notification-center &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 nitrogen --restore &
-picom -b &
+picom -b --experimental-backends &
 dex -a &
 echo 3 > /tmp/libinput_discrete_deltay_multiplier
 uget-inegrator &

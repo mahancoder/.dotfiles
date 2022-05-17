@@ -6,13 +6,13 @@ based-connect-git
 blender-benchmark
 bluetooth-autoconnect
 cfs-zen-tweaks
-code-features
-code-marketplace
 coreshot
 cpupower-gui
 czkawka-gui-bin
+ddcci-driver-linux-dkms
 deadd-notification-center-bin
 debtap
+dptfxtract-bin
 dracula-gtk-theme
 etcher-bin
 expressvpn
@@ -20,6 +20,7 @@ expressvpn-gui
 foo2zjs-nightly
 fwts-git
 geekbench
+gimp-plugin-registry
 google-chrome
 intel-mas-cli-tool
 iran-nastaliq-fonts
@@ -46,10 +47,14 @@ persian-fonts
 pfetch
 picom-jonaburg-git
 powercap
+python-simpleeval
 python-snakeviz
+python2-cairo
+python2-numpy
 qtile-extras-git
 repetier-server
 rxfetch
+stacer-bin
 superproductivity-bin
 system-monitoring-center
 ttf-all-the-icons
@@ -62,4 +67,5 @@ ulauncher
 ulauncher-theme-arc-dark-git
 unimatrix-git
 upd72020x-fw
+visual-studio-code-bin
 zoom

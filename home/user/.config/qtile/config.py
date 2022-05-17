@@ -259,8 +259,8 @@ keys = [
         ),
     Key([mod], "s",
         lazy.spawn(
-            "bash -c \"locate home media | rofi -threads 0 -width 100 -dmenu -i -p \\\"locate:\\\" | xargs -r -0 xdg-open\""),
-        desc='Open Rofi'
+            "skypeforlinux"),
+        desc='Open Skype'
         ),
     Key([], "XF86MonBrightnessUp",
         lazy.spawn(
