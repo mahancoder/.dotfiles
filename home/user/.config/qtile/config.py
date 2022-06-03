@@ -65,6 +65,19 @@ def startup_handler():
     """Startup handler."""
     subprocess.call([os.path.expanduser("~/.config/qtile/autostart.sh")])
 
+@hook.subscribe.startup
+def dbus_register():
+    id = os.environ.get('DESKTOP_AUTOSTART_ID')
+    if not id:
+        return
+    subprocess.Popen(['dbus-send',
+                      '--session',
+                      '--print-reply',
+                      '--dest=org.gnome.SessionManager',
+                      '/org/gnome/SessionManager',
+                      'org.gnome.SessionManager.RegisterClient',
+                      'string:qtile',
+                      'string:' + id])
 
 def kbd(qtile_obj):
     """Keyboard layout."""
@@ -128,7 +141,29 @@ def open_dmenu_run(_qtile: libqtile.core.manager.Qtile):
         "dmenu_run -h 20 -p \">>\" -nb \"#003b60\" -nf \"#ffe585\" " +
         "-sb \"#ffe585\" -sf \"#017d7a\" -x 6 -y 5 -z " +
         str(int(_qtile.current_screen.width) - 12))
-    
+
+brightness = 255
+
+@lazy.function
+def screenpad_brightness_down(_qtile: libqtile.core.manager.Qtile):
+    with open(os.path.expanduser("~/.brightness"), "r+") as f:
+        brightness = int(f.readline()) - 10
+        f.seek(0)
+        f.write(str(brightness))
+        f.truncate()
+    with open("/sys/class/leds/asus::screenpad/brightness", "w") as sysfs_file:
+        sysfs_file.write(str(brightness))
+
+@lazy.function
+def screenpad_brightness_up(_qtile: libqtile.core.manager.Qtile):
+    with open(os.path.expanduser("~/.brightness"), "r+") as f:
+        brightness = int(f.readline()) + 10
+        f.seek(0)
+        f.write(str(brightness))
+        f.truncate()
+    with open("/sys/class/leds/asus::screenpad/brightness", "w") as sysfs_file:
+        sysfs_file.write(str(brightness))
+
 keys = [
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -272,6 +307,15 @@ keys = [
             "xbacklight -dec 10"),
         desc='Decrease screen brightness'
         ),
+    Key(["control"], "XF86MonBrightnessUp",
+        screenpad_brightness_up,
+        desc='Increase screen brightness'
+        ),
+    Key(["control"], "XF86MonBrightnessDown",
+        screenpad_brightness_down,
+        desc='Decrease screenpad brightness'
+        ),
+
     Key([mod, "shift"], "s",
         lazy.spawn(
             "flameshot gui"),
@@ -379,7 +423,7 @@ widgets = (
         #                foreground=colors[0][0], fontsize=17.23),
     ]
     + ([widget.TextBox(text=" ", fontsize=17.23, background=colors[0][0], foreground=colors[0]
-       [1]), widget.Wlan(format="{essid}", background=colors[0][0], foreground=colors[0][1])])
+       [1]), widget.Wlan(format="{essid}", interface="wlo1", background=colors[0][0], foreground=colors[0][1])])
     +
     [
         # widget.TextBox(text="", fontsize=17.23, padding=0,

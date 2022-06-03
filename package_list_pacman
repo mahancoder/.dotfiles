@@ -32,6 +32,7 @@ bluez
 bluez-utils
 brave-bin
 breeze
+bridge-utils
 brightnessctl
 btop
 carla
@@ -117,7 +118,6 @@ intel-media-driver
 intel-ucode
 inxi
 iptables-nft
-iwd
 jconvolver
 jre-openjdk
 jupyterlab
