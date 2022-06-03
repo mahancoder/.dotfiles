@@ -65,20 +65,6 @@ def startup_handler():
     """Startup handler."""
     subprocess.call([os.path.expanduser("~/.config/qtile/autostart.sh")])
 
-@hook.subscribe.startup
-def dbus_register():
-    id = os.environ.get('DESKTOP_AUTOSTART_ID')
-    if not id:
-        return
-    subprocess.Popen(['dbus-send',
-                      '--session',
-                      '--print-reply',
-                      '--dest=org.gnome.SessionManager',
-                      '/org/gnome/SessionManager',
-                      'org.gnome.SessionManager.RegisterClient',
-                      'string:qtile',
-                      'string:' + id])
-
 def kbd(qtile_obj):
     """Keyboard layout."""
     qtile_obj.widgets_map["keyboardlayout"].next_keyboard()
