@@ -95,6 +95,8 @@ github-cli
 glmark2
 gnome-backgrounds
 gnome-calculator
+gnome-calendar
+gnome-clocks
 gnome-keyring
 go
 go-tools
@@ -252,6 +254,7 @@ python-zeroconf
 python2-gobject2
 qemu-desktop
 qemu-guest-agent
+qt5ct
 qtile
 qutebrowser
 realtime-privileges
