@@ -3,7 +3,6 @@ acpica
 alacritty
 alsa-firmware
 alsa-utils
-anbox-git
 android-tools
 apache
 arandr
@@ -98,6 +97,7 @@ gnome-calculator
 gnome-calendar
 gnome-clocks
 gnome-keyring
+gnome-tweaks
 go
 go-tools
 gparted
@@ -121,6 +121,7 @@ intel-ucode
 inxi
 iptables-nft
 jconvolver
+joplin-desktop
 jre-openjdk
 jupyterlab
 kdenlive
@@ -152,9 +153,9 @@ lightdm
 lightdm-gtk-greeter
 lightdm-webkit-theme-litarvan
 lightdm-webkit2-greeter
-linux
 linux-firmware
-linux-headers
+linux-zen
+linux-zen-headers
 lsd
 lshw
 m4
@@ -176,6 +177,7 @@ mysql-workbench
 nano
 nautilus
 neofetch
+neovim
 nerd-fonts-droid-sans-mono
 nerd-fonts-source-code-pro
 net-tools
@@ -190,7 +192,7 @@ noto-fonts-emoji
 noto-fonts-extra
 npm
 ntfs-3g
-nvidia
+nvidia-dkms
 nvidia-prime
 nvidia-settings
 nvidia-utils
@@ -306,6 +308,7 @@ uthash
 v4l2loopback-dkms
 vbetool
 vdpauinfo
+vi
 vifm
 vim
 vim-plug
@@ -367,6 +370,7 @@ xorg-xwud
 xsecurelock
 xss-lock
 xterm
+xwinwrap-git
 yay
 youtube-dl
 yt-dlp

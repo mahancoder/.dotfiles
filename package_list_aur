@@ -1,6 +1,4 @@
 absolutely-proprietary
-anbox-image-gapps
-anbox-modules-dkms
 anydesk-bin
 asus-wmi-screenpad-dkms-git
 based-connect-git
@@ -28,7 +26,6 @@ intel-mas-cli-tool
 iran-nastaliq-fonts
 j4-dmenu-desktop
 jodin3-bin
-joplin-desktop-bin
 libcprime
 libglade
 libinput-multiplier
@@ -44,6 +41,7 @@ openvpn-update-systemd-resolved
 orchis-theme-git
 osm2pgsql
 pacman-hook-list-installed-packages
+paperview-git
 persian-fonts
 pfetch
 picom-jonaburg-git
