@@ -102,10 +102,12 @@ alias c="clear"
 alias e="exit"
 alias ls="lsd --color=auto"
 alias la="lsd -a"
+alias l="lsd -l"
 alias syu="yay -Syu"
 alias s="sudo pacman -S --needed"
 alias aur="yay -S"
 alias checkupdates-aur="pacman -Qm | /usr/bin/aur vercmp"
+alias sl="sl -d -e -3"
 
 # The following lines were added by compinstall
 
@@ -144,3 +146,7 @@ bindkey '5~' kill-word
 export STARSHIP_CONFIG=~/.config/starship/config.toml
 eval "$(starship init zsh)"
 #rxfetch 
+source ~/.config/lsx/lsx.sh
+export PF_INFO="ascii title os host kernel uptime pkgs memory shell editor de palette"
+#fortune | cowsay -f $(find /usr/share/cows -type f -name "*.cow" | shuf -n1) | lolcat -p 1.0 --seed 100
+pfetch

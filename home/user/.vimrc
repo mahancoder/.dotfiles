@@ -118,9 +118,11 @@ let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 " AutoPairs ------------------------------------------- {{{
 let g:AutoPairsShortcutJump = ''
 " }}}
-"
+
+" Themeing -------------------------------------------- {{{
 colorscheme gruvbox
 hi Normal guibg=NONE ctermbg=NONE
+" }}}
 
 " Quality of life mappings ---------------------------- {{{
 
@@ -174,6 +176,8 @@ nnoremap <leader>eo :lopen<cr><C-w>k
 nnoremap <leader>en :lne<cr>
 nnoremap <leader>ep :lp<cr>
 
+" Quitting mapping
+cnoreabbrev q qa
 " }}}
 
 " Syntastic ------------------------------------------- {{{
@@ -191,7 +195,7 @@ set go=""
 " }}}
 
 " YCM ------------------------------------------------ {{{
-nmap <C-Space> <plug>(YCMHover)
+nmap <C-@> <plug>(YCMHover)
 " }}}
 
 " vim-session ---------------------------------------- {{{

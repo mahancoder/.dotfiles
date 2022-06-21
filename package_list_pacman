@@ -3,12 +3,18 @@ acpica
 alacritty
 alsa-firmware
 alsa-utils
+android-emulator
+android-platform
+android-sdk-build-tools
 android-tools
 apache
 arandr
 arch-install-scripts
 archlinux-wallpaper
 archlinuxcn-keyring
+arduino
+arduino-avr-core
+arduino-cli
 aria2
 asciidoc
 asp
@@ -36,6 +42,7 @@ brightnessctl
 btop
 carla
 cava
+ccls
 chromium
 cmake
 cmatrix
@@ -57,6 +64,7 @@ dmidecode
 dnsmasq
 dotnet-sdk
 easyeffects
+ecryptfs-utils
 ed
 edk2-ovmf
 edk2-shell
@@ -115,6 +123,7 @@ htop
 hwinfo
 inetutils
 inkscape
+intel-compute-runtime
 intel-gpu-tools
 intel-media-driver
 intel-ucode
@@ -156,6 +165,7 @@ lightdm-webkit2-greeter
 linux-firmware
 linux-zen
 linux-zen-headers
+lolcat
 lsd
 lshw
 m4
@@ -168,6 +178,7 @@ mesa-utils
 meson
 minecraft-launcher
 mlocate
+mono-msbuild
 moreutils
 mpv
 mpv-mpris
@@ -197,6 +208,7 @@ nvidia-prime
 nvidia-settings
 nvidia-utils
 nvme-cli
+obsidian
 ocl-icd
 oh-my-zsh-git
 onefetch
@@ -228,6 +240,7 @@ powertop
 psensor
 pulsemixer
 pygtk
+pyright
 python-dbus-next
 python-geopandas
 python-gevent
@@ -247,6 +260,7 @@ python-psutil
 python-pygame
 python-pylint
 python-pymysql
+python-pynvim
 python-pyqt5
 python-pywayland
 python-pywlroots
@@ -294,6 +308,7 @@ tk
 tldr
 tlp
 tree
+trilium-bin
 ttf-font-awesome
 ttf-ubuntu-font-family
 turbostat
@@ -312,10 +327,10 @@ vi
 vifm
 vim
 vim-plug
-vim-youcompleteme-git
 virt-install
 virt-manager
 vulkan-intel
+weston
 wget
 which
 wine

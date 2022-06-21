@@ -32,6 +32,7 @@ from typing import List  # noqa: F401
 import subprocess
 
 from libqtile import bar, layout, widget, hook
+from libqtile.layout.floating import Floating
 import libqtile.core.manager
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
@@ -99,7 +100,7 @@ def to_next_screen(_qtile, move_focus: bool = True):
     _qtile.cmd_prev_screen()
     window.cmd_togroup(group.name, switch_group=False)
     if move_focus:
-       _qtile.cmd_next_screen()
+        _qtile.cmd_next_screen()
 
 @lazy.function
 def to_previous_screen(_qtile, move_focus: bool = True):
@@ -554,10 +555,10 @@ dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 follow_mouse_focus = True
 cursor_warp = False
-floating_layout = layout.Floating(border_normal="#022430", border_focus="#89aaff",
+floating_layout = Floating(border_normal="#022430", border_focus="#89aaff",
                                   float_rules=[
                                       # Run the utility of `xprop` to see the wm class and name of an X client.
-                                      *layout.Floating.default_float_rules,
+                                      *Floating.default_float_rules,
                                       Match(wm_class="confirmreset"),  # gitk
                                       Match(wm_class="makebranch"),  # gitk
                                       Match(wm_class="maketag"),  # gitk
