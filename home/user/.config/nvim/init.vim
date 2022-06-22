@@ -102,6 +102,10 @@ Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'mfussenegger/nvim-dap-python'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
+" optional for icon support
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'p00f/nvim-ts-rainbow'
 
 call plug#end()
 " }}}
@@ -135,9 +139,6 @@ colorscheme gruvbox
 
 " Quality of life mappings {{{
 
-" Session saving
-nnoremap <leader>s :mksession!<cr>
-
 " Formatter
 noremap <leader>f :Autoformat<cr>
 
@@ -168,6 +169,7 @@ inoremap <Down> <nop>
 
 " Split/buffer/tab key mappings
 nnoremap <leader>s :vsplit<cr>
+nnoremap <leader>hs :split<cr>
 nnoremap <M-n> :tabnew<cr>
 nnoremap <leader>n :vnew<cr>
 nnoremap <M-l> gt
@@ -200,6 +202,10 @@ vnoremap <leader>P "+P
 
 " End search mappings
 nnoremap <leader><Esc> :noh<cr>
+
+" Map PageDown and PageUp to D and U
+nnoremap D Lz<cr>
+nnoremap U Hzb
 " }}}
 
 " Syntastic {{{
@@ -433,19 +439,29 @@ lua << EOF
 require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
 require("dapui").setup()
 EOF
+nnoremap <leader>db :DapToggleBreakpoint<cr>
+nnoremap <leader>ds :DapContinue<cr>
+nnoremap <leader>dt :DapTerminate<cr>
+nnoremap <leader>dn :DapStepOver<cr>
+nnoremap <leader>di :DapStepInto<cr>
+
+nnoremap <leader>do :lua require("dapui").open()<cr>
+nnoremap <leader>dc :lua require("dapui").close()<cr>
+nnoremap <leader>dd :lua require("dapui").toggle()<cr>
+nnoremap <space>d :lua require("dapui").float_element("scopes")<cr>
 " }}}
 
 " nvim-treesitter {{{
 lua << EOF
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = {},
+  ensure_installed = {"c_sharp", "python"},
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
 
   -- List of parsers to ignore installing (for "all")
-  ignore_install = { "all" },
+  ignore_install = {},
 
   highlight = {
     -- `false` will disable the whole extension
@@ -461,8 +477,20 @@ require'nvim-treesitter.configs'.setup {
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
     -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
+    additional_vim_regex_highlighting = true,
   },
+  rainbow = {
+    enable = true,
+    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    -- colors = {}, -- table of hex strings
+    -- termcolors = {} -- table of colour name strings
+  }
 }
 EOF
+" }}}
+
+" ranbow (parentheses) {{{
+let g:rainbow_active = 1
 " }}}
