@@ -28,7 +28,7 @@ install_pip_packages() {
 
 deploy_configs() {
     files=($(find -type f -not -path "./.git/*" -printf "\"%p\"\n" | tr '\n' ' '))
-    delete=('"./deploy.sh"' '"./package_list_pacman"' '"./package_list_aur"' '"./.gitignore"' '"./dconf-settings.ini"' '"./pip_packages"')
+    delete=('"./deploy.sh"' '"./package_list_pacman"' '"./package_list_aur"' '"./.gitignore"' '"./dconf-settings.ini"' '"./pip_packages"' '"./README.md"')
 
     for del in ${delete[@]}
     do

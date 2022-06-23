@@ -106,6 +106,7 @@ Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
 " optional for icon support
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'p00f/nvim-ts-rainbow'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 call plug#end()
 " }}}
