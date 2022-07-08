@@ -1,5 +1,4 @@
-" set settings {{{
-set nocompatible
+" set settings {{{'ev'set nocompatible
 let mapleader = "'"
 set number
 set numberwidth=4
@@ -73,13 +72,14 @@ augroup autosave
     autocmd CursorHold,CursorHoldI * silent update
 augroup END
 " }}}
+
 " Vim-Plug {{{
 call plug#begin()
 
 Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'rafi/awesome-vim-colorschemes'
+"Plug 'vim-airline/vim-airline-themes'
+"Plug 'rafi/awesome-vim-colorschemes'
 Plug 'Yggdroot/indentLine'
 Plug 'preservim/nerdtree'
 Plug 'mhinz/vim-startify'
@@ -103,17 +103,23 @@ Plug 'rcarriga/nvim-dap-ui'
 Plug 'mfussenegger/nvim-dap-python'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
-" optional for icon support
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+Plug 'williamboman/nvim-lsp-installer'
+Plug 'neovim/nvim-lspconfig'
+Plug 'rafamadriz/friendly-snippets'
+Plug 'windwp/nvim-ts-autotag'
+Plug 'joshdick/onedark.vim'
+Plug 'navarasu/onedark.nvim'
+Plug 'kyazdani42/nvim-tree.lua'
 
 call plug#end()
 " }}}
 
 " Airline- {{{
 let g:airline_powerline_fonts=1
-let g:airline_theme='gruvbox'
+let g:airline_theme='onedark'
 let g:airline#extensions#tabline#enabled = 1
 " }}}
 
@@ -121,12 +127,12 @@ let g:airline#extensions#tabline#enabled = 1
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 " }}}
 
-" NERDTree {{{
-nnoremap <leader>t :NERDTreeFocus<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <Space>f :NERDTreeFind<CR>
+" NvimTree {{{
+nnoremap <leader>t :NvimTreeToggle<CR>
+"nnoremap <C-t> :NvimTreeToggle<CR>
+"nnoremap <Space>f :NvimTreeFindFile<CR>
 "let NERDTreeMapOpenInTab='<ENTER>'
-let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
+"let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 " }}}
 
 " AutoPairs {{{
@@ -134,7 +140,16 @@ let g:AutoPairsShortcutJump = ''
 " }}}
 
 " Themeing {{{
-colorscheme gruvbox
+colorscheme onedark
+" Enable true color
+if (empty($TMUX))
+  if (has("nvim"))
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
 "hi Normal guibg=NONE ctermbg=NONE
 " }}}
 
@@ -161,12 +176,6 @@ nnoremap <leader>l L
 
 " Map jk to normal mode
 inoremap jk <esc>
-
-" Force myself to discard bad habits
-inoremap <Left> <nop>
-inoremap <Right> <nop>
-inoremap <Up> <nop>
-inoremap <Down> <nop>
 
 " Split/buffer/tab key mappings
 nnoremap <leader>s :vsplit<cr>
@@ -207,6 +216,24 @@ nnoremap <leader><Esc> :noh<cr>
 " Map PageDown and PageUp to D and U
 nnoremap D Lz<cr>
 nnoremap U Hzb
+
+" Open HTML/XML tags on enter
+function EnterOrIndentTag()
+    let line = getline(".")
+    let col = getpos(".")[2]
+    let before = line[col-2]
+    let after = line[col-1]
+
+    if before == ">" && after == "<"
+        return "\<Enter>\<C-o>O\<Tab>"
+    endif
+    return "\<Enter>"
+endfunction
+
+inoremap <expr> <Enter> EnterOrIndentTag()
+
+" Map Ctrl + BackSpace to delete word
+imap <C-BS> <C-W>
 " }}}
 
 " Syntastic {{{
@@ -350,7 +377,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+  -- vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
 local lsp_flags = {
@@ -364,7 +391,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = {'pyright'}
+local servers = {'pyright', 'eslint', 'tsserver', 'ccls', 'html', 'bashls'}
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -375,6 +402,9 @@ end
 
 -- luasnip setup
 local luasnip = require 'luasnip'
+require("luasnip.loaders.from_vscode").lazy_load()
+require('luasnip').filetype_extend("javascript", { "javascriptreact" })
+require('luasnip').filetype_extend("javascript", { "html" })
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
@@ -421,6 +451,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 		virtual_text = false,
 		underline = true,
 		signs = false,
+        update_in_insert = true
 	}
 )
 
@@ -437,7 +468,39 @@ EOF
 
 " DAP (Debugging) {{{
 lua << EOF
-require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
+local dap = require('dap')
+-- require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
+dap.adapters.cppdbg = {
+  id = 'cppdbg',
+  type = 'executable',
+  command = '/home/mahan/.vscode/extensions/ms-vscode.cpptools-1.10.7-linux-x64/debugAdapters/bin/OpenDebugAD7',
+}
+dap.configurations.cpp = {
+  {
+    name = "Launch file",
+    type = "cppdbg",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = true,
+    externalTerminal = true
+  },
+  {
+    name = 'Attach to gdbserver :1234',
+    type = 'cppdbg',
+    request = 'launch',
+    MIMode = 'gdb',
+    miDebuggerServerAddress = 'localhost:1234',
+    miDebuggerPath = '/usr/bin/gdb',
+    cwd = '${workspaceFolder}',
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+  },
+}
+dap.configurations.c = dap.configurations.cpp
 require("dapui").setup()
 EOF
 nnoremap <leader>db :DapToggleBreakpoint<cr>
@@ -456,7 +519,7 @@ nnoremap <space>d :lua require("dapui").float_element("scopes")<cr>
 lua << EOF
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = {"c_sharp", "python"},
+  ensure_installed = {},
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -487,6 +550,9 @@ require'nvim-treesitter.configs'.setup {
     max_file_lines = nil, -- Do not enable for files with more than n lines, int
     -- colors = {}, -- table of hex strings
     -- termcolors = {} -- table of colour name strings
+  },
+  autotag = {
+    enable = true,
   }
 }
 EOF
@@ -494,4 +560,45 @@ EOF
 
 " ranbow (parentheses) {{{
 let g:rainbow_active = 1
+" }}}
+
+" nvim-lsp-installer {{{
+lua require("nvim-lsp-installer").setup {}
+" }}}
+
+" onedark.nvim {{{
+lua require('onedark').load()
+" }}}
+
+" NvimTree {{{
+lua << EOF
+-- examples for your init.lua
+
+-- empty setup using defaults
+require("nvim-tree").setup()
+
+-- OR setup with some options
+require("nvim-tree").setup({
+  sort_by = "case_sensitive",
+  view = {
+    adaptive_size = true,
+    mappings = {
+      list = {
+        { key = "u", action = "dir_up" },
+        { key = "<CR>", action = "tabnew" },
+      },
+    },
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
+EOF
+" }}}
+
+" FzfLua {{{
+nnoremap <Space>f :FzfLua files<CR>
 " }}}

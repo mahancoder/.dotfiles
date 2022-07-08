@@ -576,7 +576,7 @@ reconfigure_screens = True
 
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
-auto_minimize = True
+auto_minimize = False
 bring_front_click = "floating_only"
 # Java whitelist thing
 wmname = "LG3D"

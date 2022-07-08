@@ -85,7 +85,7 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -145,8 +145,8 @@ bindkey '5~' kill-word
 #End of lines configured by zsh-newuser-install
 export STARSHIP_CONFIG=~/.config/starship/config.toml
 eval "$(starship init zsh)"
-#rxfetch 
 source ~/.config/lsx/lsx.sh
-export PF_INFO="ascii title os host kernel uptime pkgs memory shell editor de palette"
+#export PF_INFO="ascii title os host kernel uptime pkgs memory shell editor de palette"
+#pfetch
 #fortune | cowsay -f $(find /usr/share/cows -type f -name "*.cow" | shuf -n1) | lolcat -p 1.0 --seed 100
-pfetch
+#rxfetch

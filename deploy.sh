@@ -3,6 +3,8 @@
 pre_install() {
     sudo ln -sf $(readlink -f "./packages_list_pacman") /etc/package-list-native.txt
     sudo ln -sf $(readlink -f "./packages_list_aur") /etc/package-list-foreign.txt
+    sudo rm /etc/pacman.conf &&
+    sudo ln -sf $(readlink -f "./etc/pacman.conf") /etc/pacman.conf
 }
 
 install_pacman_packages() {
@@ -28,7 +30,7 @@ install_pip_packages() {
 
 deploy_configs() {
     files=($(find -type f -not -path "./.git/*" -printf "\"%p\"\n" | tr '\n' ' '))
-    delete=('"./deploy.sh"' '"./package_list_pacman"' '"./package_list_aur"' '"./.gitignore"' '"./dconf-settings.ini"' '"./pip_packages"' '"./README.md"')
+    delete=('"./deploy.sh"' '"./package_list_pacman"' '"./package_list_aur"' '"./.gitignore"' '"./dconf-settings.ini"' '"./pip_packages"' '"./README.md"' '"./etc/pacman.conf"')
 
     for del in ${delete[@]}
     do

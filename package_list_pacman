@@ -25,9 +25,12 @@ aurutils
 autoconf
 automake
 autopep8
+babel-cli
 baobab
 base
+bash-language-server
 bat
+bear
 beep
 bind
 binutils
@@ -69,6 +72,7 @@ ed
 edk2-ovmf
 edk2-shell
 efibootmgr
+eslint
 espeak-ng
 evince
 exfatprogs
@@ -93,6 +97,7 @@ fwupd
 fzf
 gawk
 gcc
+gconf
 gdb
 gettext
 ghc-static
@@ -198,6 +203,7 @@ networkmanager-openvpn
 nftables
 nitrogen
 nnn
+nodejs
 notification-daemon
 noto-fonts-cjk
 noto-fonts-emoji
@@ -238,6 +244,7 @@ postgresql
 postgresql-old-upgrade
 postman-bin
 powertop
+prettier
 psensor
 pulsemixer
 pygtk
@@ -268,12 +275,14 @@ python-pywlroots
 python-shapely
 python-sqlalchemy
 python-zeroconf
+python2-cairo
 python2-gobject2
 qemu-desktop
 qemu-guest-agent
 qt5ct
 qtile
 qutebrowser
+react-native-debugger
 realtime-privileges
 recoll
 rhythmbox
@@ -295,6 +304,7 @@ speech-dispatcher
 spotify
 starship
 steam
+steam-native-runtime
 strace
 sudo
 sysbench
@@ -313,6 +323,7 @@ trilium-bin
 ttf-font-awesome
 ttf-ubuntu-font-family
 turbostat
+typescript-language-server
 ufw
 uget
 uget-integrator

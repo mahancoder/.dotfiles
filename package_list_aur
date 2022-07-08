@@ -28,6 +28,7 @@ intel-mas-cli-tool
 iran-nastaliq-fonts
 j4-dmenu-desktop
 jodin3-bin
+lib32-gconf
 libcprime
 libglade
 libinput-multiplier
@@ -37,6 +38,7 @@ mprime-bin
 nautilus-admin-git
 nautilus-open-any-terminal
 nerd-fonts-dejavu-complete
+nodejs-webpack
 noto-color-emoji-fontconfig
 omnisharp-roslyn-bin
 ookla-speedtest-bin
@@ -53,7 +55,6 @@ powercap
 python-pyclip
 python-simpleeval
 python-snakeviz
-python2-cairo
 python2-numpy
 qtile-extras-git
 repetier-server
@@ -72,4 +73,5 @@ ulauncher
 ulauncher-theme-arc-dark-git
 unimatrix-git
 visual-studio-code-bin
+watchman-bin
 zoom
