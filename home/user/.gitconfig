@@ -3,7 +3,10 @@
 [user]
 	email = mahan.lameie87@gmail.com
 	name = Mahan Lamee
+	signingkey = 36E1FD0FC08C6BB4
 [maintenance]
 	repo = /home/mahan/src/CovidAlerter/analyzer
 [safe]
 	directory = /usr/src/nvidia-515.43.04
+[commit]
+	gpgsign = true

@@ -19,6 +19,7 @@ dracula-gtk-theme
 etcher-bin
 expressvpn
 expressvpn-gui
+fluidplug-git
 foo2zjs-nightly
 fwts-git
 geekbench
@@ -27,6 +28,7 @@ google-chrome
 intel-mas-cli-tool
 iran-nastaliq-fonts
 j4-dmenu-desktop
+jack-keyboard
 jodin3-bin
 lib32-gconf
 libcprime
@@ -38,6 +40,7 @@ mprime-bin
 nautilus-admin-git
 nautilus-open-any-terminal
 nerd-fonts-dejavu-complete
+nitch
 nodejs-webpack
 noto-color-emoji-fontconfig
 omnisharp-roslyn-bin
@@ -59,6 +62,7 @@ python2-numpy
 qtile-extras-git
 repetier-server
 rxfetch
+spotblock-rs
 stacer-bin
 standardnotes-bin
 superproductivity-bin

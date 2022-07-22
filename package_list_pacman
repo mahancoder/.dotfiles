@@ -104,6 +104,7 @@ ghc-static
 gimp
 git
 github-cli
+glfw-x11
 glmark2
 gnome-backgrounds
 gnome-calculator
@@ -279,6 +280,7 @@ python2-cairo
 python2-gobject2
 qemu-desktop
 qemu-guest-agent
+qsynth
 qt5ct
 qtile
 qutebrowser
@@ -300,6 +302,7 @@ sl
 sndio
 sof-firmware
 sof-tools
+soundfont-fluid
 speech-dispatcher
 spotify
 starship
@@ -333,6 +336,7 @@ unrar
 unzip
 uthash
 v4l2loopback-dkms
+valgrind
 vbetool
 vdpauinfo
 vi

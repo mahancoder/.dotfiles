@@ -1,4 +1,5 @@
-" set settings {{{'ev'set nocompatible
+" set settings {{{
+set nocompatible
 let mapleader = "'"
 set number
 set numberwidth=4
@@ -21,7 +22,6 @@ set hidden
 set nobackup
 set nowritebackup
 set cmdheight=2
-set updatetime=300
 set signcolumn=number
 set completeopt=menu,menuone,noselect
 
@@ -602,3 +602,13 @@ EOF
 " FzfLua {{{
 nnoremap <Space>f :FzfLua files<CR>
 " }}}
+
+" Discord Rich Presence {{{
+lua << EOF
+require("presence"):setup({
+    main_image          = "file",                   -- Main image display (either "neovim" or "file")
+    enable_line_number  = true,                      -- Displays the current line number instead of the current project
+})
+EOF
+" }}}
+

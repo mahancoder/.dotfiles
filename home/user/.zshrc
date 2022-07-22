@@ -143,6 +143,7 @@ bindkey -v
 bindkey '^H' backward-kill-word
 bindkey '5~' kill-word
 #End of lines configured by zsh-newuser-install
+export GPG_TTY=$(tty)
 export STARSHIP_CONFIG=~/.config/starship/config.toml
 eval "$(starship init zsh)"
 source ~/.config/lsx/lsx.sh
