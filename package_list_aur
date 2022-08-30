@@ -13,6 +13,7 @@ davinci-resolve
 ddcci-driver-linux-dkms
 deadd-notification-center-bin
 debtap
+denemo
 didyoumean-bin
 dptfxtract-bin
 dracula-gtk-theme
@@ -25,6 +26,7 @@ fwts-git
 geekbench
 gimp-plugin-registry
 google-chrome
+grive
 intel-mas-cli-tool
 iran-nastaliq-fonts
 j4-dmenu-desktop
@@ -60,9 +62,10 @@ python-simpleeval
 python-snakeviz
 python2-numpy
 qtile-extras-git
+react-native-debugger
 repetier-server
 rxfetch
-spotblock-rs
+spotify-adblock
 stacer-bin
 standardnotes-bin
 superproductivity-bin

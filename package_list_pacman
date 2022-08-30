@@ -1,3 +1,4 @@
+a2jmidid
 acpi
 acpica
 alacritty
@@ -92,6 +93,7 @@ foomatic-db-nonfree-ppds
 foomatic-db-ppds
 fortune-mod
 freecad
+freepats-general-midi
 fritzing
 fwupd
 fzf
@@ -101,10 +103,12 @@ gconf
 gdb
 gettext
 ghc-static
+gigedit
 gimp
 git
 github-cli
 glfw-x11
+glm
 glmark2
 gnome-backgrounds
 gnome-calculator
@@ -120,8 +124,10 @@ groff
 grub
 grub-customizer
 gtk-engine-murrine
+gvfs-google
 gvfs-mtp
 gzip
+handbrake
 heimdall
 helvum
 hplip
@@ -129,6 +135,7 @@ htop
 hwinfo
 inetutils
 inkscape
+inotify-tools
 intel-compute-runtime
 intel-gpu-tools
 intel-media-driver
@@ -138,9 +145,11 @@ iptables-nft
 jconvolver
 joplin-desktop
 jre-openjdk
+jsampler
 jupyterlab
 kdenlive
 krita
+lastpass
 lib32-gnutls
 lib32-gtk3
 lib32-libappindicator-gtk2
@@ -171,6 +180,7 @@ lightdm-webkit2-greeter
 linux-firmware
 linux-zen
 linux-zen-headers
+linuxsampler
 lolcat
 lsd
 lshw
@@ -194,6 +204,7 @@ mysql-workbench
 nano
 nautilus
 neofetch
+neovide
 neovim
 nerd-fonts-droid-sans-mono
 nerd-fonts-source-code-pro
@@ -223,9 +234,11 @@ onefetch
 opencl-nvidia
 openvpn
 os-prober
+p7zip
 pacman
 pacman-contrib
 pacutils
+pandoc-bin
 patch
 pavucontrol
 pdftk
@@ -266,6 +279,7 @@ python-parsedatetime
 python-pint
 python-pip
 python-psutil
+python-pycryptodome
 python-pygame
 python-pylint
 python-pymysql
@@ -280,11 +294,12 @@ python2-cairo
 python2-gobject2
 qemu-desktop
 qemu-guest-agent
+qjackctl
+qsampler
 qsynth
 qt5ct
 qtile
 qutebrowser
-react-native-debugger
 realtime-privileges
 recoll
 rhythmbox
@@ -295,6 +310,7 @@ sassc
 screenkey
 seahorse
 sed
+sfizz
 shotcut
 shotwell
 skypeforlinux-stable-bin
@@ -315,6 +331,7 @@ system-config-printer
 tela-circle-icon-theme-git
 telegram-desktop
 texinfo
+texlive-core
 thermald
 throttled
 tigervnc

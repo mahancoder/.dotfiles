@@ -473,7 +473,7 @@ local dap = require('dap')
 dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = 'executable',
-  command = '/home/mahan/.vscode/extensions/ms-vscode.cpptools-1.10.7-linux-x64/debugAdapters/bin/OpenDebugAD7',
+  command = '/home/mahan/.vscode/extensions/ms-vscode.cpptools-1.11.5-linux-x64/debugAdapters/bin/OpenDebugAD7',
 }
 dap.configurations.cpp = {
   {
