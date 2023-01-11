@@ -55,14 +55,12 @@ cpupower
 cuda
 cups
 cups-pdf
-cura
-cura-binary-data
 curl
 dconf-editor
 ddcutil
 dex
+dhclient
 discord
-discord-canary
 dmenu
 dmidecode
 dnsmasq
@@ -99,6 +97,7 @@ fwupd
 fzf
 gawk
 gcc
+gcc-go
 gconf
 gdb
 gettext
@@ -116,7 +115,7 @@ gnome-calendar
 gnome-clocks
 gnome-keyring
 gnome-tweaks
-go
+gnu-netcat
 go-tools
 gparted
 grep
@@ -142,6 +141,7 @@ intel-media-driver
 intel-ucode
 inxi
 iptables-nft
+j4-dmenu-desktop
 jconvolver
 joplin-desktop
 jre-openjdk
@@ -207,13 +207,13 @@ neofetch
 neovide
 neovim
 nerd-fonts-droid-sans-mono
-nerd-fonts-source-code-pro
 net-tools
 network-manager-applet
 networkmanager
 networkmanager-openvpn
 nftables
 nitrogen
+nmap
 nnn
 nodejs
 notification-daemon
@@ -259,6 +259,7 @@ postgresql-old-upgrade
 postman-bin
 powertop
 prettier
+proxychains-ng
 psensor
 pulsemixer
 pygtk
@@ -328,7 +329,8 @@ strace
 sudo
 sysbench
 system-config-printer
-tela-circle-icon-theme-git
+tcpdump
+tela-circle-icon-theme-all-git
 telegram-desktop
 texinfo
 texlive-core
@@ -338,9 +340,11 @@ tigervnc
 tk
 tldr
 tlp
+traceroute
 tree
 trilium-bin
 ttf-font-awesome
+ttf-sourcecodepro-nerd
 ttf-ubuntu-font-family
 turbostat
 typescript-language-server
@@ -352,6 +356,7 @@ units
 unrar
 unzip
 uthash
+v2ray
 v4l2loopback-dkms
 valgrind
 vbetool

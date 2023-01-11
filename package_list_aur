@@ -5,9 +5,12 @@ asus-wmi-screenpad-dkms-git
 based-connect-git
 blender-benchmark
 bluetooth-autoconnect
+ceph-libs-bin
 cfs-zen-tweaks
 coreshot
 cpupower-gui
+cura-bin
+cura-binary-data
 czkawka-gui-bin
 davinci-resolve
 ddcci-driver-linux-dkms
@@ -15,6 +18,7 @@ deadd-notification-center-bin
 debtap
 denemo
 didyoumean-bin
+discord-canary
 dptfxtract-bin
 dracula-gtk-theme
 etcher-bin
@@ -29,7 +33,6 @@ google-chrome
 grive
 intel-mas-cli-tool
 iran-nastaliq-fonts
-j4-dmenu-desktop
 jack-keyboard
 jodin3-bin
 lib32-gconf
@@ -75,6 +78,7 @@ ttf-ancient-fonts
 ttf-font-icons
 ttf-material-design-icons
 tty-clock-git
+tun2socks-bin
 ubports-installer
 ulauncher
 ulauncher-theme-arc-dark-git

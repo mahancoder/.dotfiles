@@ -34,7 +34,7 @@ window:
   # GTK theme variant
   # Options: Dark, Light, None
   # None = default
-  gtk_theme_variant: Dark
+  decorations_theme_variant: Dark
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
