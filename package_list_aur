@@ -1,7 +1,6 @@
 absolutely-proprietary
 android-sdk-cmdline-tools-latest
 anydesk-bin
-asus-wmi-screenpad-dkms-git
 based-connect-git
 blender-benchmark
 bluetooth-autoconnect
@@ -41,10 +40,11 @@ libglade
 libinput-multiplier
 lunar-client
 macchina-bin
+meshmixer-wine
+midisheetmusic
 mprime-bin
 nautilus-admin-git
 nautilus-open-any-terminal
-nerd-fonts-dejavu-complete
 nitch
 nodejs-webpack
 noto-color-emoji-fontconfig
@@ -57,6 +57,7 @@ pacman-hook-list-installed-packages
 paperview-git
 persian-fonts
 pfetch
+phppgadmin
 picom-jonaburg-git
 platformio
 powercap
@@ -83,6 +84,7 @@ ubports-installer
 ulauncher
 ulauncher-theme-arc-dark-git
 unimatrix-git
+virtualbox-unattended-templates
 visual-studio-code-bin
 watchman-bin
 zoom

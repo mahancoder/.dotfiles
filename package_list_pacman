@@ -200,13 +200,13 @@ mpv
 mpv-mpris
 msr-tools
 mtools
+musescore
 mysql-workbench
 nano
 nautilus
 neofetch
 neovide
 neovim
-nerd-fonts-droid-sans-mono
 net-tools
 network-manager-applet
 networkmanager
@@ -232,8 +232,10 @@ ocl-icd
 oh-my-zsh-git
 onefetch
 opencl-nvidia
+openscad
 openvpn
 os-prober
+otf-droid-nerd
 p7zip
 pacman
 pacman-contrib
@@ -245,7 +247,6 @@ pdftk
 php
 php-apache
 php-pgsql
-phppgadmin
 pipewire
 pipewire-alsa
 pipewire-jack
@@ -343,6 +344,7 @@ tlp
 traceroute
 tree
 trilium-bin
+ttf-dejavu-nerd
 ttf-font-awesome
 ttf-sourcecodepro-nerd
 ttf-ubuntu-font-family
@@ -351,6 +353,7 @@ typescript-language-server
 ufw
 uget
 uget-integrator
+uget-integrator-chrome
 uget-integrator-chromium
 units
 unrar
@@ -367,6 +370,7 @@ vim
 vim-plug
 virt-install
 virt-manager
+virtualbox
 vulkan-intel
 weston
 wget

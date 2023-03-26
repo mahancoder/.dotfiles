@@ -5,7 +5,7 @@ set number
 set numberwidth=4
 set ttimeoutlen=0
 filetype plugin indent on
-syntax enable
+syntax off
 hi folded ctermbg=8
 set noshowmode
 set shortmess=F
@@ -387,11 +387,10 @@ local lsp_flags = {
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = {'pyright', 'eslint', 'tsserver', 'ccls', 'html', 'bashls'}
+local servers = {'pyright', 'eslint', 'tsserver', 'ccls', 'html', 'bashls', 'cssls'}
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -559,7 +558,7 @@ EOF
 " }}}
 
 " ranbow (parentheses) {{{
-let g:rainbow_active = 1
+let g:rainbow_active = 0
 " }}}
 
 " nvim-lsp-installer {{{
