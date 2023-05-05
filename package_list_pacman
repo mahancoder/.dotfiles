@@ -4,11 +4,12 @@ acpica
 alacritty
 alsa-firmware
 alsa-utils
-android-emulator
 android-platform
 android-sdk-build-tools
 android-tools
+ant
 apache
+appstream-glib
 arandr
 arch-install-scripts
 archlinux-wallpaper
@@ -17,6 +18,7 @@ arduino
 arduino-avr-core
 arduino-cli
 aria2
+asar
 asciidoc
 asp
 aspell
@@ -100,6 +102,7 @@ gcc
 gcc-go
 gconf
 gdb
+gendesk
 gettext
 ghc-static
 gigedit
@@ -118,8 +121,11 @@ gnome-tweaks
 gnu-netcat
 go-tools
 gparted
+gperf
+gradle
 grep
 groff
+groovy
 grub
 grub-customizer
 gtk-engine-murrine
@@ -143,6 +149,7 @@ inxi
 iptables-nft
 j4-dmenu-desktop
 jconvolver
+jdk11-openjdk
 joplin-desktop
 jre-openjdk
 jsampler
@@ -355,7 +362,6 @@ uget
 uget-integrator
 uget-integrator-chrome
 uget-integrator-chromium
-units
 unrar
 unzip
 uthash
@@ -386,6 +392,7 @@ xcursor-themes
 xdg-user-dirs
 xdotool
 xf86-video-intel
+xmlto
 xorg-bdftopcf
 xorg-docs
 xorg-font-util

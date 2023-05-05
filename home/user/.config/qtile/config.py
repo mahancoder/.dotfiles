@@ -226,7 +226,7 @@ keys = [
     ),
     Key(
         [], "XF86AudioLowerVolume",
-        lazy.spawn("amixer -D pulse sset Master 1%-")
+
     ),
     Key(
         [], "XF86AudioMute",
@@ -363,7 +363,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="DroidSansMono Nerd Font",
+    font="DroidSansMNerdFont",
     fontsize=13,
     padding=2,
     foreground="#FFFFFF"
@@ -418,7 +418,7 @@ widgets = (
         widget.Spacer(length=4),
         widget.Sep(foregroud="#f8f8f2", size_percent=97),
         widget.Spacer(length=4),
-        widget.TextBox(text="", fontsize=17.23,
+        widget.TextBox(text=" ", fontsize=16,
                        background=colors[1][0], foreground=colors[1][1]),
         widget.ThermalSensor(tag_sensor="Package id 0", threshold=80,
                              background=colors[1][0], foreground=colors[1][1]),
@@ -428,7 +428,7 @@ widgets = (
     + ([widget.Spacer(length=4),
         widget.Sep(foregroud="#f8f8f2", size_percent=97),
         widget.Spacer(length=4),
-        widget.TextBox(text="辶", fontsize=20,
+        widget.TextBox(text=" ", fontsize=17,
                        background=colors[0][0], foreground=colors[0][1], padding=5),
         widget.NvidiaSensors(background=colors[0][0], foreground=colors[0][1]),
         #     widget.TextBox(text="", fontsize=17.23, padding=0,
@@ -457,7 +457,7 @@ widgets = (
         widget.Spacer(length=4),
         widget.Battery(format='{char} {percent:2.0%}',
                        background=colors[1][0], foreground=colors[1][1],
-                       charge_char="", discharge_char="", empty_char=""),
+                       charge_char="󰢝", discharge_char="󰁾", empty_char="󰂎"),
         # widget.TextBox(text="", fontsize=17.23, padding=0,
         #                background=colors[1][0], foreground=colors[1][1]),
         widget.Spacer(length=4),
@@ -477,7 +477,7 @@ widgets = (
         #widget.Spacer(length=5, background=colors[0][0]),
         # widget.TextBox(text="", fontsize=17.23, padding=0,
         #                background=colors[0][0], foreground=colors[1][0]),
-        widget.TextBox(text="", fontsize=17.23,
+        widget.TextBox(text=" ", fontsize=16,
                        background=colors[1][0], foreground=colors[1][1]),
         widget.CPU(format="{load_percent:02.0f}%",
                    background=colors[1][0], foreground=colors[1][1]),
@@ -497,7 +497,7 @@ widgets = (
         widget.KeyboardLayout(
             configured_keyboards=["us", "ir"],
             display_map={"ir": "FA"},
-            fmt="韛 {}", background=colors[1][0], foreground=colors[1][1]
+            fmt=" {}", background=colors[1][0], foreground=colors[1][1]
         ),
         # widget.TextBox(text="", fontsize=17.23, padding=0,
         #                background=colors[1][0], foreground=colors[0][0]),
@@ -511,7 +511,7 @@ widgets = (
         widget.Spacer(length=4),
         widget.Sep(foregroud="#f8f8f2", size_percent=97),
         widget.Spacer(length=4),
-        widget.Clock(format=" %a %d %b  %I:%M %p", width=bar.CALCULATED,
+        widget.Clock(format=" %a %d %b 󰅐 %I:%M %p", width=bar.CALCULATED,
                      background=colors[1][0], foreground=colors[1][1]),
         widget.Spacer(length=2, background=colors[1][0]),
         # widget.TextBox(text="", fontsize=17.23, padding=0,
