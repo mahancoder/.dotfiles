@@ -13,7 +13,7 @@ vicmd_symbol = "[](bold green)"
 symbol = " "
 
 [python]
-symbol = " "
+symbol = " "
 version_format = "v$major.$minor"
 
 [time]

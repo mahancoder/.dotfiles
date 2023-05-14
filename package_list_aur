@@ -48,6 +48,7 @@ nautilus-admin-git
 nautilus-open-any-terminal
 nitch
 nodejs-webpack
+notify-send-py
 noto-color-emoji-fontconfig
 omnisharp-roslyn-bin
 ookla-speedtest-bin
@@ -62,8 +63,8 @@ phppgadmin
 picom-jonaburg-git
 platformio
 powercap
+printrun
 python-fontawesome
-python-pyclip
 python-simpleeval
 python-snakeviz
 python2-numpy

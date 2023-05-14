@@ -288,6 +288,7 @@ python-parsedatetime
 python-pint
 python-pip
 python-psutil
+python-pyclip
 python-pycryptodome
 python-pygame
 python-pylint
