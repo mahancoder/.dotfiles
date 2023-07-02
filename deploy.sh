@@ -9,7 +9,7 @@ pre_install() {
 
 install_pacman_packages() {
     sudo pacman -Syu &&
-    sudo pacman -S --needed - < ./package_list_pacman 
+    sudo pacman -S --needed - < ./package_list_pacman
 }
 
 install_yay() {
@@ -76,7 +76,7 @@ install_dmenu_power() {
 
 post_install() {
     echo "Enabling SystemD services..."
-    sudo systemctl enable systemd-resolved
+    sudo systemctl disable systemd-resolved
     sudo systemctl enable NetworkManager
     sudo systemctl enable lightdm
 
@@ -92,18 +92,14 @@ post_install() {
     echo "Creating Google Chrome symlink..."
     sudo ln -sf /usr/bin/google-chrome-stable /usr/bin/google-chrome
 
-    echo "Making Chrome and Brave run hardware accelrated..."
-    sudo sed -i "s|Exec=brave %U|Exec=brave --enable-gpu-rasterization --num-raster-threads=$(nproc) --enable-features=VaapiVideoDecoder %U|g" /usr/share/applications/brave-browser.desktop
-    sudo sed -i "s|Exec=/usr/bin/google-chrome-stable %U|Exec=/usr/bin/google-chrome-stable --enable-gpu-rasterization --num-raster-threads=$(nproc) --enable-features=VaapiVideoDecoder %U|g" /usr/share/applications/google-chrome.desktop
-    
     echo "Symlinking gnome-terminal to alacritty..."
     sudo bash -c 'echo -e '"'"'#!/bin/bash\nalacritty $(echo $@ | sed "s/--/-e/g")'"'"' > /usr/bin/gnome-terminal'
     sudo chmod +x /usr/bin/gnome-terminal
-    
+
     echo "Copying Material.ttf for rxfetch..."
     mkdir -p ~/.local/share/fonts/
     cp /usr/share/fonts/ttf-material-design-icons/Material.ttf ~/.local/share/fonts/
-    
+
     echo "Changing default shell to zsh..."
     sudo usermod -s /bin/zsh $USER
 
@@ -128,14 +124,14 @@ pre_install &&
 echo "Installing pacman packages..." &&
 install_pacman_packages &&
 
-echo "Installing yay..." &&	
+echo "Installing yay..." &&
 install_yay &&
 
 echo "Installing yay packages..." &&
 install_yay_packages &&
 
-echo "Installing pip packages..." &&
-install_pip_packages &&
+#echo "Installing pip packages..." &&
+#install_pip_packages &&
 
 echo "Deploying config files..." &&
 deploy_configs &&
