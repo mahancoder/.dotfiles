@@ -24,6 +24,7 @@ dracula-gtk-theme
 etcher-bin
 expressvpn
 expressvpn-gui
+fabric-installer
 fluidplug-git
 foo2zjs-nightly
 fwts-git
@@ -64,6 +65,7 @@ picom-jonaburg-git
 platformio
 powercap
 printrun
+protonvpn
 python-fontawesome
 python-simpleeval
 python-snakeviz

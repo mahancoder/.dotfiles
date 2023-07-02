@@ -46,6 +46,7 @@ breeze
 bridge-utils
 brightnessctl
 btop
+calibre
 carla
 cava
 ccls
@@ -249,6 +250,7 @@ pacman-contrib
 pacutils
 pandoc-bin
 patch
+patchelf
 pavucontrol
 pdftk
 php
@@ -272,9 +274,12 @@ psensor
 pulsemixer
 pygtk
 pyright
+python-build
 python-dbus-next
+python-django
 python-geopandas
 python-gevent
+python-installer
 python-iwlib
 python-libcharon
 python-mako
@@ -297,6 +302,7 @@ python-pynvim
 python-pyqt5
 python-pywayland
 python-pywlroots
+python-setuptools-scm
 python-shapely
 python-sqlalchemy
 python-zeroconf
@@ -342,7 +348,7 @@ tcpdump
 tela-circle-icon-theme-all-git
 telegram-desktop
 texinfo
-texlive-core
+texlive-basic
 thermald
 throttled
 tigervnc
