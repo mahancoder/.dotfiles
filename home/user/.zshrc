@@ -108,6 +108,8 @@ alias s="sudo pacman -S --needed"
 alias aur="yay -S"
 alias checkupdates-aur="pacman -Qm | /usr/bin/aur vercmp"
 alias sl="sl -d -e -3"
+alias cat="bat"
+alias tar="tar -a"
 
 # The following lines were added by compinstall
 
@@ -147,6 +149,8 @@ export GPG_TTY=$(tty)
 export STARSHIP_CONFIG=~/.config/starship/config.toml
 eval "$(starship init zsh)"
 source ~/.config/lsx/lsx.sh
+export LESSOPEN="|lesspipe.sh %s"
+export LESS="${LESS:+$LESS }-c"
 #export PF_INFO="ascii title os host kernel uptime pkgs memory shell editor de palette"
 #pfetch
 #fortune | cowsay -f $(find /usr/share/cows -type f -name "*.cow" | shuf -n1) | lolcat -p 1.0 --seed 100

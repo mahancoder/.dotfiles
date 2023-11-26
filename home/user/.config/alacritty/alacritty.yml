@@ -46,19 +46,19 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: SauceCodePro Nerd Font
+    family: SauceCodePro NF
     style: Regular
 
   bold:
-    family: SauceCodePro Nerd Font
+    family: SauceCodePro NF
     style: Bold
 
   italic:
-    family: SauceCodePro Nerd Font
+    family: SauceCodePro NF
     style: Italic
 
   bold_italic:
-    family: SauceCodePro Nerd Font
+    family: SauceCodePro NF
     style: Bold Italic
 
   size: 13

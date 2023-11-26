@@ -83,14 +83,15 @@ Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
 Plug 'preservim/nerdtree'
 Plug 'mhinz/vim-startify'
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 Plug 'vim-autoformat/vim-autoformat'
 Plug 'Nopik/vim-nerdtree-direnter'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'andweeb/presence.nvim'
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
 "Plug 'OmniSharp/omnisharp-vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
@@ -106,13 +107,16 @@ Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-Plug 'williamboman/nvim-lsp-installer'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'windwp/nvim-ts-autotag'
 Plug 'joshdick/onedark.vim'
 Plug 'navarasu/onedark.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'ActivityWatch/aw-watcher-vim'
+Plug 'theHamsta/nvim-dap-virtual-text'
 
 call plug#end()
 " }}}
@@ -127,15 +131,19 @@ let g:airline#extensions#tabline#enabled = 1
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 " }}}
 
+" AutoPairs {{{
+"let g:AutoPairsShortcutJump = ''
+lua << EOF
+    require("nvim-autopairs").setup {}
+EOF
+" }}}
+
 " NvimTree {{{
 nnoremap <leader>t :NvimTreeToggle<CR>
 "nnoremap <C-t> :NvimTreeToggle<CR>
 "nnoremap <Space>f :NvimTreeFindFile<CR>
 "let NERDTreeMapOpenInTab='<ENTER>'
 "let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
-" }}}
-
-" AutoPairs {{{
 lua << EOF
 local function on_attach(bufnr)
   local api = require('nvim-tree.api')
@@ -152,16 +160,16 @@ local function on_attach(bufnr)
   vim.keymap.set('n', '<C-e>', api.node.open.replace_tree_buffer,     opts('Open: In Place'))
   vim.keymap.set('n', '<C-k>', api.node.show_info_popup,              opts('Info'))
   vim.keymap.set('n', '<C-r>', api.fs.rename_sub,                     opts('Rename: Omit Filename'))
-  vim.keymap.set('n', '<C-t>', api.node.open.tab,                     opts('Open: New Tab'))
+  vim.keymap.set('n', '<CR>', api.node.open.tab,                     opts('Open: New Tab'))
   vim.keymap.set('n', '<C-v>', api.node.open.vertical,                opts('Open: Vertical Split'))
   vim.keymap.set('n', '<C-x>', api.node.open.horizontal,              opts('Open: Horizontal Split'))
   vim.keymap.set('n', '<BS>',  api.node.navigate.parent_close,        opts('Close Directory'))
-  vim.keymap.set('n', '<CR>',  api.node.open.edit,                    opts('Open'))
+  -- vim.keymap.set('n', '<CR>',  api.node.open.edit,                    opts('Open'))
   vim.keymap.set('n', '<Tab>', api.node.open.preview,                 opts('Open Preview'))
   vim.keymap.set('n', '>',     api.node.navigate.sibling.next,        opts('Next Sibling'))
   vim.keymap.set('n', '<',     api.node.navigate.sibling.prev,        opts('Previous Sibling'))
   vim.keymap.set('n', '.',     api.node.run.cmd,                      opts('Run Command'))
-  vim.keymap.set('n', '-',     api.tree.change_root_to_parent,        opts('Up'))
+  vim.keymap.set('n', 'u',     api.tree.change_root_to_parent,        opts('Up'))
   vim.keymap.set('n', 'a',     api.fs.create,                         opts('Create'))
   vim.keymap.set('n', 'bmv',   api.marks.bulk.move,                   opts('Move Bookmarked'))
   vim.keymap.set('n', 'B',     api.tree.toggle_no_buffer_filter,      opts('Toggle No Buffer'))
@@ -201,20 +209,24 @@ local function on_attach(bufnr)
   vim.keymap.set('n', '<2-LeftMouse>',  api.node.open.edit,           opts('Open'))
   vim.keymap.set('n', '<2-RightMouse>', api.tree.change_root_to_node, opts('CD'))
   -- END_DEFAULT_ON_ATTACH
-
-
-  -- Mappings migrated from view.mappings.list
-  --
-  -- You will need to insert "your code goes here" for any mappings with a custom action_cb
-  vim.keymap.set('n', 'u', api.tree.change_root_to_parent, opts('Up'))
-  vim.keymap.set('n', '<CR>', api.node.open.tab, opts('Open: New Tab'))
+  -- vim.keymap.set('n', 'u', api.tree.change_root_to_parent, opts('Up'))
+  -- vim.keymap.set('n', '<CR>', api.node.open.tab, opts('Open: New Tab'))
 
 end
 require("nvim-tree").setup({
   on_attach = on_attach,
+  sort_by = "case_sensitive",
+  view = {
+    adaptive_size = true,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
 })
 EOF
-let g:AutoPairsShortcutJump = ''
 " }}}
 
 " Themeing {{{
@@ -296,32 +308,32 @@ nnoremap D Lz<cr>
 nnoremap U Hzb
 
 " Open HTML/XML tags on enter
-function EnterOrIndentTag()
-    let line = getline(".")
-    let col = getpos(".")[2]
-    let before = line[col-2]
-    let after = line[col-1]
+"function EnterOrIndentTag()
+    "let line = getline(".")
+    "let col = getpos(".")[2]
+    "let before = line[col-2]
+    "let after = line[col-1]
 
-    if before == ">" && after == "<"
-        return "\<Enter>\<C-o>O\<Tab>"
-    endif
-    return "\<Enter>"
-endfunction
+    "if before == ">" && after == "<"
+        "return "\<Enter>\<C-o>O\<Tab>"
+    "endif
+    "return "\<Enter>"
+"endfunction
 
-inoremap <expr> <Enter> EnterOrIndentTag()
+"inoremap <expr> <Enter> EnterOrIndentTag()
 
 " Map Ctrl + BackSpace to delete word
-imap <C-BS> <C-W>
+imap <C-h> <C-W>
 " }}}
 
 " Syntastic {{{
-nnoremap <leader>e :SyntasticCheck<cr>
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-highlight link SyntasticErrorLine error
-highlight link SyntasticWarningLine todo
+"nnoremap <leader>e :SyntasticCheck<cr>
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 0
+"let g:syntastic_check_on_open = 0
+"let g:syntastic_check_on_wq = 0
+"highlight link SyntasticErrorLine error
+"highlight link SyntasticWarningLine todo
 " }}}
 
 " gVim {{{
@@ -466,16 +478,33 @@ local lsp_flags = {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 local lspconfig = require('lspconfig')
+require("mason-lspconfig").setup_handlers {
+    function (server_name)
+        lspconfig[server_name].setup {
+            on_attach = on_attach,
+            flags = lsp_flags,
+            capabilities = capabilities,
+        }
+    end,
+    ["omnisharp"] = function()
+        require'lspconfig'.omnisharp.setup{
+            cmd = {'omnisharp'};
+            on_attach = on_attach,
+            flags = lsp_flags,
+            capabilities = capabilities,
+        }
+    end
+}
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = {'pyright', 'eslint', 'tsserver', 'ccls', 'html', 'bashls', 'cssls'}
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    flags = lsp_flags,
-    capabilities = capabilities,
-  }
-end
+--local servers = {'pyright', 'eslint', 'tsserver', 'ccls', 'html', 'bashls', 'cssls', 'vimls', 'lua_ls', 'arduino_language_server', 'jsonls'}
+--for _, lsp in ipairs(servers) do
+--  lspconfig[lsp].setup {
+--    on_attach = on_attach,
+--    flags = lsp_flags,
+--    capabilities = capabilities,
+--  }
+--end
 
 -- luasnip setup
 local luasnip = require 'luasnip'
@@ -484,6 +513,7 @@ require('luasnip').filetype_extend("javascript", { "javascriptreact" })
 require('luasnip').filetype_extend("javascript", { "html" })
 
 -- nvim-cmp setup
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require 'cmp'
 cmp.setup {
   snippet = {
@@ -523,6 +553,10 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 	vim.lsp.diagnostic.on_publish_diagnostics, {
 		virtual_text = false,
@@ -532,21 +566,21 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 	}
 )
 
-local pid = vim.fn.getpid()
-local omnisharp_bin = "/usr/bin/omnisharp"
-require'lspconfig'.omnisharp.setup{
-    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) };
-    on_attach = on_attach,
-    flags = lsp_flags,
-    capabilities = capabilities,
-}
+--local pid = vim.fn.getpid()
+--local omnisharp_bin = "omnisharp"
+--require'lspconfig'.omnisharp.setup{
+--    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) };
+--    on_attach = on_attach,
+--    flags = lsp_flags,
+--    capabilities = capabilities,
+--}
 EOF
 " }}}
 
 " DAP (Debugging) {{{
 lua << EOF
 local dap = require('dap')
--- require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
+require('dap-python').setup('/usr/bin/python')
 dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = 'executable',
@@ -579,6 +613,7 @@ dap.configurations.cpp = {
 }
 dap.configurations.c = dap.configurations.cpp
 require("dapui").setup()
+require("nvim-dap-virtual-text").setup()
 EOF
 nnoremap <leader>db :DapToggleBreakpoint<cr>
 nnoremap <leader>ds :DapContinue<cr>
@@ -618,7 +653,7 @@ require'nvim-treesitter.configs'.setup {
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
     -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = true,
+    additional_vim_regex_highlighting = false,
   },
   rainbow = {
     enable = true,
@@ -639,41 +674,25 @@ EOF
 let g:rainbow_active = 0
 " }}}
 
-" nvim-lsp-installer {{{
-lua require("nvim-lsp-installer").setup {}
+" mason {{{
+lua << EOF
+require("mason").setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+})
+require("mason-lspconfig").setup {
+    ensure_installed = {'pyright', 'eslint', 'tsserver', 'clangd', 'html', 'bashls', 'cssls', 'vimls', 'lua_ls', 'arduino_language_server', 'jsonls', 'omnisharp'},
+}
+EOF
 " }}}
 
 " onedark.nvim {{{
 lua require('onedark').load()
-" }}}
-
-" NvimTree {{{
-lua << EOF
--- examples for your init.lua
-
--- empty setup using defaults
-require("nvim-tree").setup()
-
--- OR setup with some options
-require("nvim-tree").setup({
-  sort_by = "case_sensitive",
-  view = {
-    adaptive_size = true,
-    mappings = {
-      list = {
-        { key = "u", action = "dir_up" },
-        { key = "<CR>", action = "tabnew" },
-      },
-    },
-  },
-  renderer = {
-    group_empty = true,
-  },
-  filters = {
-    dotfiles = true,
-  },
-})
-EOF
 " }}}
 
 " FzfLua {{{

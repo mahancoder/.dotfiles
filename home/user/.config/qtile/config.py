@@ -135,6 +135,8 @@ brightness = 255
 def screenpad_brightness_down(_qtile: libqtile.core.manager.Qtile):
     with open(os.path.expanduser("~/.brightness"), "r+") as f:
         brightness = int(f.readline()) - 10
+        if brightness < 0:
+            return
         f.seek(0)
         f.write(str(brightness))
         f.truncate()
@@ -145,6 +147,8 @@ def screenpad_brightness_down(_qtile: libqtile.core.manager.Qtile):
 def screenpad_brightness_up(_qtile: libqtile.core.manager.Qtile):
     with open(os.path.expanduser("~/.brightness"), "r+") as f:
         brightness = int(f.readline()) + 10
+        if brightness > 255:
+            return
         f.seek(0)
         f.write(str(brightness))
         f.truncate()
@@ -176,6 +180,8 @@ keys = [
     ),
     Key([mod, "mod1"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "mod1"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([mod, "shift", "mod1"], "h", lazy.layout.swap_column_left(), desc="Swap columns"),
+    Key([mod, "shift", "mod1"], "l", lazy.layout.swap_column_right(), desc="Swap columns"),
     # Resize Windows
     Key([mod, "shift"], "h", lazy.layout.grow_left(),
         desc="Grow window to the left"),
@@ -226,7 +232,7 @@ keys = [
     ),
     Key(
         [], "XF86AudioLowerVolume",
-
+        lazy.spawn("amixer -D pulse sset Master 1%-")
     ),
     Key(
         [], "XF86AudioMute",
@@ -320,7 +326,7 @@ groups = [
             Group(group_names[0], spawn=f"gtk-launch {browser}"),
             Group(group_names[1], matches=[Match(wm_class="Code")]),
             Group(group_names[2]),
-            Group(group_names[3], matches=[Match(wm_class="discord")]),
+            Group(group_names[3], matches=[Match(wm_class="discord"), Match(wm_class="telegram-desktop")], layout="max"),
             Group(group_names[4]),
             Group(group_names[5]),
             Group(group_names[6]),
@@ -439,7 +445,7 @@ widgets = (
         widget.Spacer(length=4),
         widget.Sep(foregroud="#f8f8f2", size_percent=97),
         widget.Spacer(length=4),
-        widget.Net(format="{down} ↓↑ {up}",
+        widget.Net(format="{down:.1f}{down_suffix} ↓↑ {up:.1f}{up_suffix}",
                    background=colors[1][0], foreground=colors[1][1]),
         # widget.TextBox(text="", fontsize=17.23, padding=0,
         #                background=colors[1][0], foreground=colors[0][0]),

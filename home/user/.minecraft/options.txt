@@ -1,4 +1,4 @@
-version:3463
+version:3465
 autoJump:false
 operatorItemsTab:false
 autoSuggestions:true
@@ -15,7 +15,7 @@ reducedDebugInfo:false
 showSubtitles:true
 directionalAudio:false
 touchscreen:false
-fullscreen:false
+fullscreen:true
 bobView:false
 toggleCrouch:false
 toggleSprint:false
@@ -36,15 +36,15 @@ simulationDistance:12
 entityDistanceScaling:1.0
 guiScale:0
 particles:0
-maxFps:60
+maxFps:260
 graphicsMode:1
 ao:true
 prioritizeChunkUpdates:0
 biomeBlendRadius:2
 renderClouds:"true"
-resourcePacks:["vanilla","fabric"]
+resourcePacks:["fabric"]
 incompatibleResourcePacks:[]
-lastServer:Sugar.ploudos.com:19540
+lastServer:bridger.land
 lang:en_us
 soundDevice:""
 chatVisibility:0
@@ -53,7 +53,7 @@ chatLineSpacing:0.0
 textBackgroundOpacity:0.5
 backgroundForChatOnly:true
 hideServerAddress:false
-advancedItemTooltips:true
+advancedItemTooltips:false
 pauseOnLostFocus:true
 overrideWidth:0
 overrideHeight:0
@@ -72,10 +72,10 @@ tutorialStep:none
 mouseWheelSensitivity:1.0
 rawMouseInput:true
 glDebugVerbosity:1
-skipMultiplayerWarning:true
+skipMultiplayerWarning:false
 skipRealms32bitWarning:false
 hideMatchedNames:true
-joinedFirstServer:true
+joinedFirstServer:false
 hideBundleTutorial:false
 syncChunkWrites:false
 showAutosaveIndicator:true
@@ -126,7 +126,7 @@ key_key.gamma_utils.max_gamma:key.keyboard.unknown
 key_key.gamma_utils.min_gamma:key.keyboard.unknown
 key_key.gamma_utils.night_vision_toggle:key.keyboard.h
 soundCategory_master:1.0
-soundCategory_music:0.905906690140845
+soundCategory_music:1.0
 soundCategory_record:1.0
 soundCategory_weather:1.0
 soundCategory_block:1.0
