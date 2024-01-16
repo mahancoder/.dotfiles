@@ -254,6 +254,7 @@ opencl-nvidia
 openscad
 openvpn
 os-prober
+osm2pgsql
 otf-droid-nerd
 p7zip
 pacman
@@ -264,6 +265,7 @@ patch
 patchelf
 pavucontrol
 pdftk
+perf
 php
 php-apache
 php-pgsql
@@ -292,7 +294,6 @@ python-geopandas
 python-gevent
 python-installer
 python-iwlib
-python-libcharon
 python-mako
 python-markdown
 python-matplotlib
@@ -362,6 +363,7 @@ tela-circle-icon-theme-all-git
 telegram-desktop
 texinfo
 texlive-basic
+thermald
 throttled
 tigervnc
 tk

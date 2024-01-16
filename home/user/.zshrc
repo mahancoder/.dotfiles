@@ -71,9 +71,10 @@ CASE_SENSITIVE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 export ZSH_CUSTOM=/usr/share/zsh
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#666666,bg=default"
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#666666,bg=default"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#666666" # For whatever reason bg=default breaks it?
 # ZSH_AUTOSUGGEST_STRATEGY="completion"
 source $ZSH/oh-my-zsh.sh
 # bindkey '\t' forward-char
@@ -130,7 +131,7 @@ setopt nomenucomplete
 setopt noautolist
 setopt bashautolist
 # This speeds up pasting w/ autosuggest
-# # https://github.com/zsh-users/zsh-autosuggestions/issues/238
+ # https://github.com/zsh-users/zsh-autosuggestions/issues/238
 pasteinit() {
     OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
     zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
@@ -148,7 +149,7 @@ bindkey '5~' kill-word
 export GPG_TTY=$(tty)
 export STARSHIP_CONFIG=~/.config/starship/config.toml
 eval "$(starship init zsh)"
-source ~/.config/lsx/lsx.sh
+#source ~/.config/lsx/lsx.sh
 export LESSOPEN="|lesspipe.sh %s"
 export LESS="${LESS:+$LESS }-c"
 #export PF_INFO="ascii title os host kernel uptime pkgs memory shell editor de palette"

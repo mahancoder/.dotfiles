@@ -59,7 +59,6 @@ noto-color-emoji-fontconfig
 ookla-speedtest-bin
 openvpn-update-systemd-resolved
 orchis-theme-git
-osm2pgsql
 pacman-hook-list-installed-packages
 paperview-git
 persian-fonts
@@ -70,12 +69,12 @@ powercap
 printrun
 protonvpn
 python-fontawesome
+python-libcharon
 python-simpleeval
 python-snakeviz
 python2-numpy
 qtile-extras-git
 react-native-debugger
-rxfetch
 skypeforlinux-stable-bin
 spotify-adblock
 stacer-bin
