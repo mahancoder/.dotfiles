@@ -1,0 +1,104 @@
+live_config_reload = true
+working_directory = "None"
+
+[bell]
+animation = "EaseOutCirc"
+color = "0x464d6a"
+duration = 0
+
+[colors]
+draw_bold_text_with_bright_colors = false
+
+[colors.bright]
+black = "0x434758"
+blue = "0x9cc4ff"
+cyan = "0xa3f7ff"
+green = "0xddffa7"
+magenta = "0xe1acff"
+red = "0xff8b92"
+white = "0xffffff"
+yellow = "0xffe585"
+
+[colors.normal]
+black = "0x292d3e"
+blue = "0x82aaff"
+cyan = "0x89ddff"
+green = "0xc3e88d"
+magenta = "0xc792ea"
+red = "0xf07178"
+white = "0xd0d0d0"
+yellow = "0xffcb6b"
+
+[colors.primary]
+background = "0x292d3e"
+foreground = "0xd0d0d0"
+
+[cursor]
+blink_interval = 500
+thickness = 0.15
+unfocused_hollow = true
+
+[cursor.style]
+blinking = "On"
+shape = "Block"
+
+[font]
+size = 13
+
+[font.bold]
+family = "SauceCodePro NF"
+style = "Bold"
+
+[font.bold_italic]
+family = "SauceCodePro NF"
+style = "Bold Italic"
+
+[font.italic]
+family = "SauceCodePro NF"
+style = "Italic"
+
+[font.normal]
+family = "SauceCodePro NF"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[mouse]
+hide_when_typing = false
+
+[[mouse.bindings]]
+action = "PasteSelection"
+mouse = "Middle"
+
+[[mouse.bindings]]
+action = "Copy"
+mouse = "Right"
+
+#[mouse.double_click]
+#threshold = 300
+
+#[mouse.triple_click]
+#threshold = 300
+
+[scrolling]
+history = 500
+multiplier = 1
+
+[window]
+decorations = "full"
+decorations_theme_variant = "Dark"
+dynamic_padding = true
+dynamic_title = true
+opacity = 0.8
+startup_mode = "Windowed"
+title = "Alacritty"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 5
+y = 5
