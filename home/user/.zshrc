@@ -156,3 +156,4 @@ export LESS="${LESS:+$LESS }-c"
 #pfetch
 #fortune | cowsay -f $(find /usr/share/cows -type f -name "*.cow" | shuf -n1) | lolcat -p 1.0 --seed 100
 #rxfetch
+#fastfetch

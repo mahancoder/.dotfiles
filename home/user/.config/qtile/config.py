@@ -69,11 +69,11 @@ def startup_handler():
 def kbd(qtile_obj):
     """Keyboard layout."""
     qtile_obj.widgets_map["keyboardlayout"].next_keyboard()
-    qtile_obj.cmd_spawn("setxkbmap -option caps:super")
+    qtile_obj.spawn("setxkbmap -option caps:super")
 
 # def open_power():
     # """Open Dmenu Power"""
-    # qtile.cmd_spawn(
+    # qtile.spawn(
         # "dmenu_power -h 20 -p \">>\" -nb \"#003b60\" -nf \"#ffe585\" -sb \"#ffe585\" -sf \"#017d7a\" -x 6 -y 5 -z 1588")
 
 
@@ -116,7 +116,7 @@ def to_previous_screen(_qtile, move_focus: bool = True):
 @lazy.function
 def open_dmenu_power(_qtile: libqtile.core.manager.Qtile):
     """Open Dmenu Power"""
-    _qtile.cmd_spawn(
+    _qtile.spawn(
         "dmenu_power -h 20 -p \">>\" -nb \"#003b60\" -nf \"#ffe585\" " +
         "-sb \"#ffe585\" -sf \"#017d7a\" -x 6 -y 5 -z " +
         str(int(_qtile.current_screen.width) - 12))
@@ -124,7 +124,7 @@ def open_dmenu_power(_qtile: libqtile.core.manager.Qtile):
 @lazy.function
 def open_dmenu_run(_qtile: libqtile.core.manager.Qtile):
     """Open Dmenu Run"""
-    _qtile.cmd_spawn(
+    _qtile.spawn(
         "dmenu_run -h 20 -p \">>\" -nb \"#003b60\" -nf \"#ffe585\" " +
         "-sb \"#ffe585\" -sf \"#017d7a\" -x 6 -y 5 -z " +
         str(int(_qtile.current_screen.width) - 12))
