@@ -292,12 +292,12 @@ keys = [
         ),
     Key([], "XF86MonBrightnessUp",
         lazy.spawn(
-            "xbacklight -inc 5"),
+            "brightnessctl -d 'intel_backlight' s 5%+"),
         desc='Increase screen brightness'
         ),
     Key([], "XF86MonBrightnessDown",
         lazy.spawn(
-            "xbacklight -dec 5"),
+            "brightnessctl -d 'intel_backlight' s 5%-"),
         desc='Decrease screen brightness'
         ),
     Key(["control"], "XF86MonBrightnessUp",

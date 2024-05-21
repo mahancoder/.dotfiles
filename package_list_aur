@@ -28,6 +28,7 @@ etcher-bin
 expressvpn
 expressvpn-gui
 fabric-installer
+filemanager-actions
 fim
 fluidplug-git
 foo2zjs-nightly
@@ -50,7 +51,6 @@ logisim-evolution-bin
 lunar-client
 macchina-bin
 meshmixer-wine
-midisheetmusic
 mprime-bin
 nautilus-admin-git
 nautilus-open-any-terminal
@@ -65,6 +65,7 @@ openvpn-update-systemd-resolved
 orca-slicer-bin
 orchis-theme-git
 pacman-hook-list-installed-packages
+pacman-systemd-inhibit
 paperview-git
 persian-fonts
 pfetch

@@ -86,8 +86,8 @@ fd
 ffmpegthumbnailer
 figlet
 file
-filemanager-actions
 findutils
+firejail
 flameshot
 flatpak
 flex
@@ -132,6 +132,7 @@ grub
 grub-customizer
 gst-libav
 gst-plugins-ugly
+gtk-doc
 gtk-engine-murrine
 gvfs-google
 gvfs-mtp
@@ -324,6 +325,7 @@ python-setuptools-scm
 python-shapely
 python-sip4
 python-sqlalchemy
+python-virtualenv
 python-zeroconf
 python2-cairo
 python2-gobject2
@@ -332,6 +334,12 @@ qemu-guest-agent
 qjackctl
 qsampler
 qsynth
+qt5-3d
+qt5-datavis3d
+qt5-script
+qt5-scxml
+qt5-sensors
+qt5-websockets
 qt5ct
 qtile
 rarcrack
@@ -340,6 +348,7 @@ redshift
 rhythmbox
 rmlint
 rofi
+rust
 s-tui
 samba
 sassc
@@ -370,6 +379,7 @@ tela-circle-icon-theme-all-git
 telegram-desktop
 texinfo
 texlive-basic
+texlive-bin
 thermald
 throttled
 tigervnc
@@ -378,6 +388,7 @@ tldr
 tlp
 tmux
 traceroute
+tracker3-miners
 tree
 ttf-dejavu-nerd
 ttf-font-awesome
@@ -394,6 +405,7 @@ unrar
 unzip
 uthash
 v2ray
+v2ray-geoip
 v4l2loopback-dkms
 valgrind
 vbetool
@@ -406,8 +418,11 @@ vim-plug
 virt-install
 virt-manager
 virtualbox
+vte-common
+vte3
 vulkan-intel
 vulkan-tools
+webkit2gtk
 wget
 which
 wine
@@ -416,10 +431,13 @@ wine-mono
 winetricks
 wireplumber
 wlroots
+wxwidgets-common
+wxwidgets-gtk3
 xclip
 xcursor-themes
 xdg-user-dirs
 xdotool
+xfsprogs
 xmlto
 xorg-bdftopcf
 xorg-docs
