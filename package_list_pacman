@@ -1,7 +1,9 @@
 a2jmidid
 absolutely-proprietary
 acpi
+acpi_call-dkms
 acpica
+acpid
 aircrack-ng
 alacritty
 alsa-firmware
@@ -75,6 +77,7 @@ ed
 edk2-ovmf
 edk2-shell
 efibootmgr
+electrum
 eslint
 espeak-ng
 evince
@@ -195,6 +198,7 @@ lightdm-gtk-greeter
 lightdm-webkit-theme-litarvan
 lightdm-webkit2-greeter
 linux-firmware
+linux-firmware-qlogic
 linux-zen
 linux-zen-headers
 linuxsampler

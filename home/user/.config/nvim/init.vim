@@ -77,8 +77,11 @@ augroup END
 call plug#begin()
 
 Plug 'preservim/nerdcommenter'
+Plug 'nvim-neotest/nvim-nio'
 Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
+"Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'vim-airline/vim-airline-themes'
 "Plug 'rafi/awesome-vim-colorschemes'
 Plug 'Yggdroot/indentLine'
 Plug 'preservim/nerdtree'
@@ -112,8 +115,9 @@ Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'windwp/nvim-ts-autotag'
-Plug 'joshdick/onedark.vim'
-Plug 'navarasu/onedark.nvim'
+"Plug 'joshdick/onedark.vim'
+Plug 'olimorris/onedarkpro.nvim'
+"Plug 'navarasu/onedark.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'ActivityWatch/aw-watcher-vim'
 Plug 'theHamsta/nvim-dap-virtual-text'
@@ -121,10 +125,16 @@ Plug 'theHamsta/nvim-dap-virtual-text'
 call plug#end()
 " }}}
 
-" Airline- {{{
+" Airline {{{
 let g:airline_powerline_fonts=1
 let g:airline_theme='onedark'
 let g:airline#extensions#tabline#enabled = 1
+" }}}
+
+" lualine {{{
+"lua << EOF
+    "require('lualine').setup()
+"EOF
 " }}}
 
 " indentLine {{{
@@ -474,6 +484,8 @@ local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
+
+
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
@@ -514,6 +526,34 @@ require('luasnip').filetype_extend("javascript", { "html" })
 
 -- nvim-cmp setup
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local cmp_kinds = {
+  Text = '  ',
+  Method = '  ',
+  Function = '  ',
+  Constructor = '  ',
+  Field = '  ',
+  Variable = '  ',
+  Class = '  ',
+  Interface = '  ',
+  Module = '  ',
+  Property = '  ',
+  Unit = '  ',
+  Value = '  ',
+  Enum = '  ',
+  Keyword = '  ',
+  Snippet = '  ',
+  Color = '  ',
+  File = '  ',
+  Reference = '  ',
+  Folder = '  ',
+  EnumMember = '  ',
+  Constant = '  ',
+  Struct = '  ',
+  Event = '  ',
+  Operator = '  ',
+  TypeParameter = '  ',
+}
+
 local cmp = require 'cmp'
 cmp.setup {
   snippet = {
@@ -552,6 +592,12 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
   },
+  formatting = {
+    format = function(_, vim_item)
+      vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
+      return vim_item
+  end
+  }
 }
 cmp.event:on(
   'confirm_done',
@@ -689,10 +735,6 @@ require("mason-lspconfig").setup {
     ensure_installed = {'pyright', 'eslint', 'tsserver', 'clangd', 'html', 'bashls', 'cssls', 'vimls', 'lua_ls', 'arduino_language_server', 'jsonls', 'omnisharp'},
 }
 EOF
-" }}}
-
-" onedark.nvim {{{
-lua require('onedark').load()
 " }}}
 
 " FzfLua {{{

@@ -1,4 +1,5 @@
 activitywatch-bin
+aic94xx-firmware
 android-emulator
 android-platform
 android-sdk-build-tools
@@ -8,6 +9,7 @@ asp
 based-connect-git
 blender-benchmark
 bluetooth-autoconnect
+bmfdec-git
 ceph-libs-bin
 cfs-zen-tweaks
 compfy
@@ -21,9 +23,8 @@ deadd-notification-center-bin
 debtap
 didyoumean-bin
 discord-canary
+dptfxtract-bin
 dracula-gtk-theme
-electron25-bin
-electron26-bin
 etcher-bin
 expressvpn
 expressvpn-gui
@@ -39,6 +40,7 @@ grive
 icu72-bin
 imgcat
 intel-mas-cli-tool
+ioport-git
 iran-nastaliq-fonts
 jack-keyboard
 lastpass
@@ -54,6 +56,7 @@ meshmixer-wine
 mprime-bin
 nautilus-admin-git
 nautilus-open-any-terminal
+nbfc
 nekoray-bin
 nitch
 nodejs-webpack
@@ -101,8 +104,10 @@ ulauncher
 ulauncher-theme-arc-dark-git
 unimatrix-git
 units
+upd72020x-fw
 virtualbox-unattended-templates
 visual-studio-code-bin
 watchman-bin
+wd719x-firmware
 youtube-dl
 zoom

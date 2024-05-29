@@ -10,7 +10,7 @@ bobView:false
 anaglyph3d:false
 maxFps:60
 fboEnable:true
-difficulty:3
+difficulty:2
 fancyGraphics:true
 ao:2
 renderClouds:true
@@ -38,7 +38,7 @@ chatHeightFocused:1.0
 chatHeightUnfocused:0.44366196
 chatScale:1.0
 chatWidth:1.0
-showInventoryAchievementHint:true
+showInventoryAchievementHint:false
 mipmapLevels:4
 streamBytesPerPixel:0.5
 streamMicVolume:1.0
