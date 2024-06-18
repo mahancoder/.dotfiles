@@ -1,33 +1,33 @@
 " set settings {{{
-set nocompatible
+" set nocompatible
 let mapleader = "'"
 set number
-set numberwidth=4
-set ttimeoutlen=0
-filetype plugin indent on
-syntax off
-hi folded ctermbg=8
+" set numberwidth=4
+" set ttimeoutlen=0
+" filetype plugin indent on
+" syntax off
+" hi folded ctermbg=8
 set noshowmode
-set shortmess=F
-set foldlevelstart=99
+" set shortmess=F
+" set foldlevelstart=99
 set splitbelow
 set splitright
-set background=dark
+" set background=dark
 set tabstop=4
-set mouse+=a
-set shiftwidth=4
+set mouse=a
+set shiftwidth=0
 set expandtab
-set guifont=DroidSansMono\ Nerd\ Font\ 14
-set hidden
-set nobackup
-set nowritebackup
-set cmdheight=2
-set signcolumn=number
-set completeopt=menu,menuone,noselect
+" set guifont=DroidSansMono\ Nerd\ Font\ 14
+" set hidden
+" set nobackup
+" set nowritebackup
+" set cmdheight=2
+" set signcolumn=number
+" set completeopt=menu,menuone,noselect
 
 " }}}
 
-" Key mappings for normal mode movement {{{
+" Key mappings for inset mode movement {{{
 inoremap <M-h> <Left>
 inoremap <M-j> <Down>
 inoremap <M-k> <Up>
@@ -44,19 +44,12 @@ cnoremap <M-l> <Right>
 " }}}
 
 " .vimrc related key mappings {{{
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ve :vsplit $MYVIMRC<cr>
 nnoremap <leader>vr :source $MYVIMRC<cr>
 " }}}
 
 " Key mapping to exit visual and command mode faster {{{
 vnoremap <Esc> <C-c>
-" }}}
-
-" gVim copy/cut/paste {{{
-vmap <C-c> "+yi
-vmap <C-x> "+c
-vmap <C-v> c<ESC>"+p
-imap <C-v> <C-r><C-o>+"
 " }}}
 
 " Folding {{{
@@ -76,7 +69,7 @@ augroup END
 " Vim-Plug {{{
 call plug#begin()
 
-Plug 'preservim/nerdcommenter'
+Plug 'numToStr/Comment.nvim'
 Plug 'nvim-neotest/nvim-nio'
 Plug 'vim-airline/vim-airline'
 "Plug 'nvim-lualine/lualine.nvim'
@@ -301,13 +294,13 @@ nnoremap <leader>ep :lp<cr>
 
 " Copy to clipboard
 vnoremap  <leader>y  "+y
-nnoremap  <leader>Y  "+yg_
 nnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
 
 " Paste from clipboard
 nnoremap <leader>p "+p
-nnoremap <leader>P "+P
 vnoremap <leader>p "+p
+nnoremap <leader>P "+P
 vnoremap <leader>P "+P
 
 " End search mappings
@@ -317,37 +310,10 @@ nnoremap <leader><Esc> :noh<cr>
 nnoremap D Lz<cr>
 nnoremap U Hzb
 
-" Open HTML/XML tags on enter
-"function EnterOrIndentTag()
-    "let line = getline(".")
-    "let col = getpos(".")[2]
-    "let before = line[col-2]
-    "let after = line[col-1]
-
-    "if before == ">" && after == "<"
-        "return "\<Enter>\<C-o>O\<Tab>"
-    "endif
-    "return "\<Enter>"
-"endfunction
-
 "inoremap <expr> <Enter> EnterOrIndentTag()
 
 " Map Ctrl + BackSpace to delete word
 imap <C-h> <C-W>
-" }}}
-
-" Syntastic {{{
-"nnoremap <leader>e :SyntasticCheck<cr>
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 0
-"let g:syntastic_check_on_open = 0
-"let g:syntastic_check_on_wq = 0
-"highlight link SyntasticErrorLine error
-"highlight link SyntasticWarningLine todo
-" }}}
-
-" gVim {{{
-set go=""
 " }}}
 
 " vim-session {{{
@@ -355,95 +321,6 @@ let g:session_autosave = 'yes'
 let g:session_autoload = 'yes'
 let g:session_default_overwrite = 1
 let g:session_autosave_periodic = 5
-" }}}
-
-" CoC {{{
-" Key mappings {{{
-" Use tab for trigger completion with characters ahead and navigate.
-"inoremap <silent><expr> <TAB>
-            "\ pumvisible() ? "\<C-n>" :
-            "\ CheckBackspace() ? "\<TAB>" :
-            "\ coc#refresh()
-"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-"function! CheckBackspace() abort
-    "let col = col('.') - 1
-    "return !col || getline('.')[col - 1]  =~# '\s'
-"endfunction
-
-"" Use <c-space> to trigger completion.
-"inoremap <silent><expr> <c-space> coc#refresh()
-
-"" Make <CR> auto-select the first completion item and notify coc.nvim to
-"" format on enter
-"inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-            "\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-"" Use `[g` and `]g` to navigate diagnostics
-"nmap <silent> [g <Plug>(coc-diagnostic-prev)
-"nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-"" GoTo code navigation.
-"nmap <silent> gd <Plug>(coc-definition)
-"nmap <silent> gy <Plug>(coc-type-definition)
-"nmap <silent> gi <Plug>(coc-implementation)
-"nmap <silent> gr <Plug>(coc-references)
-
-"" Use K to show documentation in preview window.
-"nnoremap <silent> K :call ShowDocumentation()<CR>
-
-"function! ShowDocumentation()
-    "if CocAction('hasProvider', 'hover')
-        "call CocActionAsync('doHover')
-    "else
-        "call feedkeys('K', 'in')
-    "endif
-"endfunction
-
-"" Highlight the symbol and its references when holding the cursor.
-"autocmd CursorHold * silent call CocActionAsync('highlight')
-
-"" Symbol renaming.
-"nmap <leader>rn <Plug>(coc-rename)
-
-"" Map function and class text objects
-"xmap if <Plug>(coc-funcobj-i)
-"omap if <Plug>(coc-funcobj-i)
-"xmap af <Plug>(coc-funcobj-a)
-"omap af <Plug>(coc-funcobj-a)
-"xmap ic <Plug>(coc-classobj-i)
-"omap ic <Plug>(coc-classobj-i)
-"xmap ac <Plug>(coc-classobj-a)
-"omap ac <Plug>(coc-classobj-a)
-
-"" Remap <C-f> and <C-b> for scroll float windows/popups.
-"nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-"nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-"inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-"inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-"vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-"vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-
-"" Add `:OR` command for organize imports of the current buffer.
-"command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
-
-"" Mappings for CoCList
-"" Show all diagnostics.
-"nnoremap <silent><nowait> <Space>a  :<C-u>CocList diagnostics<cr>
-"" Manage extensions.
-"nnoremap <silent><nowait> <Space>e  :<C-u>CocList extensions<cr>
-"" Show commands.
-"nnoremap <silent><nowait> <Space>c  :<C-u>CocList commands<cr>
-"" Find symbol of current document.
-"nnoremap <silent><nowait> <Space>o  :<C-u>CocList outline<cr>
-"" Search workspace symbols.
-"nnoremap <silent><nowait> <Space>s  :<C-u>CocList -I symbols<cr>
-"" Do default action for next item.
-"nnoremap <silent><nowait> <Space>j  :<C-u>CocNext<CR>
-"" Do default action for previous item.
-"nnoremap <silent><nowait> <Space>k  :<C-u>CocPrev<CR>
-"" Resume latest coc list.
-"nnoremap <silent><nowait> <Space>p  :<C-u>CocListResume<CR>
-" }}}
 " }}}
 
 " nvim-cmp (auto-completion) and lsp (language server) {{{

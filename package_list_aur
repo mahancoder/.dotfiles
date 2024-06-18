@@ -5,6 +5,7 @@ android-platform
 android-sdk-build-tools
 android-sdk-cmdline-tools-latest
 anydesk-bin
+arduino
 asp
 based-connect-git
 blender-benchmark
@@ -79,6 +80,7 @@ powercap
 printrun
 protonvpn
 python-fontawesome
+python-htmlentities
 python-libcharon
 python-simpleeval
 python-snakeviz

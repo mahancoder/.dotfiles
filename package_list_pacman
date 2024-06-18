@@ -17,7 +17,6 @@ arch-install-scripts
 archlinux-wallpaper
 archlinux-xdg-menu
 archlinuxcn-keyring
-arduino
 arduino-avr-core
 arduino-cli
 aria2
@@ -70,6 +69,7 @@ discord
 dmenu
 dmidecode
 dnsmasq
+docker
 dotnet-sdk
 easyeffects
 ecryptfs-utils
@@ -207,6 +207,7 @@ lolcat
 lsd
 lshw
 lsp-plugins-lv2
+lua-jsregexp
 lua-language-server
 lynx
 m4
@@ -350,6 +351,7 @@ rarcrack
 realtime-privileges
 redshift
 rhythmbox
+ripgrep
 rmlint
 rofi
 rust
@@ -464,6 +466,7 @@ xorg-xcursorgen
 xorg-xdpyinfo
 xorg-xdriinfo
 xorg-xev
+xorg-xeyes
 xorg-xgamma
 xorg-xhost
 xorg-xinit
