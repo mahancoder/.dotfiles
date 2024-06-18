@@ -21,12 +21,10 @@ local options = {
 }
 
 local leader = "'"
-local colorscheme = "onedark"
 
 mappings_loader.set_key_mappings(leader)
-plugins.install_lazy_nvim()
+options_loader.set_options(options)
 plugins.load_plugins()
-options_loader.set_options(options, colorscheme)
 mason_loader.load_mason()
 lsp_loader.load_lsp()
 dap_loader.load_dap()

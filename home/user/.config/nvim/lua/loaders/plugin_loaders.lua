@@ -98,6 +98,10 @@ local load_rainbow = function ()
     require('rainbow-delimiters.setup').setup()
 end
 
+local load_theme = function ()
+    vim.cmd("colorscheme onedark")
+end
+
 M.load_indent_blankline = load_indent_blankline
 M.load_nvim_tree = load_nvim_tree
 M.load_dashboard_nvim = load_dashboard_nvim
@@ -108,5 +112,6 @@ M.load_treesitter = load_treesitter
 M.load_fzflua = load_fzflua
 M.load_lualine = load_lualine
 M.load_rainbow = load_rainbow
+M.load_theme = load_theme
 
 return M

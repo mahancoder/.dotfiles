@@ -58,7 +58,7 @@ local plugins = {
     {'ibhagwan/fzf-lua', dependencies = { "nvim-tree/nvim-web-devicons" }, config = plugin_loaders.load_fzflua},
 
     -- Theming
-    'olimorris/onedarkpro.nvim',
+    {'olimorris/onedarkpro.nvim', config = plugin_loaders.load_theme},
     {'nvimdev/dashboard-nvim', event = 'VimEnter', config = plugin_loaders.load_dashboard_nvim},
 
     -- Status apps
@@ -71,10 +71,10 @@ local plugins = {
 }
 
 local load_plugins = function ()
+    install_lazy_nvim()
     require("lazy").setup(plugins)
 end
 
-M.install_lazy_nvim = install_lazy_nvim
 M.load_plugins = load_plugins
 
 return M
