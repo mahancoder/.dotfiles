@@ -4,7 +4,9 @@ pre_install() {
     sudo ln -sf $(readlink -f "./packages_list_pacman") /etc/package-list-native.txt
     sudo ln -sf $(readlink -f "./packages_list_aur") /etc/package-list-foreign.txt
     sudo rm /etc/pacman.conf &&
-    sudo ln -sf $(readlink -f "./etc/pacman.conf") /etc/pacman.conf
+    #sudo ln -sf $(readlink -f "./etc/pacman.conf") /etc/pacman.conf
+    sudo rm /etc/pacman.conf
+    sudo cp ./etc/pacman.conf /etc/pacman.conf
 }
 
 install_pacman_packages() {
@@ -22,10 +24,6 @@ install_yay() {
 
 install_yay_packages() {
     yay -S --needed - < ./package_list_aur
-}
-
-install_pip_packages() {
-    pip install -r pip_packages
 }
 
 deploy_configs() {
@@ -57,7 +55,7 @@ install_patched_dmenu() {
 }
 
 install_adobe_connect() {
-    wget "https://github.com/mahancoder/Adobe-Connect-Linux/releases/download/v1.1/v1.1.tar.gz" -O connect.tar.gz &&
+    wget "https://github.com/mahancoder/Adobe-Connect-Linux/releases/download/v1.3/v1.3.tar.gz" -O connect.tar.gz &&
     tar -xzf connect.tar.gz &&
     cd Release &&
     ./install.sh &&
@@ -106,14 +104,6 @@ post_install() {
     echo "Loading dconf settings..."
     cat dconf-settings.ini | dconf load /
 
-    echo "Installing zzzfoo..."
-    git clone https://github.com/andersju/zzzfoo.git
-    cd zzzfoo
-    sudo cp zzzfoo /usr/bin/
-    sudo chmod +x /usr/bin/zzzfoo
-    cd ..
-    sudo rm -r zzzfoo
-
     echo "Giving permissions back to user..."
     sudo chown -R $USER:$USER ~/
 }
@@ -129,9 +119,6 @@ install_yay &&
 
 echo "Installing yay packages..." &&
 install_yay_packages &&
-
-#echo "Installing pip packages..." &&
-#install_pip_packages &&
 
 echo "Deploying config files..." &&
 deploy_configs &&
