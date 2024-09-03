@@ -41,6 +41,7 @@ local plugins = {
     'L3MON4D3/LuaSnip',
     'rafamadriz/friendly-snippets',
     'saadparwaiz1/cmp_luasnip',
+    'folke/neodev.nvim',
 
     -- DAP
     'mfussenegger/nvim-dap',
@@ -62,7 +63,6 @@ local plugins = {
     {'nvimdev/dashboard-nvim', event = 'VimEnter', config = plugin_loaders.load_dashboard_nvim},
 
     -- Status apps
-    'ActivityWatch/aw-watcher-vim',
     {'andweeb/presence.nvim', config = plugin_loaders.load_presence_nvim},
 
     -- Internal libs

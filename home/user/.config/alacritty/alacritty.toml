@@ -1,6 +1,7 @@
 live_config_reload = true
 working_directory = "None"
-
+[env]
+WINIT_X11_SCALE_FACTOR = "1"
 [bell]
 animation = "EaseOutCirc"
 color = "0x464d6a"
@@ -43,6 +44,7 @@ blinking = "On"
 shape = "Block"
 
 [font]
+#size = 8
 size = 13
 
 [font.bold]

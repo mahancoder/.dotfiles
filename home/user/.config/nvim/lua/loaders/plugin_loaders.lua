@@ -1,9 +1,9 @@
-NAME="plugin_loaders"
+NAME = "plugin_loaders"
 M = {}
 
 local mapping_opts = require("mappings").mapping_opts
 
-local load_indent_blankline = function ()
+local load_indent_blankline = function()
     local highlight = {
         "RainbowRed",
         "RainbowYellow",
@@ -25,10 +25,10 @@ local load_indent_blankline = function ()
         vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "cyan" })
     end)
 
-    require("ibl").setup { indent = { highlight = highlight }, exclude = {filetypes = {"dashboard"}} }
+    require("ibl").setup { indent = { highlight = highlight }, exclude = { filetypes = { "dashboard" } } }
 end
 
-local load_nvim_tree = function ()
+local load_nvim_tree = function()
     -- Disable netrw for nvim-tree (see :help nvim-tree-netrw)
     vim.g.loaded_netrw       = 1
     vim.g.loaded_netrwPlugin = 1
@@ -49,29 +49,35 @@ local load_nvim_tree = function ()
     end, mapping_opts)
 end
 
-local load_dashboard_nvim = function ()
+local load_dashboard_nvim = function()
     require('dashboard').setup()
 end
 
-local load_nvim_autopairs = function ()
+local load_nvim_autopairs = function()
     require('nvim-autopairs').setup({
         enable_check_bracket_line = false
     })
 end
 
-local load_comment_nvim = function ()
+local load_comment_nvim = function()
     require('Comment').setup()
 end
 
-local load_presence_nvim = function ()
+local load_presence_nvim = function()
     require("presence").setup({
         main_image = "file",
         enable_line_number = true,
     })
 end
 
-local load_treesitter = function ()
-    require'nvim-treesitter.configs'.setup {
+local load_treesitter = function()
+    -- Neovim doesn't detect rasi (rofi styling) files by default
+    vim.filetype.add {
+        extension = {
+            rasi = 'rasi',
+        },
+    }
+    require 'nvim-treesitter.configs'.setup {
         highlight = {
             enable = true,
             additional_vim_regex_highlighting = false,
@@ -80,13 +86,13 @@ local load_treesitter = function ()
     vim.cmd("silent TSUpdate")
 end
 
-local load_fzflua = function ()
+local load_fzflua = function()
     local fzflua = require("fzf-lua")
     fzflua.setup({})
     vim.keymap.set("n", "<Space>f", fzflua.files, mapping_opts)
 end
 
-local load_lualine = function ()
+local load_lualine = function()
     require("lualine").setup({
         options = {
             theme = "onedark"
@@ -94,11 +100,16 @@ local load_lualine = function ()
     })
 end
 
-local load_rainbow = function ()
+local load_rainbow = function()
     require('rainbow-delimiters.setup').setup()
 end
 
-local load_theme = function ()
+local load_theme = function()
+    require("onedarkpro").setup({
+        highlights = {
+            NvimDapVirtualText = { link = "Comment" }
+        }
+    })
     vim.cmd("colorscheme onedark")
 end
 

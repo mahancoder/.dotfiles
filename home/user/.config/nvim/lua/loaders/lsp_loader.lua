@@ -1,9 +1,15 @@
-NAME="lsp_loader"
+NAME = "lsp_loader"
 M = {}
 
 local mapping_opts = require("mappings").mapping_opts
 
-local load_luasnip = function ()
+local load_neodev = function()
+    require("neodev").setup({
+        library = { plugins = { "nvim-dap-ui" }, types = true }
+    })
+end
+
+local load_luasnip = function()
     local luasnip = require('luasnip')
     require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -14,7 +20,7 @@ local load_luasnip = function ()
     return luasnip
 end
 
-local load_nvim_cmp = function ()
+local load_nvim_cmp = function()
     local luasnip = load_luasnip()
     local cmp_autopairs = require('nvim-autopairs.completion.cmp')
     local cmp_kinds = {
@@ -81,7 +87,7 @@ local load_nvim_cmp = function ()
         sources = cmp.config.sources({
             { name = 'nvim_lsp' },
             { name = 'luasnip' },
-        },{
+        }, {
             { name = 'buffer' },
         }),
         formatting = {
@@ -94,14 +100,14 @@ local load_nvim_cmp = function ()
     cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 end
 
-local set_lsp_mappings = function ()
+local set_lsp_mappings = function()
     vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, mapping_opts)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, mapping_opts)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, mapping_opts)
     vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, mapping_opts)
 
     local on_attach = function(_, bufnr)
-        local bufopts = { noremap=true, silent=true, buffer=bufnr }
+        local bufopts = { noremap = true, silent = true, buffer = bufnr }
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -117,32 +123,35 @@ local set_lsp_mappings = function ()
         vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
         vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+        vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, bufopts)
     end
     return on_attach
 end
 
-local load_lsp = function ()
+local load_lsp = function()
     load_nvim_cmp()
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+    load_neodev()
+
     local lspconfig = require('lspconfig')
     local on_attach = set_lsp_mappings()
 
     require("mason-lspconfig").setup_handlers {
-        function (server_name)
+        function(server_name)
             lspconfig[server_name].setup {
                 on_attach = on_attach,
                 capabilities = capabilities,
                 handlers = {
                     ["textDocument/publishDiagnostics"] = vim.lsp.with(
-                    vim.lsp.diagnostic.on_publish_diagnostics, {
-                        virtual_text = false,
-                        underline = true,
-                        signs = false,
-                        update_in_insert = true
-                    })
+                        vim.lsp.diagnostic.on_publish_diagnostics, {
+                            virtual_text = false,
+                            underline = true,
+                            signs = false,
+                            update_in_insert = true
+                        })
                 }
             }
         end

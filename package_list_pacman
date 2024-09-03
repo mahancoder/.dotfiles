@@ -25,10 +25,8 @@ asciidoc
 aspell
 aspell-en
 aspnet-runtime
-aurutils
 autoconf
 automake
-autopep8
 babel-cli
 baobab
 base
@@ -71,6 +69,7 @@ dmidecode
 dnsmasq
 docker
 dotnet-sdk
+easy-rsa
 easyeffects
 ecryptfs-utils
 ed
@@ -86,6 +85,7 @@ expac
 fakeroot
 fastfetch
 fd
+ffmpeg4.4
 ffmpegthumbnailer
 figlet
 file
@@ -95,13 +95,13 @@ flameshot
 flatpak
 flex
 foomatic-db
+foomatic-db-engine
 foomatic-db-nonfree
 foomatic-db-nonfree-ppds
 foomatic-db-ppds
 fortune-mod
 freecad
 freepats-general-midi
-fritzing
 fwupd
 fzf
 gawk
@@ -109,6 +109,7 @@ gcc
 gcc-go
 gconf
 gdb
+gedit
 gendesk
 geogebra
 gettext
@@ -126,6 +127,7 @@ gnome-clocks
 gnome-keyring
 gnome-tweaks
 go-tools
+gost
 gparted
 gperf
 grep
@@ -143,7 +145,6 @@ gzip
 handbrake
 heimdall
 helvum
-hplip
 htop
 hwinfo
 inetutils
@@ -197,12 +198,11 @@ lightdm
 lightdm-gtk-greeter
 lightdm-webkit-theme-litarvan
 lightdm-webkit2-greeter
+linux
 linux-firmware
 linux-firmware-qlogic
-linux-zen
-linux-zen-headers
+linux-headers
 linuxsampler
-logisim
 lolcat
 lsd
 lshw
@@ -215,6 +215,7 @@ make
 man-db
 man-pages
 mariadb
+maven
 mda.lv2
 mesa-demos
 mesa-utils
@@ -223,6 +224,7 @@ minecraft-launcher
 mlocate
 mono-msbuild
 moreutils
+mp3info
 mpv
 mpv-mpris
 msr-tools
@@ -250,7 +252,7 @@ noto-fonts-emoji
 noto-fonts-extra
 npm
 ntfs-3g
-nvidia-dkms
+nvidia
 nvidia-prime
 nvidia-settings
 nvidia-utils
@@ -258,6 +260,7 @@ nvme-cli
 nwg-launchers
 ocl-icd
 oh-my-zsh-git
+onboard
 onefetch
 openbsd-netcat
 opencl-nvidia
@@ -279,11 +282,13 @@ perf
 php
 php-apache
 php-pgsql
+picom
 pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
 pkgconf
+platformio-core
 playerctl
 polkit-gnome
 postgis
@@ -296,7 +301,6 @@ prusa-slicer
 psensor
 pulsemixer
 pv
-pygtk
 pyright
 python-build
 python-dbus-next
@@ -316,11 +320,11 @@ python-parsedatetime
 python-pint
 python-pip
 python-pipx
+python-poetry-core
 python-psutil
 python-pyclip
 python-pycryptodome
 python-pygame
-python-pylint
 python-pymysql
 python-pynvim
 python-pyqt5
@@ -333,7 +337,6 @@ python-sqlalchemy
 python-virtualenv
 python-zeroconf
 python2-cairo
-python2-gobject2
 qemu-desktop
 qemu-guest-agent
 qjackctl
@@ -366,6 +369,7 @@ shotcut
 shotwell
 sip
 sl
+smartmontools
 sndio
 socat
 sof-firmware
@@ -419,11 +423,8 @@ vdpauinfo
 vi
 vifm
 vim
-vim-language-server
-vim-plug
 virt-install
 virt-manager
-virtualbox
 vte-common
 vte3
 vulkan-intel

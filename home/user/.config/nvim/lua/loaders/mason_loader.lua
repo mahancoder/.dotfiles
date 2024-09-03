@@ -1,7 +1,7 @@
-NAME="mason_loader"
+NAME = "mason_loader"
 M = {}
 
-local load_mason = function ()
+local load_mason = function()
     require("mason").setup({
         ui = {
             icons = {
@@ -11,7 +11,7 @@ local load_mason = function ()
             }
         }
     })
-    require("mason-lspconfig").setup {
+    require("mason-lspconfig").setup({
         ensure_installed = {
             'pyright',
             'eslint',
@@ -26,12 +26,12 @@ local load_mason = function ()
             'jsonls',
             'omnisharp'
         }
-    }
+    })
     require("mason-nvim-dap").setup({
         ensure_installed = { "python", "cpptools" },
         handlers = {}
     })
 end
 
-M.load_mason =load_mason
+M.load_mason = load_mason
 return M

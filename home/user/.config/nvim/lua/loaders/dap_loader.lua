@@ -1,6 +1,8 @@
 NAME="dap_loader"
 M = {}
 
+local mapping_opts = require("mappings").mapping_opts
+
 local set_dap_mappings = function ()
     local dap = require("dap")
     vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, mapping_opts)

@@ -140,19 +140,19 @@ def screenpad_brightness_down(_qtile: libqtile.core.manager.Qtile):
         f.seek(0)
         f.write(str(brightness))
         f.truncate()
-    with open("/sys/class/leds/asus::screenpad/brightness", "w") as sysfs_file:
+    with open("/sys/class/backlight/asus_screenpad/brightness", "w") as sysfs_file:
         sysfs_file.write(str(brightness))
 
 @lazy.function
 def screenpad_brightness_up(_qtile: libqtile.core.manager.Qtile):
     with open(os.path.expanduser("~/.brightness"), "r+") as f:
         brightness = int(f.readline()) + 10
-        if brightness > 255:
+        if brightness > 235:
             return
         f.seek(0)
         f.write(str(brightness))
         f.truncate()
-    with open("/sys/class/leds/asus::screenpad/brightness", "w") as sysfs_file:
+    with open("/sys/class/backlight/asus_screenpad/brightness", "w") as sysfs_file:
         sysfs_file.write(str(brightness))
 
 keys = [
@@ -240,23 +240,23 @@ keys = [
     ),
     Key(
         [], "XF86AudioPause",
-        lazy.spawn("pplayerctl play-pause")
+        lazy.spawn("playerctl --player playerctld pause")
     ),
     Key(
         [], "XF86AudioPlay",
-        lazy.spawn("pplayerctl play-pause")
+        lazy.spawn("playerctl --player playerctld play-pause")
     ),
     Key(
         [], "XF86AudioStop",
-        lazy.spawn("pplayerctl stop")
+        lazy.spawn("playerctl --player playerctld stop")
     ),
     Key(
         [], "XF86AudioNext",
-        lazy.spawn("pplayerctl next")
+        lazy.spawn("playerctl --player playerctld next")
     ),
     Key(
         [], "XF86AudioPrev",
-        lazy.spawn("pplayerctl previous")
+        lazy.spawn("playerctl --player playerctld previous")
     ),
     Key([mod], "f",
         lazy.window.toggle_fullscreen(),
@@ -285,27 +285,24 @@ keys = [
             "sh -c \"gtk-launch `xdg-mime query default inode/directory`\""),
         desc='Open File Manager'
         ),
-    Key([mod], "s",
-        lazy.spawn(
-            "skypeforlinux"),
-        desc='Open Skype'
-        ),
     Key([], "XF86MonBrightnessUp",
         lazy.spawn(
-            "brightnessctl -d 'intel_backlight' s 5%+"),
+            "brightnessctl -d 'intel_backlight' s 192+"),
         desc='Increase screen brightness'
         ),
     Key([], "XF86MonBrightnessDown",
         lazy.spawn(
-            "brightnessctl -d 'intel_backlight' s 5%-"),
+            "brightnessctl -d 'intel_backlight' s 192-"),
         desc='Decrease screen brightness'
         ),
     Key(["control"], "XF86MonBrightnessUp",
-        screenpad_brightness_up,
+        lazy.spawn(
+            "brightnessctl -d 'asus_screenpad' s 5+"),
         desc='Increase screen brightness'
         ),
     Key(["control"], "XF86MonBrightnessDown",
-        screenpad_brightness_down,
+        lazy.spawn(
+            "brightnessctl -d 'asus_screenpad' s 5-"),
         desc='Decrease screenpad brightness'
         ),
 
@@ -524,7 +521,7 @@ widgets = (
         #                background=colors[1][0], foreground=colors[0][0]),
         # widget.TextBox(text=" ", fontsize=17.23, mouse_callbacks={
         #                "Button1": open_power}, background=colors[0][0], foreground=colors[0][1]),
-        widget.Spacer(length=6)
+        widget.Spacer(length=6),
     ]
 )
 screens = [
