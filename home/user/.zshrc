@@ -111,6 +111,8 @@ alias checkupdates-aur="pacman -Qm | /usr/bin/aur vercmp"
 alias sl="sl -d -e -3"
 alias cat="bat"
 alias tar="tar -a"
+alias ytdl-audio="yt-dlp --cookies-from-browser brave+gnomekeyring -f bestaudio -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --no-playlist -o '%(title)s.%(ext)s'"
+alias ytdl="yt-dlp --cookies-from-browser brave+gnomekeyring -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' --no-playlist -o '%(title)s.%(ext)s'"
 
 # The following lines were added by compinstall
 
@@ -157,3 +159,6 @@ export LESS="${LESS:+$LESS }-c"
 #fortune | cowsay -f $(find /usr/share/cows -type f -name "*.cow" | shuf -n1) | lolcat -p 1.0 --seed 100
 #rxfetch
 #fastfetch
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"

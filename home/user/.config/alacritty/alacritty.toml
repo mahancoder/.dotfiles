@@ -1,4 +1,3 @@
-live_config_reload = true
 working_directory = "None"
 [env]
 WINIT_X11_SCALE_FACTOR = "1"
@@ -6,6 +5,9 @@ WINIT_X11_SCALE_FACTOR = "1"
 animation = "EaseOutCirc"
 color = "0x464d6a"
 duration = 0
+
+[general]
+live_config_reload = true
 
 [colors]
 draw_bold_text_with_bright_colors = false

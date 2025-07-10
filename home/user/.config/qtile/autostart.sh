@@ -7,7 +7,7 @@ xss-lock -n /usr/bin/dim-screen.sh -l -- env XSECURELOCK_BLANK_TIMEOUT=1 XSECURE
 nitrogen --restore &
 picom -b &
 dex -a &
-echo 3 > /tmp/libinput_discrete_deltay_multiplier
+echo 1 > /tmp/libinput_discrete_deltay_multiplier
 uget-inegrator &
 flameshot &
 playerctld daemon &

@@ -15,7 +15,7 @@ local load_mason = function()
         ensure_installed = {
             'pyright',
             'eslint',
-            'tsserver',
+            --'ts_ls',
             'clangd',
             'html',
             'bashls',

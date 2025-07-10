@@ -55,6 +55,8 @@ local plugins = {
     {'windwp/nvim-autopairs', event = 'InsertEnter', config = plugin_loaders.load_nvim_autopairs},
     {'lukas-reineke/indent-blankline.nvim', main = 'ibl', config = plugin_loaders.load_indent_blankline},
     {'numToStr/Comment.nvim', config = plugin_loaders.load_comment_nvim},
+    {'jbyuki/nabla.nvim'},
+    {'Glench/Vim-Jinja2-Syntax'},
 
     {'ibhagwan/fzf-lua', dependencies = { "nvim-tree/nvim-web-devicons" }, config = plugin_loaders.load_fzflua},
 

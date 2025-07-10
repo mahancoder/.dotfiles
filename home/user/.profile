@@ -1,7 +1,8 @@
 PATH=$PATH:$HOME/.local/bin:$HOME/go/bin:$HOME/.dotnet/tools
 export GOPATH="$HOME/go"
 XDG_DATA_DIRS="/var/lib/flatpak/exports/share:/home/mahan/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
-export BROWSER=brave
+export BROWSER="brave"
+export VK_ICD_FILENAMES="/usr/share/vulkan/icd.d/intel_icd.i686.json:/usr/share/vulkan/icd.d/intel_icd.x86_64.json"
 #export LIBVA_DRI3_DISABLE=1
 xrandr --output HDMI-2 --off --output eDP-1 --auto --output HDMI-1 --auto --left-of eDP-1 --primary
 #xrandr --output HDMI-2 --off --output eDP-1 --auto --primary --output HDMI-1 --off
